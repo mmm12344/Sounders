@@ -41,11 +41,7 @@
                 </Button>
             </StackPanel>
 
-            <Button x:Name="userButton" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,160,0">
-                <Button.Content>
-                    <Image Height="30" Source="Static/Images/UserIcon.png"/>
-                </Button.Content>
-            </Button>
+        
             <Button x:Name="settingButton" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,100,0">
                 <Button.Content>
                     <Image Height="30" Source="Static/Images/SettingsIcon.png"/>
@@ -144,6 +140,7 @@
                         <Image Height="20" Width="20" Source="Static/Images/Repeat.png"   />
                     </Button.Content>
                 </Button>
+                
                 <Button Background="Transparent" Width="30"  x:Name="rewindButton"  Style="{StaticResource roundedButtons}"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,80,5" >
                     <Button.Content>
                         <Image Height="20" Width="20" Source="Static/Images/BAckward (2).png" />
@@ -160,9 +157,14 @@
                         <Image Height="20" Width="20" Source="Static/Images/Forward.png" />
                     </Button.Content>
                 </Button>
-                <Button  Background="Transparent" Width="30"  x:Name="ShuffleButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,5,5" HorizontalAlignment="Right" >
+                <Button  Background="Transparent" Width="30"  x:Name="ShuffleButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="35,0,0,5" HorizontalAlignment="Left" >
                     <Button.Content>
                         <Image Height="20" Width="20" Source="Static/Images/Shuffle.png" />
+                    </Button.Content>
+                </Button>
+                <Button  Background="Transparent" Width="30"  x:Name="likeButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,5,5" HorizontalAlignment="Right" >
+                    <Button.Content>
+                        <Image Height="20" Width="20" Source="Static/Images/WhiteHeart.png" />
                     </Button.Content>
                 </Button>
                 <Border Grid.Column="1" Grid.Row="2" Margin="0,50,0,0" Background="#a68cc9">
