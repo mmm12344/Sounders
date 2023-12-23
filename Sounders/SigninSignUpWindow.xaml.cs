@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Sounders
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SigninSignUpWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SigninSignUpWindow : Window
     {
-        public MainWindow()
+        public SigninSignUpWindow()
         {
             InitializeComponent();
-           
-            mainFrame.Navigate(new Uri("Views/SearchPage.xaml", UriKind.Relative));
         }
     }
 }

@@ -88,6 +88,27 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="settings\Settings.cs" />
+    <Compile Include="SigninSignUpWindow.xaml.cs">
+      <DependentUpon>SigninSignUpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccountSettingsPage.xaml.cs">
+      <DependentUpon>AccountSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlaylistPage.xaml.cs">
+      <DependentUpon>PlaylistPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SigninPage.xaml.cs">
+      <DependentUpon>SigninPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SignupPage.xaml.cs">
+      <DependentUpon>SignupPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +122,42 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SigninSignUpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ListViewTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\RoundedButtonsTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AccountSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlaylistPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SigninPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SignupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PlayerQueue.cs" />
@@ -132,6 +189,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Static\Images\Backward %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\Images\DefaultSoundTrack.jpeg" />
+    <Resource Include="Static\Images\Forward.png" />
+    <Resource Include="Static\Images\Heart.png" />
+    <Resource Include="Static\Images\HomeIcon.png" />
+    <Resource Include="Static\Images\Logo.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Static\Images\LogoutIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Static\Images\Other.png" />
+    <Resource Include="Static\Images\Pause.png" />
+    <Resource Include="Static\Images\Play.png" />
+    <Resource Include="Static\Images\Repeat.png" />
+    <Resource Include="Static\Images\SearchIcon %282%29.png" />
+    <Resource Include="Static\Images\SettingsIcon.png" />
+    <Resource Include="Static\Images\Shuffle.png" />
+    <Resource Include="Static\Images\UploadIcon.png" />
+    <Resource Include="Static\Images\UserIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

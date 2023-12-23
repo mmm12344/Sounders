@@ -1,0 +1,67 @@
+﻿<Page x:Class="Sounders.Views.SignupPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sounders.Views"
+      mc:Ignorable="d" 
+        d:DesignHeight="648" d:DesignWidth="896"
+      Title="Signuppage">
+    <Page.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes\RoundedButtonsTheme.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Page.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="115*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Sign Up " FontSize="32" Foreground="Black" Height="42" Width="120"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="First Name" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,75,0"/>
+                <TextBox FontSize="16" Width="150" Margin="0,5,0,0">
+
+                </TextBox>
+                <TextBlock Text="Last Name" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,78,0" />
+                <TextBox FontSize="16" Width="150" Margin="0,5,0,0">
+
+                </TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="E-mail" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,109,0"/>
+                <TextBox FontSize="16" Width="150" Margin="0,5,0,0" >
+
+                </TextBox>
+                <TextBlock Text="New Password" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,51,0"  />
+                <PasswordBox FontSize="16" Width="150" Margin="0,5,0,0" >
+
+                </PasswordBox>
+                <TextBlock Text="Re-Enter Password" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,22,0" />
+                <PasswordBox FontSize="16" Width="150" Margin="0,5,0,0" >
+
+                </PasswordBox>
+            </StackPanel>
+
+        </Grid>
+        <Button Grid.Row="3" Content="Sign Up" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="22"/>
+
+
+
+    </Grid>
+</Page>

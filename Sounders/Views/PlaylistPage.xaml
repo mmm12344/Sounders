@@ -1,0 +1,95 @@
+﻿<Page x:Class="Sounders.Views.PlaylistPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sounders.Views"
+      mc:Ignorable="d" 
+     d:DesignHeight="648" d:DesignWidth="704"
+      Title="PlaylistPage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes\RoundedButtonsTheme.xaml"/>
+                <ResourceDictionary Source="/Themes\ListViewTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="AliceBlue" x:Name="PlaylistMainGrid" >
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.60*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid x:Name="PlaylistSubGrid1" Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.65*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Image Grid.Column="0"  VerticalAlignment="Stretch" Source="/Static/Images/DefaultSoundTrack.jpeg"/>
+            <TextBlock x:Name="playlistName" Text="{Binding PlaylistName}" Grid.Column="3" Foreground="Black" FontWeight="UltraBold"   FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Center" >Playlist Name</TextBlock>
+            <Button x:Name="listenButton" Grid.Column="2" Height="22" Width="90" Style="{StaticResource roundedButtons}" HorizontalAlignment="Left" Margin="0,120,0,0" FontWeight="Black">Listen</Button>
+            <Button x:Name="saveToPlaylistButton" Grid.Column="2" Height="18" Width="20" Style="{StaticResource roundedButtons}" Background="White" HorizontalAlignment="Right" Margin="0,124,140,0">
+                <Button.Content>
+                    <Image Source="/Static/Images/Heart.png" Height="11" Width="12"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="shareButton" Grid.Column="2" Height="18" Width="20" Style="{StaticResource roundedButtons}" Background="White" HorizontalAlignment="Right" Margin="0,124,100,0">
+                <Button.Content>
+                    <Image Source="/Static/Images/Other.png" Height="11" Width="12"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <ListView Style="{StaticResource Rounded}" Grid.Row="3" Grid.Column="1" x:Name="homeList" Background="#ede9e9" HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch"  AllowDrop="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button BorderBrush="Transparent" Background="Transparent" x:Name="listPlayButton" Width="20" Height="20">
+                            <Button.Content>
+                                <Image Source="Static/Images/Play.png"/>
+                            </Button.Content>
+                        </Button>
+                        <Image Margin="10,0,0,0"  Width="20" Height="30" Source="{Binding SongPic}"/>
+                        <TextBlock Margin="5,0,0,0"  FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongName}" />
+
+                        <TextBlock Margin="310,0,0,0" FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongArtist}" />
+                    </StackPanel>
+
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+
+
+            </Grid.ColumnDefinitions>
+            <TextBlock FontSize="20" Grid.Row="0" Foreground="Black" FontWeight="UltraLight" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,0,0">Title</TextBlock>
+            <TextBlock FontSize="20" Grid.Column="1" Foreground="Black" FontWeight="UltraLight" VerticalAlignment="Center" HorizontalAlignment="Center">Artist</TextBlock>
+
+        </Grid>
+
+    </Grid>
+
+</Page>

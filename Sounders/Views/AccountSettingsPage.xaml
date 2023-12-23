@@ -1,0 +1,69 @@
+﻿<Page x:Class="Sounders.Views.AccountSettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sounders.Views"
+      mc:Ignorable="d" 
+    d:DesignHeight="648" d:DesignWidth="896"
+      Title="AccountSettingsPage">
+
+    <Page.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes\RoundedButtonsTheme.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Page.Resources>
+
+    <Grid Background="#0a0a0a" x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="0.15*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="Grid2"  Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Account Settings" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+            </TextBlock>
+
+            <StackPanel Grid.Row="1" Height="420">
+                <TextBlock Text="Change First Name" FontSize="14" HorizontalAlignment="Left"/>
+                <TextBox x:Name="changeFirstNameTextBox" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Height="420">
+                <TextBlock Text="Change Last Name" FontSize="14" HorizontalAlignment="Left"/>
+                <TextBox x:Name="changeLastNameTextBox" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Height="420">
+                <TextBlock Text="Change Password" FontSize="14" HorizontalAlignment="Left"/>
+                <PasswordBox x:Name="chanePasswordPasswordBox" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <Button x:Name="applyChangesButton" Grid.Row="5" Content="Apply Changes" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="22"/>
+
+        </Grid>
+
+
+
+
+
+    </Grid>
+</Page>

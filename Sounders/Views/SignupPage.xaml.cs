@@ -13,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sounders
+namespace Sounders.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SignupPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SignupPage : Page
     {
-        public MainWindow()
+        public SignupPage()
         {
             InitializeComponent();
-           
-            mainFrame.Navigate(new Uri("Views/SearchPage.xaml", UriKind.Relative));
         }
     }
 }

@@ -4,6 +4,57 @@
              xmlns:local="clr-namespace:Sounders"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+
+        <Style x:Key="standardWindowStyle" TargetType="Window">
+
+
+            <Setter Property="Height" Value="720"/>
+            <Setter Property="Width" Value="1280"/>
+            <Setter Property="ResizeMode" Value="NoResize"/>
+            <Setter Property="Background" Value="#0a0a0a"/>
+
+
+
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="Black"/>
+
+
+        </Style>
+
+        <Style TargetType="Button">
+
+            <Setter Property="Background"  Value="#a68cc9"/>
+            <Setter Property="Foreground" Value="#ddf5f9"/>
+            <Setter Property="FontWeight" Value="Heavy"/>
+
+
+        </Style>
+        <Style TargetType="ListView">
+
+
+
+
+            <Setter Property="Opacity" Value="1"/>
+
+
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#ddf5f9"/>
+
+
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
     </Application.Resources>
 </Application>

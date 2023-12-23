@@ -5,8 +5,196 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sounders"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+      Style="{StaticResource standardWindowStyle}">
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes\RoundedButtonsTheme.xaml"/>
+                <ResourceDictionary Source="Themes\ListViewTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Window.Resources>
     <Grid>
-        
+
+
+        <Grid x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition Width="0.55*"/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition Height="0.9*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <TextBox x:Name="searchBar" Text="Search" Width="200" Height="20" Margin="5,0,0,0"/>
+                <Button x:Name="searchButton" Style="{StaticResource roundedButtons}" Margin="10,0,0,0" Background="Transparent">
+                    <Button.Content>
+                        <Image RenderOptions.BitmapScalingMode="HighQuality" Height="20" Width="30" Source="Static/Images/SearchIcon (2).png"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <Button x:Name="userButton" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,160,0">
+                <Button.Content>
+                    <Image Height="30" Source="Static/Images/UserIcon.png"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="settingButton" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,100,0">
+                <Button.Content>
+                    <Image Height="30" Source="Static/Images/SettingsIcon.png"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="logoutButton" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,40,0" >
+                <Button.Content>
+                    <Image Height="30" Source="/Static/Images/LogoutIcon.png"/>
+                </Button.Content>
+            </Button>
+
+            <Grid x:Name="MiddleGrid" Grid.Row="2" Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.05*"/>
+                    <RowDefinition Height="0.95*"/>
+                </Grid.RowDefinitions>
+
+                <Frame  Grid.Row="2"  x:Name="mainFrame">
+
+
+                </Frame>
+
+            </Grid>
+
+
+            <Grid x:Name="LeftGrid" Grid.Row="2" Grid.Column="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="35" Height="35"   VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <Ellipse.Fill>
+                                <ImageBrush  ImageSource="Static/Images/Logo.jpeg"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Label Content="SOUNDERS" Grid.Column="1" FontWeight="UltraLight" FontSize="12" VerticalAlignment="Top"  Height="35" Margin="5,5,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0" >
+                        <Ellipse Width="20" Height="10" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Ellipse.Fill>
+                                <SolidColorBrush Color="White"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Button x:Name="homeButton" BorderBrush="Transparent" Background="Transparent" Margin="5,0,0,0"  Height="35">Home</Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="20" Height="10" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Ellipse.Fill>
+                                <SolidColorBrush Color="White"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Button x:Name="uploadButton" BorderBrush="Transparent" Background="Transparent" Margin="5,0,0,0" Height="35">Upload</Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+
+            <Grid x:Name="RightGrid" Grid.Row="2" Grid.Column="2">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.05*"/>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.35*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Column="1" Grid.RowSpan="1"  Grid.Row="1" Background="#191919">
+                    <Border.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Border.Resources>
+                    <Image Height="200" Width="200" Source="Static/Images/DefaultSoundTrack.jpeg"/>
+                </Border>
+                <Label FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Content="Now Playing :" VerticalAlignment="Top" Margin="5,20,0,0"  />
+                <TextBlock x:Name="songName" FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Text="Changable Song Name" TextTrimming="CharacterEllipsis"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,60"/>
+
+                <MediaElement Panel.ZIndex="4" x:Name="audioBar" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" LoadedBehavior="Manual" UnloadedBehavior="Manual" Height="20" Width="200" Margin="0,0,0,30" Source="Static/Test.mp3" IsMuted="True" Opacity="1" OpacityMask="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"/>
+
+                <Button Background="Transparent" Width="30"  x:Name="reapeatButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="5,0,0,5" HorizontalAlignment="Left">
+                    <Button.Content>
+                        <Image Height="20" Width="20" Source="Static/Images/Repeat.png"   />
+                    </Button.Content>
+                </Button>
+                <Button Background="Transparent" Width="30"  x:Name="rewindButton"  Style="{StaticResource roundedButtons}"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,80,5" >
+                    <Button.Content>
+                        <Image Height="20" Width="20" Source="Static/Images/BAckward (2).png" />
+                    </Button.Content>
+                </Button>
+                <Button Background="Transparent" Width="30"  x:Name="playButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,5">
+                    <Button.Content>
+                        <Image Height="20" Width="20" Source="Static/Images/Play.png" />
+                    </Button.Content>
+                </Button>
+                <Button Background="Transparent" Width="30"   x:Name="forwardButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="80,0,0,5"  >
+                    <Button.Content>
+                        <Image Height="20" Width="20" Source="Static/Images/Forward.png" />
+                    </Button.Content>
+                </Button>
+                <Button  Background="Transparent" Width="30"  x:Name="ShuffleButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,5,5" HorizontalAlignment="Right" >
+                    <Button.Content>
+                        <Image Height="20" Width="20" Source="Static/Images/Shuffle.png" />
+                    </Button.Content>
+                </Button>
+                <Border Grid.Column="1" Grid.Row="2" Margin="0,50,0,0" Background="#a68cc9">
+                    <Border.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </Border.Resources>
+                </Border>
+                <Label Grid.Row="2" Grid.Column="1" Content="Queue" Margin="5,20,0,0" FontWeight="UltraBlack"/>
+
+                <ListView x:Name="queueList" Style="{StaticResource Rounded}" Grid.Row="2" Grid.Column="1" Height="160" VerticalAlignment="Bottom" BorderBrush="Transparent" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image  Width="40" Height="20" Source="{Binding SongPic}"/>
+                                <TextBlock  FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongName}" />
+                            </StackPanel>
+
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+
+
+
+            </Grid>
+
+
+        </Grid>
+
     </Grid>
+
+
 </Window>

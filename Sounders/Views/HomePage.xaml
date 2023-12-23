@@ -1,0 +1,78 @@
+﻿<Page x:Class="Sounders.Views.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sounders.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="648" d:DesignWidth="704"
+      Title="Homepage">
+    <Page.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Page.Resources>
+
+    <Grid Background="#0a0a0a">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.10*"/>
+            <RowDefinition Height="0.35*"/>
+            <RowDefinition Height="0.10*"/>
+            <RowDefinition Height="0.35*"/>
+
+
+        </Grid.RowDefinitions>
+        <Label Margin="10,0,0,0" Grid.Row="0" FontSize="32" VerticalAlignment="Stretch" FontWeight="Bold">Tracks</Label>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" >
+            <Grid x:Name="TracksGrid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="songNameButton1" Grid.Column="0" Width="150" Height="150"></Button>
+                <Button x:Name="songNameButton2" Grid.Column="1" Width="150" Height="150"></Button>
+                <Button x:Name="songNameButton3" Grid.Column="2" Width="150" Height="150"></Button>
+                <Button x:Name="songNameButton4" Grid.Column="3" Width="150" Height="150"></Button>
+                <Button x:Name="songNameButton5" Grid.Column="4" Width="150" Height="150"></Button>
+                <Button x:Name="songNameButton6" Grid.Column="5" Width="150" Height="150"></Button>
+                <Button x:Name="songNameButton7" Grid.Column="6" Width="150" Height="150"></Button>
+                <Button x:Name="songNameButton8" Grid.Column="7" Width="150" Height="150"></Button>
+            </Grid>
+        </ScrollViewer>
+
+
+        <Label Margin="10,0,0,0" Grid.Row="2" FontSize="32" VerticalAlignment="Stretch" FontWeight="Bold">PlayLists</Label>
+
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible" >
+            <Grid x:Name="PlayListGrid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="playListButton1" Grid.Column="0" Width="150" Height="150"></Button>
+                <Button x:Name="playListButton2" Grid.Column="1" Width="150" Height="150"></Button>
+                <Button x:Name="playListButton3" Grid.Column="2" Width="150" Height="150"></Button>
+                <Button x:Name="playListButton4" Grid.Column="3" Width="150" Height="150"></Button>
+                <Button x:Name="playListButton5" Grid.Column="4" Width="150" Height="150"></Button>
+                <Button x:Name="playListButton6" Grid.Column="5" Width="150" Height="150"></Button>
+                <Button x:Name="playListButton7" Grid.Column="6" Width="150" Height="150"></Button>
+                <Button x:Name="playListButton8" Grid.Column="7" Width="150" Height="150"></Button>
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
