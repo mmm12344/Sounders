@@ -12,6 +12,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes\RoundedButtonsTheme.xaml"/>
                 <ResourceDictionary Source="Themes\ListViewTheme.xaml"/>
+                <ResourceDictionary Source="Themes\ImageDynamix.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
@@ -134,8 +135,9 @@
                 </Border>
                 <Label FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Content="Now Playing :" VerticalAlignment="Top" Margin="5,20,0,0"  />
                 <TextBlock x:Name="songName" FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Text="Changable Song Name" TextTrimming="CharacterEllipsis"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,60"/>
-
-                <MediaElement Panel.ZIndex="4" x:Name="audioBar" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" LoadedBehavior="Manual" UnloadedBehavior="Manual" Height="20" Width="200" Margin="0,0,0,30" Source="Static/Test.mp3" IsMuted="True" Opacity="1" OpacityMask="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"/>
+                <Slider x:Name="audioBar" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="20" Width="200" Margin="0,0,0,30"></Slider>
+                
+                <MediaElement Panel.ZIndex="0" x:Name="mediaElement" MediaOpened="MediaElement_MediaOpened" MediaEnded="MediaElement_MediaEnded" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" LoadedBehavior="Manual" UnloadedBehavior="Manual" Height="20" Width="200" Margin="0,0,0,30"  IsMuted="True" Opacity="1" OpacityMask="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"/>
 
                 <Button Background="Transparent" Width="30"  x:Name="reapeatButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="5,0,0,5" HorizontalAlignment="Left">
                     <Button.Content>
@@ -147,9 +149,10 @@
                         <Image Height="20" Width="20" Source="Static/Images/BAckward (2).png" />
                     </Button.Content>
                 </Button>
-                <Button Background="Transparent" Width="30"  x:Name="playButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,5">
+                
+                <Button Background="Transparent" Width="30"  x:Name="playButton" Click="PlayButton_Click"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,5">
                     <Button.Content>
-                        <Image Height="20" Width="20" Source="Static/Images/Play.png" />
+                        <Image Height="20" Width="20" Source="{DynamicResource PlayButtonPause}" />
                     </Button.Content>
                 </Button>
                 <Button Background="Transparent" Width="30"   x:Name="forwardButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="80,0,0,5"  >
