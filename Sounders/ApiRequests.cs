@@ -12,8 +12,14 @@ using MusicPlayerGUI.settings;
 
 namespace MusicPlayerGUI
 {
-    public record User(int userID, string firstName, string lastName, string email, string password, byte[]? picture);
+    public record UserSignUp(int userID, string firstName, string lastName, string email, string password, byte[]? picture);
     public record UserSignIn(string email, string password);
+    public record SongInfo(string songID, string name, byte[] picture);
+    public record Song(string songID, string Name, byte[] file, int likes, byte[] picture);
+    public record PostSong(string name, byte[] file, byte[] picture);
+    public record Playlist(string playlistID, string name, byte[] picture);
+    public record PostPlaylist(string name, byte[] picture);
+ 
     class ApiRequests
     {
         private static HttpClientHandler handler = new HttpClientHandler();
@@ -22,6 +28,7 @@ namespace MusicPlayerGUI
         {
             return "/api/" + url;
         }
+       
         private static string GetSubUrlAuth(string url)
         {
             return "/authentication/" + url;
@@ -47,10 +54,10 @@ namespace MusicPlayerGUI
             client = new HttpClient(handler) { BaseAddress = Settings.GetServerUrl() };
         }
 
-        public async static Task<int> SignUp(User user)
+        public async static Task<int> SignUp(UserSignUp user)
         {
 
-            var result = await client.PostAsync(GetSubUrlApi("signup"), GetContentAsJson(user));
+            var result = await client.PostAsync(GetSubUrlAuth("signup"), GetContentAsJson(user));
             if (!result.IsSuccessStatusCode)
             {
                 return -1;
@@ -58,14 +65,124 @@ namespace MusicPlayerGUI
             return await result.Content.ReadFromJsonAsync<int>();
         }
 
-        public async static Task<int> SignIn(UserSignIn user)
+        public async static Task<bool> SignIn(UserSignIn user)
         {
-            var result = await client.PostAsync(GetSubUrlApi("signin"), GetContentAsJson(user));
+            var result = await client.PostAsync(GetSubUrlAuth("signin"), GetContentAsJson(user));
             if (!result.IsSuccessStatusCode)
             {
-                return -1;
+                return false;
             }
-            return await result.Content.ReadFromJsonAsync<int>();
+            return true;
+        }
+
+        public async static Task<SongInfo> GetLikedSongs()
+        {
+            var result = await client.GetAsync(GetSubUrlApi("get_liked_songs"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            return await result.Content.ReadFromJsonAsync<SongInfo>();
+        } 
+
+        public async static Task<SongInfo> GetOwnSongs()
+        {
+            var result = await client.GetAsync(GetSubUrlApi("get_own_songs"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            return await result.Content.ReadFromJsonAsync<SongInfo>();
+        }
+
+        public async static Task<SongInfo> GetAllSongs()
+        {
+            var result = await client.GetAsync(GetSubUrlApi("get_all_songs"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            return await result.Content.ReadFromJsonAsync<SongInfo>();
+        }
+
+        public async static Task<SongInfo> Search(string parameter)
+        {
+            var result = await client.GetAsync(GetSubUrlApi($"search/{parameter}"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            return await result.Content.ReadFromJsonAsync<SongInfo>();
+        }
+
+        public async static Task<Playlist> GetAllPlaylists()
+        {
+            var result = await client.GetAsync(GetSubUrlApi("get_all_playlists"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            return await result.Content.ReadFromJsonAsync<Playlist>();
+        }
+
+        public async static Task<SongInfo> GetPlaylistSongs(int playlistID)
+        {
+            var result = await client.GetAsync(GetSubUrlApi($"get_playlist_songs/{playlistID}"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            return await result.Content.ReadFromJsonAsync<SongInfo>();
+        }
+
+        public async static Task<bool> DeleteSong(int songID)
+        {
+            var result = await client.GetAsync(GetSubUrlApi($"delete_song/{songID}"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async static Task<bool> AddLikeToSong(int songID)
+        {
+            var result = await client.GetAsync(GetSubUrlApi($"add_like_to_song/{songID}"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async static Task<Song> GetSong(int songID)
+        {
+            var result = await client.GetAsync(GetSubUrlApi($"get_song/{songID}"));
+            if (!result.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            return await result.Content.ReadFromJsonAsync<Song>();
+        }
+
+        public async static Task<bool> AddSong(PostSong song)
+        {
+            var result = await client.PostAsync(GetSubUrlApi("add_song"), GetContentAsJson(song));
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async static Task<bool> AddPLaylist(PostPlaylist playlist)
+        {
+            var result = await client.PostAsync(GetSubUrlApi("add_playlist"), GetContentAsJson(playlist));
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
         }
 
     }
