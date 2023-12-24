@@ -87,13 +87,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Test\Tsetclass.cs" />
     <Compile Include="settings\Settings.cs" />
     <Compile Include="SigninSignUpWindow.xaml.cs">
       <DependentUpon>SigninSignUpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AccountSettingsPage.xaml.cs">
       <DependentUpon>AccountSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddPlayListPage.xaml.cs">
+      <DependentUpon>AddPlayListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddTrackPage.xaml.cs">
+      <DependentUpon>AddTrackPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -109,12 +115,6 @@
     </Compile>
     <Compile Include="Views\SignupPage.xaml.cs">
       <DependentUpon>SignupPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UploadPage.xaml.cs">
-      <DependentUpon>UploadPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +149,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddPlayListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddTrackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,14 +174,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SignupPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UploadPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,6 +235,9 @@
     <Resource Include="Static\Images\Shuffle.png" />
     <Resource Include="Static\Images\UploadIcon.png" />
     <Resource Include="Static\Images\UserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Test\Test.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

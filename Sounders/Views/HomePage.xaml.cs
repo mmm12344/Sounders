@@ -20,9 +20,22 @@ namespace Sounders.Views
     /// </summary>
     public partial class HomePage : Page
     {
+        List<Track> my = new List<Track>(); //Test
         public HomePage()
         {
             InitializeComponent();
+            
+
+            my.Add(new Track()
+            {
+                songName = "hedfdfjhsdgfuydtsyull",
+                songPic = @"/Static/Images/Logo.jpeg",
+
+
+            });
+            likedTracksList.Items.Add(my);
+            likedTracksList.Items.Add(my);
+
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Sounders
             timer.Tick += Timer_Tick;
 
 
-            mainFrame.Navigate(new Uri("Views/SearchPage.xaml", UriKind.Relative));
+            mainFrame.Navigate(new Uri("Views/AddPlaylistPage.xaml", UriKind.Relative));
 
         }
         private void Timer_Tick(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace Sounders
            
             
            
-            var uri = new Uri("C:\\Users\\pc\\Downloads\\Test.mp3"); 
+            var uri = new Uri(@"C:\Users\pc\Source\Repos\mmm12344\Sounders\Sounders\Test\Test.mp3",UriKind.Relative); 
             playMedia.Open(uri); 
             playMedia.Play(); 
             timer.Start();
