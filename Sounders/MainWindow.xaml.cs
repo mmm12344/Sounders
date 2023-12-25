@@ -31,6 +31,8 @@ namespace Sounders
         private string state;
         public MainWindow()
         {
+
+           
             InitializeComponent();
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -122,7 +124,8 @@ namespace Sounders
         private void logoutBtton_Click(object sender, RoutedEventArgs e)
         {
             SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
-            this.Visibility = Visibility.Collapsed; 
+            Close();
+            //this.Visibility = Visibility.Collapsed; 
             signinSignUpWindow.Show();
         }
     }
