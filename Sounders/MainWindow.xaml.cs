@@ -124,7 +124,7 @@ namespace Sounders
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
-            Close();
+            this.Close();
          
             signinSignUpWindow.Show();
         }
