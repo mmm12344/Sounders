@@ -1,0 +1,36 @@
+﻿<Window x:Class="Sounders.SigninSignUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sounders"
+        mc:Ignorable="d"
+        Style="{StaticResource standardWindowStyle}">
+    <Grid>
+        <Grid x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition Height="0.9*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="2">
+                <StackPanel Orientation="Horizontal" Margin="15,0,0,0">
+                    <Ellipse Width="35" Height="35"   VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <Ellipse.Fill>
+                            <ImageBrush  ImageSource="Static/Images/Logo.jpeg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Label Content="SOUNDERS" Grid.Column="1" FontWeight="UltraLight" FontSize="12" VerticalAlignment="Top"  Height="35" Margin="5,5,0,0" />
+                </StackPanel>
+            </StackPanel>
+            <Frame x:Name="signInsignUp" Grid.Row="2" Grid.Column="1">
+
+            </Frame>
+        </Grid>
+    </Grid>
+</Window>

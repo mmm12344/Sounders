@@ -1,0 +1,131 @@
+﻿<Page x:Class="Sounders.Views.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sounders.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="615.6" d:DesignWidth="704"
+      Title="Homepage">
+    <Page.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Page.Resources>
+
+    <Grid Background="#0a0a0a">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+              <RowDefinition Height="0.20*"/>
+             <RowDefinition Height="0.05*"/> 
+            <RowDefinition Height="0.20*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.20*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.20*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Tracks</Label>
+        <ListView Grid.Row="1" x:Name="likedTracksList" Background="#0a0a0a" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl >
+
+
+                            <StackPanel Width="90">
+                                <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
+                                <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                            </StackPanel>
+                        </ContentControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Tracks</Label>
+
+        <ListView Grid.Row="3" x:Name="addedTracksList" Background="#0a0a0a" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel  HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl >
+
+
+                            <StackPanel Width="90">
+                                <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
+                                <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                            </StackPanel>
+                        </ContentControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Playlists</Label>
+        <ListView Grid.Row="5" x:Name="likedPlaylistsList" Background="#0a0a0a" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl >
+
+
+                            <StackPanel Width="90">
+                                <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
+                                <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                            </StackPanel>
+                        </ContentControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Playlists</Label>
+        <ListView Grid.Row="7" x:Name="addedPlaylistsList" Background="#0a0a0a" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl >
+
+
+                            <StackPanel Width="90">
+                                <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
+                                <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                            </StackPanel>
+                        </ContentControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+    
+</Page>
