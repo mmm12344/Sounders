@@ -122,7 +122,7 @@ namespace Sounders
         private void logoutBtton_Click(object sender, RoutedEventArgs e)
         {
             SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
-            this.Visibility = Visibility.Hidden;
+            this.Visibility = Visibility.Collapsed; 
             signinSignUpWindow.Show();
         }
     }
