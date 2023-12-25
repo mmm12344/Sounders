@@ -1,5 +1,5 @@
 {
-  "serverUrl": "",
-  "userID": 0,
-  "password": ""
+  "serverUrl": null,
+  "userID": null,
+  "password": null
 }

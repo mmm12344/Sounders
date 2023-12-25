@@ -12,7 +12,7 @@ using MusicPlayerGUI.settings;
 
 namespace MusicPlayerGUI
 {
-    public record UserSignUp(int userID, string firstName, string lastName, string email, string password, byte[]? picture);
+    public record UserSignUp(string firstName, string lastName, string email, string password);
     public record UserSignIn(string email, string password);
     public record SongInfo(string songID, string name, byte[] picture);
     public record Song(string songID, string Name, byte[] file, int likes, byte[] picture);
@@ -65,14 +65,14 @@ namespace MusicPlayerGUI
             return await result.Content.ReadFromJsonAsync<int>();
         }
 
-        public async static Task<bool> SignIn(UserSignIn user)
+        public async static Task<int> SignIn(UserSignIn user)
         {
             var result = await client.PostAsync(GetSubUrlAuth("signin"), GetContentAsJson(user));
             if (!result.IsSuccessStatusCode)
             {
-                return false;
+                return -1;
             }
-            return true;
+            return await result.Content.ReadFromJsonAsync<int>();
         }
 
         public async static Task<SongInfo> GetLikedSongs()

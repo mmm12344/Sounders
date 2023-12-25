@@ -25,18 +25,18 @@
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock  Text="Sign In" Foreground="Black" FontSize="32"  HorizontalAlignment="Center" Margin="0,0,0,0"/>
+            <TextBlock Text="Sign In" Foreground="Black" FontSize="32"  HorizontalAlignment="Center" Margin="0,0,0,0"/>
             <TextBlock  Text="E-mail" Foreground="Black" Margin="0,10,0,5"/>
-            <TextBox    Foreground="Black" >
+            <TextBox  x:Name="emailTextBox"  Foreground="Black" >
 
             </TextBox>
             <TextBlock Text="Password" Foreground="Black" Margin="0,10,0,5" />
-            <PasswordBox   Foreground="Black" >
+            <PasswordBox x:Name="passwordTextBox"  Foreground="Black" >
 
             </PasswordBox>
 
             <TextBlock FontSize="10" Foreground="Gray" Text="" Margin="0,10,0,0" > If You Don't have an account please  <Span><Hyperlink NavigateUri="Signuppage.xaml">sign up</Hyperlink></Span></TextBlock>
-            <Button Style="{StaticResource roundedButtons}" Content="Sign in" Margin="0,10,0,0" Width="80"/>
+            <Button Style="{StaticResource roundedButtons}" Content="Sign in" Margin="0,10,0,0" Width="80" Click="signinButton_Click"/>
             <TextBlock TextWrapping="Wrap"/>
 
 

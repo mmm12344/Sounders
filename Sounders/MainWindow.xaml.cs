@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayerGUI.settings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -39,10 +40,29 @@ namespace Sounders
             timer.Tick += Timer_Tick;
 
 
+            if (Settings.GetUserID() == null || Settings.GetPassword() == null)
+            {
+                mainFrame.Navigate(new Uri("Views/signinPage.xaml", UriKind.Relative));
+                state = "signin";
+                return;
+            }
+            if (Settings.GetServerUrl() == null)
+            {
+                mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
+                state = "setting";
+                return;
+            }
+
+
+
             mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
 
             state = "home";
+
+
+
         }
+        
         private void Timer_Tick(object sender, EventArgs e)
         {
             audioBar.Value = playMedia.Position.TotalSeconds ;
@@ -53,7 +73,7 @@ namespace Sounders
            
             
            
-            var uri = new Uri(@"C:\Users\pc\Source\Repos\mmm12344\Sounders\Sounders\Test\Test.mp3",UriKind.Relative); 
+            var uri = new Uri("Test/Test.mp3", UriKind.Relative); 
             playMedia.Open(uri); 
             playMedia.Play(); 
             timer.Start();
@@ -96,12 +116,10 @@ namespace Sounders
 
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
-            if(state == "home")
+            if(state != "home")
             {
 
-            }
-            else
-            {
+            
                 mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
 
                 state = "home";
@@ -110,12 +128,9 @@ namespace Sounders
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
-            if (state == "setting")
+            if (state != "setting")
             {
 
-            }
-            else
-            {
                 mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
                 state = "setting";
             }

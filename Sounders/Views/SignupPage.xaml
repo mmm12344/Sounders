@@ -35,31 +35,31 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1">
                 <TextBlock Text="First Name" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,75,0"/>
-                <TextBox FontSize="16" Width="150" Margin="0,5,0,0">
+                <TextBox x:Name="firstNameTextBox" FontSize="16" Width="150" Margin="0,5,0,0">
 
                 </TextBox>
                 <TextBlock Text="Last Name" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,78,0" />
-                <TextBox FontSize="16" Width="150" Margin="0,5,0,0">
+                <TextBox x:Name="lastNameTextBox" FontSize="16" Width="150" Margin="0,5,0,0">
 
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Column="2">
                 <TextBlock Text="E-mail" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,109,0"/>
-                <TextBox FontSize="16" Width="150" Margin="0,5,0,0" >
+                <TextBox x:Name="emailTextBox" FontSize="16" Width="150" Margin="0,5,0,0" >
 
                 </TextBox>
                 <TextBlock Text="New Password" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,51,0"  />
-                <PasswordBox FontSize="16" Width="150" Margin="0,5,0,0" >
+                <PasswordBox x:Name="passwordTextBox" FontSize="16" Width="150" Margin="0,5,0,0" >
 
                 </PasswordBox>
                 <TextBlock Text="Re-Enter Password" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,22,0" />
-                <PasswordBox FontSize="16" Width="150" Margin="0,5,0,0" >
+                <PasswordBox x:Name="reEnterPasswordTextBox" FontSize="16" Width="150" Margin="0,5,0,0" >
 
                 </PasswordBox>
             </StackPanel>
 
         </Grid>
-        <Button Grid.Row="3" Content="Sign Up" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="22"/>
+        <Button Grid.Row="3" Content="Sign Up" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="22" Click="signup_Click"/>
 
 
 

@@ -237,7 +237,9 @@
     <Resource Include="Static\Images\UserIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Test\Test.mp3" />
+    <Content Include="Test\Test.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
