@@ -28,6 +28,7 @@ namespace Sounders
     {
         public MediaPlayer playMedia = new MediaPlayer();
         private DispatcherTimer timer;
+        private string state;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,8 +37,9 @@ namespace Sounders
             timer.Tick += Timer_Tick;
 
 
-            mainFrame.Navigate(new Uri("Views/AddPlaylistPage.xaml", UriKind.Relative));
+            mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
 
+            state = "home";
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -88,6 +90,40 @@ namespace Sounders
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
             StopButton_Click(sender, e);
+        }
+
+        private void homeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(state == "home")
+            {
+
+            }
+            else
+            {
+                mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
+
+                state = "home";
+            }
+        }
+
+        private void settingButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (state == "setting")
+            {
+
+            }
+            else
+            {
+                mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
+                state = "setting";
+            }
+        }
+
+        private void logoutBtton_Click(object sender, RoutedEventArgs e)
+        {
+            SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
+            this.Visibility = Visibility.Hidden;
+            signinSignUpWindow.Show();
         }
     }
 }

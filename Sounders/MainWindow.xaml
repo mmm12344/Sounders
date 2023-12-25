@@ -42,12 +42,12 @@
             </StackPanel>
 
         
-            <Button x:Name="settingButton" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,100,0">
+            <Button x:Name="settingButton" Click="settingButton_Click" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,100,0">
                 <Button.Content>
                     <Image Height="30" Source="Static/Images/SettingsIcon.png"/>
                 </Button.Content>
             </Button>
-            <Button x:Name="logoutButton" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,40,0" >
+            <Button x:Name="logoutButton" Click="logoutBtton_Click" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,40,0" >
                 <Button.Content>
                     <Image Height="30" Source="/Static/Images/LogoutIcon.png"/>
                 </Button.Content>
@@ -60,7 +60,7 @@
                     <RowDefinition Height="0.95*"/>
                 </Grid.RowDefinitions>
 
-                <Frame  Grid.Row="2"  x:Name="mainFrame">
+                <Frame  NavigationUIVisibility="Hidden" Grid.Row="2"  x:Name="mainFrame">
 
 
                 </Frame>
@@ -91,7 +91,7 @@
                                 <SolidColorBrush Color="White"/>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <Button x:Name="homeButton" BorderBrush="Transparent" Background="Transparent" Margin="5,0,0,0"  Height="35">Home</Button>
+                        <Button x:Name="homeButton" Click="homeButton_Click" BorderBrush="Transparent" Background="Transparent" Margin="5,0,0,0"  Height="35">Home</Button>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">

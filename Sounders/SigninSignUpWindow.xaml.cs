@@ -22,6 +22,7 @@ namespace Sounders
         public SigninSignUpWindow()
         {
             InitializeComponent();
+            signInsignUp.Navigate(new Uri("Views/SigninPage.xaml", UriKind.Relative));
         }
     }
 }
