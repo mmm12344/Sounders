@@ -47,7 +47,7 @@
                     <Image Height="30" Source="Static/Images/SettingsIcon.png"/>
                 </Button.Content>
             </Button>
-            <Button x:Name="logoutButton" Click="logoutBtton_Click" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,40,0" >
+            <Button x:Name="logoutButton" Click="logoutButton_Click" Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Background="Transparent" Margin="0,0,40,0" >
                 <Button.Content>
                     <Image Height="30" Source="/Static/Images/LogoutIcon.png"/>
                 </Button.Content>

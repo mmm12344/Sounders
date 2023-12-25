@@ -121,11 +121,11 @@ namespace Sounders
             }
         }
 
-        private void logoutBtton_Click(object sender, RoutedEventArgs e)
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
             Close();
-            //this.Visibility = Visibility.Collapsed; 
+         
             signinSignUpWindow.Show();
         }
     }
