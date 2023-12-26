@@ -61,7 +61,7 @@
                 <TextBox x:Name="serverUrlTextBox" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,5,0,0"/>
             </StackPanel>
 
-            <Button x:Name="applyChangesButton" Grid.Row="5" Content="Apply Changes" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="22"/>
+            <Button x:Name="applyChangesButton" Grid.Row="5" Content="Apply Changes" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="22" Click="applyChangesButton_Click"/>
 
         </Grid>
 

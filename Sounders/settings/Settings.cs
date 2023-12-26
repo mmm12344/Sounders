@@ -47,9 +47,9 @@ namespace MusicPlayerGUI.settings
             return GetAllSettings().password;
         }
 
-        public static Uri GetServerUrl()
+        public static string? GetServerUrl()
         {
-            return new Uri(GetAllSettings().serverUrl);
+            return GetAllSettings().serverUrl;
         }
 
         public static void UpdateUserID(int userID)
