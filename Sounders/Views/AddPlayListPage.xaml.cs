@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,14 @@ namespace Sounders.Views
             });
             likedTracksList.Items.Add(my);
             likedTracksList.Items.Add(my);
+        }
+
+        private void browsePictureButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.Filter = "Image Files|*.png;*.jpeg;";
+            fileDialog.ShowDialog();
         }
     }
 }

@@ -33,8 +33,8 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                <TextBox x:Name="searchBar" Text="Search" Width="200" Height="20" Margin="5,0,0,0"/>
-                <Button x:Name="searchButton" Style="{StaticResource roundedButtons}" Margin="10,0,0,0" Background="Transparent">
+                <TextBox x:Name="searchBar" LostKeyboardFocus="searchBar_LostKeyboardFocus" GotKeyboardFocus="searchBar_GotKeyboardFocus"  Text="Search" Width="200" Height="20" Margin="5,0,0,0"/>
+                <Button x:Name="searchButton" Style="{StaticResource roundedButtons}" Click="searchButton_Click" Margin="10,0,0,0" Background="Transparent">
                     <Button.Content>
                         <Image RenderOptions.BitmapScalingMode="HighQuality" Height="20" Width="30" Source="Static/Images/SearchIcon (2).png"/>
                     </Button.Content>
@@ -100,7 +100,7 @@
                                 <SolidColorBrush Color="White"/>
                             </Ellipse.Fill>
                         </Ellipse>
-                        <Button x:Name="uploadButton" BorderBrush="Transparent" Background="Transparent" Margin="5,0,0,0" Height="35">Upload</Button>
+                        <Button x:Name="uploadButton" Click="uploadButton_Click" BorderBrush="Transparent" Background="Transparent" Margin="5,0,0,0" Height="35">Upload</Button>
 
                     </StackPanel>
 
@@ -131,10 +131,9 @@
                 </Border>
                 <Label FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Content="Now Playing :" VerticalAlignment="Top" Margin="5,20,0,0"  />
                 <TextBlock x:Name="songName" FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Text="Changable Song Name" TextTrimming="CharacterEllipsis"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,60"/>
-                <Slider x:Name="audioBar" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="20" Width="200" Margin="0,0,0,30"></Slider>
+                <Slider x:Name="audioBar" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="20" Width="200" Margin="0,0,0,30"  Maximum="100" IsEnabled="False"></Slider>
                 
-                <MediaElement Panel.ZIndex="0" x:Name="mediaElement" MediaOpened="MediaElement_MediaOpened" MediaEnded="MediaElement_MediaEnded" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" LoadedBehavior="Manual" UnloadedBehavior="Manual" Height="20" Width="200" Margin="0,0,0,30"  IsMuted="True" Opacity="1" OpacityMask="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"/>
-
+               
                 <Button Background="Transparent" Width="30"  x:Name="reapeatButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="5,0,0,5" HorizontalAlignment="Left">
                     <Button.Content>
                         <Image Height="20" Width="20" Source="Static/Images/Repeat.png"   />

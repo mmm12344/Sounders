@@ -1,4 +1,5 @@
 ﻿using MusicPlayerGUI.settings;
+using Sounders.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,8 @@ namespace Sounders
     {
         public MediaPlayer playMedia = new MediaPlayer();
         private DispatcherTimer timer;
-        private string state;
+        private string pageState;
+        private string trackState="stop";
         public MainWindow()
         {
 
@@ -43,13 +45,13 @@ namespace Sounders
             if (Settings.GetUserID() == null || Settings.GetPassword() == null)
             {
                 mainFrame.Navigate(new Uri("Views/signinPage.xaml", UriKind.Relative));
-                state = "signin";
+                pageState = "signin";
                 return;
             }
             if (Settings.GetServerUrl() == null)
             {
                 mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
-                state = "setting";
+                pageState = "setting";
                 return;
             }
 
@@ -57,7 +59,7 @@ namespace Sounders
 
             mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
 
-            state = "home";
+            pageState = "home";
 
 
 
@@ -70,78 +72,135 @@ namespace Sounders
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
+
+
            
+            var uri = new Uri("Test/Test.mp3", UriKind.Relative);
+  
+            if (trackState == "stop")
+            {
+
             
-           
-            var uri = new Uri("Test/Test.mp3", UriKind.Relative); 
-            playMedia.Open(uri); 
-            playMedia.Play(); 
+            playMedia.Open(uri);
+         
+                playMedia.Play();
             timer.Start();
+              
 
 
-            Uri newImageUri = new Uri("Static/Images/Pause.png", UriKind.Relative);
+                Uri newImageUri = new Uri("Static/Images/Pause.png", UriKind.Relative);
             BitmapImage bitmapImage = new BitmapImage(newImageUri);
             
             Image image = new Image();
             image.Source = bitmapImage;
             image.Height = 20;
-           image.Width = 20;
+            image.Width = 20;
             playButton.Content = image;
+            trackState = "play";
+                
+
+            }
+           else if(trackState=="play")
+            {
+                Uri newImageUri = new Uri("Static/Images/Play.png", UriKind.Relative);
+                BitmapImage bitmapImage = new BitmapImage(newImageUri);
+
+                Image image = new Image();
+                image.Source = bitmapImage;
+                image.Height = 20;
+                image.Width = 20;
+                playButton.Content = image;
+
+                playMedia.Pause();
+                timer.Stop();
+                trackState = "stop";
+            }
 
         }
 
-        private void PauseButton_Click(object sender, RoutedEventArgs e)
-        {
-            playMedia.Pause();
-            timer.Stop();
-        }
+        
 
-        private void StopButton_Click(object sender, RoutedEventArgs e)
-        {
-            mediaElement.Stop();
-            timer.Stop();
-            audioBar.Value = 0;
-        }
+        //private void StopButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    mediaElement.Stop();
+        //    timer.Stop();
+            
+        //}
 
-        private void MediaElement_MediaOpened(object sender, RoutedEventArgs e)
-        {
-            audioBar.IsEnabled = true;
-            audioBar.Maximum = mediaElement.NaturalDuration.TimeSpan.TotalSeconds;
-        }
+        //private void MediaElement_MediaOpened(object sender, RoutedEventArgs e)
+        //{
+        //    audioBar.IsEnabled = true;
+        //    audioBar.Maximum = mediaElement.NaturalDuration.TimeSpan.TotalSeconds;
+        //}
 
-        private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            StopButton_Click(sender, e);
-        }
+        //private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        //{
+        //    StopButton_Click(sender, e);
+        //}
 
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
-            if(state != "home")
-            {
+           
 
             
                 mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
+            pageState = "home";
 
-                state = "home";
-            }
+          
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
-            if (state != "setting")
+            if (pageState != "settingp")
             {
 
                 mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
-                state = "setting";
+                pageState = "settingp";
             }
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
+            pageState="home";
             this.Close();
          
             signinSignUpWindow.Show();
+            
+        }
+
+        private void searchBar_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            searchBar.Text= string.Empty;
+          
+        }
+
+        private async void searchBar_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            
+          await Task.Delay(100);
+            searchBar.Text = "Search";
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(pageState !="searchp")
+            {
+                if ( searchBar.Text!="Search" && searchBar.Text!= string.Empty )
+                {
+                    mainFrame.Navigate(new Uri("Views/SearchPage.xaml", UriKind.Relative));
+                    pageState = "searchp";
+                }
+            }
+        }
+
+        private void uploadButton_Click(object sender, RoutedEventArgs e)
+        {
+          
+
+                mainFrame.Navigate(new Uri("Views/AddTrackorPlaylist.xaml", UriKind.Relative));
+            pageState = "upload";
+             
         }
     }
 }

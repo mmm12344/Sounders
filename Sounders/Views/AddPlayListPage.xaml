@@ -13,12 +13,12 @@
     <Grid Background="#0a0a0a">
         <Grid.RowDefinitions>
          
-            <RowDefinition Height="0.20*"/>
+            <RowDefinition Height="0.10*"/>
           
-            <RowDefinition Height="0.20*"/>
+            <RowDefinition Height="0.40*"/>
            
             <RowDefinition Height="0.40*"/>
-            <RowDefinition Height="0.20*"/>
+            <RowDefinition Height="0.10*"/>
 
 
         </Grid.RowDefinitions>
@@ -33,8 +33,8 @@
           
                 <Label Grid.Column="1"  Content="PlayList Name" VerticalAlignment="Center" Margin="0,0,0,50" HorizontalAlignment="Left"></Label>
                 <TextBox Grid.Column="1"   HorizontalAlignment="Left"  Width="160" VerticalAlignment="Center" Margin="4,0,0,0"></TextBox>
-            <Button Grid.Column="2" Content="+"  HorizontalAlignment="Right" Margin="0,7,4,0" Height="80" Width="80" VerticalAlignment="Top" ></Button>
-            <Label Grid.Column="2" Content="Add PlayList Picture"  HorizontalAlignment="Right"   VerticalAlignment="Bottom" Margin="0,0,0,5" FontSize="9"></Label>
+            <Button  x:Name="browsePictureButton" Click="browsePictureButton_Click" Grid.Column="2" Content="+"  HorizontalAlignment="Right" Margin="0,7,4,0" Height="80" Width="80" VerticalAlignment="Center" ></Button>
+            <Label Grid.Column="2" Content="Add PlayList Picture"  HorizontalAlignment="Right"   VerticalAlignment="Center" Margin="0,120,0,0" FontSize="9"></Label>
         </Grid>
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Stretch">
@@ -67,6 +67,6 @@
         </StackPanel>
     
        
-        <Button Grid.Row="4"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Create" FontSize="10"/>
+        <Button x:Name="createButton" Grid.Row="4"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Create" FontSize="10"/>
     </Grid>
 </Page>
