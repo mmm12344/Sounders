@@ -45,8 +45,8 @@ namespace MusicPlayerGUI
             int? userID = Settings.GetUserID();
             string? password = Settings.GetPassword();
             CookieContainer container = new CookieContainer();
-            container.Add(new Cookie("userID", Convert.ToString(userID)));
-            container.Add(new Cookie("password", password));
+            container.Add(new Uri(Settings.GetServerUrl()), new Cookie("userID", Convert.ToString(userID)));
+            container.Add(new Uri(Settings.GetServerUrl()), new Cookie("password", password));
             return container;
         }
 
