@@ -42,19 +42,13 @@ namespace Sounders
             timer.Tick += Timer_Tick;
 
 
-            if (Settings.GetUserID() == null || Settings.GetPassword() == null)
-            {
-                mainFrame.Navigate(new Uri("Views/signinPage.xaml", UriKind.Relative));
-                pageState = "signin";
-                return;
-            }
+            HelperMethods.OpenSignInIfNotSigned();
             if (Settings.GetServerUrl() == null)
             {
                 mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
                 pageState = "setting";
                 return;
             }
-
 
 
             mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
@@ -161,11 +155,7 @@ namespace Sounders
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
-            SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
-            pageState="home";
-            this.Close();
-         
-            signinSignUpWindow.Show();
+            HelperMethods.OpenSignInWindow();
             
         }
 
@@ -189,7 +179,7 @@ namespace Sounders
                 if ( searchBar.Text!="Search" && searchBar.Text!= string.Empty )
                 {
                     mainFrame.Navigate(new Uri("Views/SearchPage.xaml", UriKind.Relative));
-                    pageState = "searchp";
+                    pageState = "search";
                 }
             }
         }

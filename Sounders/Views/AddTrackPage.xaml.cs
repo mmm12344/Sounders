@@ -70,8 +70,8 @@ namespace Sounders.Views
         private void UploadButton_Click(Object sender, RoutedEventArgs e)
         {
             string songName = songNameTextBox.Text;
-            string artistName = artistNameTextBox.Text;
-            if(songPic != null && fileLocation != null && songName.Length > 0 && artistName.Length > 0)
+            
+            if(songPic != null && fileLocation != null && songName.Length > 0)
             {
                 byte[] songPicData;
                 byte[] songData;
@@ -89,16 +89,16 @@ namespace Sounders.Views
                 }
                 catch
                 {
-                    MessageBox.Show("An Error Has Occuried, Please Try Again.");
+                    HelperMethods.ErrorMessage("An Error has Occuried, Please Try Again.");
                     return;
                 }
                 var result = ApiRequests.AddSong(new PostSong(songName, songData, songPicData)).Result;
                 if(result == false)
                 {
-                    MessageBox.Show("Couldn't Upload content, Please Try Again.");
+                    HelperMethods.ErrorMessage("Could not uplaod Content, Please Try Again");
                     return;
                 }
-                MessageBox.Show("Posted Song Successfully!.");
+                HelperMethods.SuccessMessage("Posted Song Successfully!");
                 
             }
         }

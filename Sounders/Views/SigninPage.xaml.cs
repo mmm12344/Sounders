@@ -35,23 +35,25 @@ namespace Sounders.Views
 
             if(email.Length <= 5) 
             {
-                MessageBox.Show("Email is Incorrect", "Alert");
+                HelperMethods.WarningMessage("Email is Incorrect, Please Try Again.");
                 return;
             }
             if(password.Length < 8)
             {
-                MessageBox.Show("Password is less than 8 Characters");
+                HelperMethods.WarningMessage("Password is less than 8 Characters, Please Try Again.");
                 return;
             }
             Task<int> userID = ApiRequests.SignIn(new UserSignIn(email, password));
             if(userID.Result == -1)
             {
-                MessageBox.Show("Email or Password is incorrect", "Alert");
+                HelperMethods.WarningMessage("Email or Password is incorrect, Please Try Again.");
                 return;
             }
             Settings.UpdateUserID(userID.Result);
             Settings.UpdatePassword(password);
             ApiRequests.UpdateClient();
+            HelperMethods.SuccessMessage("Signed In Successfully!");
+            HelperMethods.OpenMainWindow();
         }
     }
 }
