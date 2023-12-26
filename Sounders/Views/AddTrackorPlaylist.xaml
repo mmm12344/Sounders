@@ -1,0 +1,23 @@
+﻿<Page x:Class="Sounders.Views.AddTrackorPlaylist"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sounders.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="615.6" d:DesignWidth="704"
+      Title="AddTrackorPlaylist">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/Themes/RoundedButtonsTheme.xaml"/>
+    </Page.Resources>
+    <Grid Background="#0a0a0a">
+
+        <Button x:Name="addTracksToPage" Content="Add Tracks" Click="addTracksToPage_Click" Style="{StaticResource roundedButtons }" FontWeight="DemiBold" HorizontalAlignment="Left" Height="32" Margin="180,420,0,0" VerticalAlignment="Top" Width="150"/>
+
+
+        <Button x:Name="createNewPlaylistToPage" Click="createNewPlaylistToPage_Click" Style="{StaticResource roundedButtons}" FontWeight="DemiBold" Content="Create a New PlayList" HorizontalAlignment="Right" Height="32" Margin="0,420,180,0" VerticalAlignment="Top" Width="150" />
+        <Label Content="Add Tracks OR Create A New PlayList" HorizontalAlignment="Center"  FontSize="30" FontWeight="Bold"  VerticalAlignment="Center" />
+
+    </Grid>
+</Page>
