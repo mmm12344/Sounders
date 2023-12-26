@@ -11,121 +11,181 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
+                <ResourceDictionary Source="/Themes/ListViewTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
     </Page.Resources>
+    <ScrollViewer Grid.RowSpan="8" VerticalScrollBarVisibility="Visible" >
+        <Grid Background="#0a0a0a">
 
-    <Grid Background="#0a0a0a">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.05*"/>
-              <RowDefinition Height="0.20*"/>
-             <RowDefinition Height="0.05*"/> 
-            <RowDefinition Height="0.20*"/>
-            <RowDefinition Height="0.05*"/>
-            <RowDefinition Height="0.20*"/>
-            <RowDefinition Height="0.05*"/>
-            <RowDefinition Height="0.20*"/>
-        </Grid.RowDefinitions>
-        <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Tracks</Label>
-        <ListView Grid.Row="1" x:Name="likedTracksList" Background="#0a0a0a" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="160"/>
 
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <ContentControl >
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="160"/>
 
 
-                            <StackPanel Width="90">
-                                <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
-                                <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
-                            </StackPanel>
-                        </ContentControl>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Tracks</Label>
-
-        <ListView Grid.Row="3" x:Name="addedTracksList" Background="#0a0a0a" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel  HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <ContentControl >
+            </Grid.RowDefinitions>
 
 
-                            <StackPanel Width="90">
-                                <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
-                                <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
-                            </StackPanel>
-                        </ContentControl>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Playlists</Label>
-        <ListView Grid.Row="5" x:Name="likedPlaylistsList" Background="#0a0a0a" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Tracks</Label>
+            <ListView Style="{StaticResource Rounded}" Background="#2c2c2c" Grid.Row="1" x:Name="likedTracksList"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
 
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <ContentControl >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl >
 
 
-                            <StackPanel Width="90">
-                                <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
-                                <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
-                            </StackPanel>
-                        </ContentControl>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Label Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Playlists</Label>
-        <ListView Grid.Row="7" x:Name="addedPlaylistsList" Background="#0a0a0a" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <StackPanel Width="90">
+                                    <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
+                                    <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                </StackPanel>
+                            </ContentControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Tracks</Label>
 
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+            <ListView Grid.Row="3" x:Name="addedTracksList"  Style="{StaticResource Rounded}" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <ContentControl >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel  HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl >
 
 
-                            <StackPanel Width="90">
-                                <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
-                                <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
-                            </StackPanel>
-                        </ContentControl>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+                                <StackPanel Width="90">
+                                    <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
+                                    <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                </StackPanel>
+                            </ContentControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Playlists</Label>
+            <ListView Grid.Row="5" x:Name="likedPlaylistsList"  Style="{StaticResource Rounded}" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-    
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl >
+
+
+                                <StackPanel Width="90">
+                                    <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
+                                    <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                </StackPanel>
+                            </ContentControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Your Playlists</Label>
+            <ListView Grid.Row="7" x:Name="YourPlaylists"  Style="{StaticResource Rounded}" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl >
+
+
+                                <StackPanel Width="90">
+                                    <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
+                                    <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                </StackPanel>
+                            </ContentControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Tracks</Label>
+            <ListView Grid.Row="9" x:Name="exploreNewTracks"  Style="{StaticResource Rounded}" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl >
+
+
+                                <StackPanel Width="90">
+                                    <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
+                                    <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                </StackPanel>
+                            </ContentControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Playlists</Label>
+            <ListView Grid.Row="11" x:Name="explorenewPlaylistsList"  Style="{StaticResource Rounded}" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl >
+
+
+                                <StackPanel Width="90">
+                                    <Image Height="50" Width="50" IsEnabled="True" Source="{Binding songPic}"/>
+                                    <TextBlock  TextTrimming="WordEllipsis" HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                </StackPanel>
+                            </ContentControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+    </ScrollViewer>
 </Page>

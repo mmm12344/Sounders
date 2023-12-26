@@ -3,7 +3,7 @@
     <Style TargetType="ListView" x:Key="Rounded">
         <Style.Resources>
             <Style TargetType="Border">
-                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="CornerRadius" Value="20"/>
             </Style>
         </Style.Resources>
         <Setter Property="Background" Value="Transparent"/>
