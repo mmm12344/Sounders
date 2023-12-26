@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayerGUI.settings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace Sounders.Views
         public AccountSettingsPage()
         {
             InitializeComponent();
+            string serverUrl = Settings.GetServerUrl();
+            if (serverUrl != null)
+            {
+                serverUrlTextBox.Text = serverUrl;
+            }
+        }
+
+        public void applyChangesButton_Click(object sender, RoutedEventArgs e)
+        {
+            string serverUrl = serverUrlTextBox.Text;
+            if(serverUrl.Length > 7)
+            {
+                Settings.UpdateServerUrl(serverUrl);
+            }
         }
     }
 }
