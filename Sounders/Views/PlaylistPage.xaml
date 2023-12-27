@@ -53,11 +53,16 @@
                 <DataTemplate>
 
                     <StackPanel Orientation="Horizontal" Tag="{Binding songID}">
-                      
+                        <StackPanel.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
+                                <MenuItem x:Name="removeFromPLaylist" Header="Remove" Click="removeFromPLaylist_Click"/>
+                            </ContextMenu>
+                        </StackPanel.ContextMenu>
                         <Image Margin="10,0,0,0"  Width="20" Height="30" Source="{Binding SongPic}"/>
                         <TextBlock Margin="5,0,0,0"  FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongName}" />
 
-                        <TextBlock Margin="310,0,0,0" FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongArtist}" />
+                       
                     </StackPanel>
 
 
@@ -72,8 +77,8 @@
 
 
             </Grid.ColumnDefinitions>
-            <TextBlock FontSize="20" Grid.Row="0" Foreground="Black" FontWeight="UltraLight" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,0,0">Title</TextBlock>
-            <TextBlock FontSize="20" Grid.Column="1" Foreground="Black" FontWeight="UltraLight" VerticalAlignment="Center" HorizontalAlignment="Center">Artist</TextBlock>
+       
+          
 
         </Grid>
 

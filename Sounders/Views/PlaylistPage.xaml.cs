@@ -24,5 +24,15 @@ namespace Sounders.Views
         {
             InitializeComponent();
         }
+
+        private void playItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void removeFromPLaylist_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
