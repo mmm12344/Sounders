@@ -205,5 +205,25 @@ namespace Sounders.Views
         {
             this.topLayer.Children.Clear();
         }
+
+        private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void likeItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void playItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addToQueueItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

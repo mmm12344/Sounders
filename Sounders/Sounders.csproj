@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="Views\AddPlayListPage.xaml.cs">
       <DependentUpon>AddPlayListPage.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Views\AddTrackorPlaylist.xaml.cs">
       <DependentUpon>AddTrackorPlaylist.xaml</DependentUpon>
@@ -159,6 +160,7 @@
     <Page Include="Views\AddPlayListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
     <Page Include="Views\AddTrackorPlaylist.xaml">
       <SubType>Designer</SubType>

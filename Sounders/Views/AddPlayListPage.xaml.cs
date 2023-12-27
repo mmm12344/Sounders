@@ -39,7 +39,7 @@ namespace Sounders.Views
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
                         var toAdd = new { songName = song.name, songPic = songPicture };
-                        AddedTracksList.Items.Add(toAdd);
+                        //AddedTracksList.Items.Add(toAdd);   this code was related to addedtracks list that i removed
                     }
                 }
                 catch
