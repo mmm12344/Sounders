@@ -27,14 +27,11 @@ namespace Sounders.Views
             InitializeComponent();
 
 
-            if (HelperMethods.CheckIfSignedIn())
-            {
-                AddLikedSongs();
-                AddOwnSongs();
-                AddOwnPlaylist();
-            }
-
-
+           
+            AddLikedSongs();
+            AddAllSongs();
+            AddOwnSongs();
+            AddOwnPlaylist();
 
 
         }
@@ -99,6 +96,29 @@ namespace Sounders.Views
                         var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
                         var toAdd = new { playlistName = playlist.name, playlistPic = playlistPicture };
                         YourPlaylists.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
+        }
+
+        private void AddAllSongs()
+        {
+            List<SongInfo> result = ApiRequests.GetAllSongs().Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        exploreNewTracks.Items.Add(toAdd);
                     }
                 }
                 catch

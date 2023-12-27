@@ -53,22 +53,21 @@ namespace Sounders
 
             HelperMethods.OpenSignInIfNotSigned();
 
-            if (HelperMethods.CheckIfSignedIn())
+            
+
+            if (Settings.GetServerUrl() == null)
             {
-
-                if (Settings.GetServerUrl() == null)
-                {
-                    mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
-                    pageState = "setting";
-                    return;
-                }
-
-
-                mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
-
-                pageState = "home";
-
+                mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
+                pageState = "setting";
+                return;
             }
+
+
+            mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
+
+            pageState = "home";
+
+   
 
         }
         
