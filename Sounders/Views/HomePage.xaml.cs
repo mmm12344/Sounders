@@ -28,10 +28,13 @@ namespace Sounders.Views
         private Point? startPosition = null;
         private double slowdown = 200;                  //The number 200 is found from experiments, it should be corrected
        
+        private List<SongData> likedSongs = new List<SongData>();
+        private List<SongData> ownSongs = new List<SongData>();
+        private List<SongData> allSongs = new List<SongData>();
 
-
+        private ListView queueList;
          //Test
-        public HomePage()
+        public HomePage(ListView queueList)
         {
             InitializeComponent();
 
@@ -43,7 +46,7 @@ namespace Sounders.Views
             AddOwnSongs();
             AddOwnPlaylist();
 
-
+            this.queueList = queueList;
         }
 
 
@@ -59,6 +62,7 @@ namespace Sounders.Views
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
                         var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
+                        likedSongs.Add(new SongData(song.songID, song.name, songPicture));
                         likedTracksList.Items.Add(toAdd);
                     }
                 }
@@ -82,6 +86,7 @@ namespace Sounders.Views
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
                         var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
+                        ownSongs.Add(new SongData(song.songID, song.name, songPicture));
                         addedTracksList.Items.Add(toAdd);
                     }
                 }
@@ -128,6 +133,7 @@ namespace Sounders.Views
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
                         var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
+                        allSongs.Add(new SongData(song.songID, song.name, songPicture));
                         exploreNewTracks.Items.Add(toAdd);
                     }
                 }
@@ -233,6 +239,44 @@ namespace Sounders.Views
         }
 
         private void openPlayList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void AddSongsToQueueList(List<SongData> songs)
+        {
+
+        }
+
+
+        private void LikedTracks_MouseDown(object sender, MouseEventArgs e)
+        {
+            int songID = Convert.ToInt32(((StackPanel)sender).Tag);
+            PlayerQueue queue = new PlayerQueue(queueList);
+            queue.EnqueueFromList(HelperMethods.GetListForQueue(likedSongs, songID));
+        }
+
+        private void AddedTracks_MouseDown(object sender, MouseEventArgs e)
+        {
+            int songID = Convert.ToInt32(((StackPanel)sender).Tag);
+            PlayerQueue queue = new PlayerQueue(queueList);
+            queue.EnqueueFromList(HelperMethods.GetListForQueue(ownSongs, songID));
+        }
+
+        private void ExploreNewTracks_MouseDown(object sender, MouseEventArgs e)
+        {
+            int songID = Convert.ToInt32(((StackPanel)sender).Tag);
+            PlayerQueue queue = new PlayerQueue(queueList);
+            queue.EnqueueFromList(HelperMethods.GetListForQueue(allSongs, songID));
+        }
+
+        private void YourPlaylist_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void ExploreNewPlaylists_MouseDown(object sender, MouseEventArgs e)
         {
 
         }
