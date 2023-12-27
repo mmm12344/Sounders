@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayerGUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,29 @@ namespace Sounders.Views
     /// </summary>
     public partial class SearchPage : Page
     {
-        public SearchPage()
+        public SearchPage(string searchText)
         {
             InitializeComponent();
+
+            List<SongInfo> result = ApiRequests.Search(searchText).Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songID = Convert.ToString(song.songID), songName = song.name, songPic = songPicture };
+                        searchResultsList.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
         }
     }
 }

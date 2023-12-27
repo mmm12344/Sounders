@@ -3,6 +3,7 @@ using MusicPlayerGUI.settings;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -28,6 +29,19 @@ namespace Sounders
             return songPicture;
         }
 
+        public static byte[] GetBytesFromBitmapImg(BitmapImage img)
+        {
+            byte[] songPicData;
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(img));
+            using (MemoryStream ms = new MemoryStream())
+            {
+                encoder.Save(ms);
+                songPicData = ms.ToArray();
+            }
+            return songPicData;
+        }
+
         public static bool CheckIfSignedIn()
         {
             int? userID = Settings.GetUserID();
@@ -51,20 +65,25 @@ namespace Sounders
 
         public static void CloseAllWindows()
         {
-            for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 0; intCounter--)
+            for (int intCounter = App.Current.Windows.Count - 2; intCounter >= 0; intCounter--)
                 App.Current.Windows[intCounter].Close();
         }
 
+
+
         public static void OpenMainWindow()
         {
-            HideAllWindows();
+            // HideAllWindows();
             MainWindow mainWindow = new MainWindow();
+            CloseAllWindows();
             mainWindow.Show();
+
         }
         public static void OpenSignInWindow()
         {
-            HideAllWindows();
+            //HideAllWindows();
             SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
+            CloseAllWindows();
             signinSignUpWindow.Show();
         }
 

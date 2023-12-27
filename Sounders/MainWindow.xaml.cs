@@ -31,7 +31,6 @@ namespace Sounders
     {
         public MediaPlayer playMedia = new MediaPlayer();
         private DispatcherTimer timer;
-        private string pageState;
         private string trackState="stop";
 
         
@@ -57,15 +56,13 @@ namespace Sounders
 
             if (Settings.GetServerUrl() == null)
             {
-                mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
-                pageState = "setting";
+                mainFrame.Navigate(new AccountSettingsPage());
                 return;
             }
 
 
-            mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
+            mainFrame.Navigate(new HomePage());
 
-            pageState = "home";
 
    
 
@@ -146,23 +143,15 @@ namespace Sounders
 
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
-           
-
             
-                mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
-            pageState = "home";
-
+            mainFrame.Navigate(new HomePage());
           
         }
 
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
-            if (pageState != "settingp")
-            {
 
-                mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
-                pageState = "settingp";
-            }
+            mainFrame.Navigate(new AccountSettingsPage());
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -171,28 +160,12 @@ namespace Sounders
             
         }
 
-        private void searchBar_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            searchBar.Text= string.Empty;
-          
-        }
-
-        private async void searchBar_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            
-          await Task.Delay(100);
-            searchBar.Text = "Search";
-        }
 
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
-            if(pageState !="searchp")
+            if (searchBar.Text!= string.Empty )
             {
-                if ( searchBar.Text!="Search" && searchBar.Text!= string.Empty )
-                {
-                    mainFrame.Navigate(new Uri("Views/SearchPage.xaml", UriKind.Relative));
-                    pageState = "search";
-                }
+                mainFrame.Navigate(new SearchPage(searchBar.Text));
             }
         }
 
@@ -200,8 +173,8 @@ namespace Sounders
         {
           
 
-                mainFrame.Navigate(new Uri("Views/AddTrackorPlaylist.xaml", UriKind.Relative));
-            pageState = "upload";
+            mainFrame.Navigate(new AddTrackorPlaylist());
+            
              
         }
     }

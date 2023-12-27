@@ -56,9 +56,27 @@ namespace MusicPlayerGUI
             client = new HttpClient(handler) { BaseAddress = new Uri(Settings.GetServerUrl()) };
         }
 
+        public async static Task<bool> IsLive()
+        {
+            try
+            {
+                var result = client.GetAsync("").Result;
+                if (!result.IsSuccessStatusCode)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public async static Task<int> SignUp(UserSignUp user)
         {
-
+            if (!IsLive().Result)
+                return -1;
             var result = client.PostAsync(GetSubUrlAuth("signup"), GetContentAsJson(user)).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -69,6 +87,8 @@ namespace MusicPlayerGUI
 
         public async static Task<int> SignIn(UserSignIn user)
         {
+            if (!IsLive().Result)
+                return -1;
             var result =  client.PostAsync(GetSubUrlAuth("signin"), GetContentAsJson(user)).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -79,6 +99,8 @@ namespace MusicPlayerGUI
 
         public async static Task<List<SongInfo>> GetLikedSongs()
         {
+            if (!IsLive().Result)
+                return null;
             var result = client.GetAsync(GetSubUrlApi("get_liked_songs")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -89,6 +111,8 @@ namespace MusicPlayerGUI
 
         public async static Task<List<SongInfo>> GetOwnSongs()
         {
+            if (!IsLive().Result)
+                return null;
             var result = client.GetAsync(GetSubUrlApi("get_own_songs")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -99,6 +123,8 @@ namespace MusicPlayerGUI
 
         public async static Task<List<SongInfo?>> GetAllSongs()
         {
+            if (!IsLive().Result)
+                return null;
             var result = client.GetAsync(GetSubUrlApi("get_all_songs")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -109,6 +135,8 @@ namespace MusicPlayerGUI
 
         public async static Task<List<SongInfo>> Search(string parameter)
         {
+            if (!IsLive().Result)
+                return null;
             var result = client.GetAsync(GetSubUrlApi($"search/{parameter}")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -119,6 +147,8 @@ namespace MusicPlayerGUI
 
         public async static Task<List<Playlist>> GetAllPlaylists()
         {
+            if (!IsLive().Result)
+                return null;
             var result = client.GetAsync(GetSubUrlApi("get_all_playlists")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -129,6 +159,8 @@ namespace MusicPlayerGUI
 
         public async static Task<List<SongInfo>> GetPlaylistSongs(int playlistID)
         {
+            if (!IsLive().Result)
+                return null;
             var result = client.GetAsync(GetSubUrlApi($"get_playlist_songs/{playlistID}")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -139,6 +171,8 @@ namespace MusicPlayerGUI
 
         public async static Task<bool> DeleteSong(int songID)
         {
+            if (!IsLive().Result)
+                return false;
             var result = client.GetAsync(GetSubUrlApi($"delete_song/{songID}")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -149,6 +183,8 @@ namespace MusicPlayerGUI
 
         public async static Task<bool> AddLikeToSong(int songID)
         {
+            if (!IsLive().Result)
+                return false;
             var result = client.GetAsync(GetSubUrlApi($"add_like_to_song/{songID}")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -159,6 +195,8 @@ namespace MusicPlayerGUI
 
         public async static Task<Song> GetSong(int songID)
         {
+            if (!IsLive().Result)
+                return null;
             var result = client.GetAsync(GetSubUrlApi($"get_song/{songID}")).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -169,6 +207,8 @@ namespace MusicPlayerGUI
 
         public async static Task<bool> AddSong(PostSong song)
         {
+            if (!IsLive().Result)
+                return false;
             var result = client.PostAsync(GetSubUrlApi("add_song"), GetContentAsJson(song)).Result;
             if (!result.IsSuccessStatusCode)
             {
@@ -179,6 +219,8 @@ namespace MusicPlayerGUI
 
         public async static Task<bool> AddPLaylist(PostPlaylist playlist)
         {
+            if (!IsLive().Result)
+                return false;
             var result = client.PostAsync(GetSubUrlApi("add_playlist"), GetContentAsJson(playlist)).Result;
             if (!result.IsSuccessStatusCode)
             {
