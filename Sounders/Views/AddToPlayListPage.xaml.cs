@@ -27,7 +27,8 @@ namespace Sounders.Views
 
         private void openPlayList_Click(object sender, RoutedEventArgs e)
         {
-
+            Uri pageFunctionUri = new Uri(@"Views/PlaylistPage.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(pageFunctionUri);
         }
 
         private void playPlaylistItem_Click(object sender, RoutedEventArgs e)
