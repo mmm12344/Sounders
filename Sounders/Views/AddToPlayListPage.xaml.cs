@@ -16,21 +16,22 @@ using System.Windows.Shapes;
 namespace Sounders.Views
 {
     /// <summary>
-    /// Interaction logic for PlaylistPage.xaml
+    /// Interaction logic for AddToPlayListPage.xaml
     /// </summary>
-    public partial class PlaylistPage : Page
+    public partial class AddToPlayListPage : Page
     {
-        public PlaylistPage()
+        public AddToPlayListPage()
         {
             InitializeComponent();
         }
 
-        private void playItem_Click(object sender, RoutedEventArgs e)
+        private void openPlayList_Click(object sender, RoutedEventArgs e)
         {
-
+            Uri pageFunctionUri = new Uri(@"Views/PlaylistPage.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(pageFunctionUri);
         }
 
-        private void removeFromPLaylist_Click(object sender, RoutedEventArgs e)
+        private void playPlaylistItem_Click(object sender, RoutedEventArgs e)
         {
 
         }
