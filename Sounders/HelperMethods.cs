@@ -43,21 +43,27 @@ namespace Sounders
         {
             frame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
         }
-        private static void CloseAllWindows()
+        public static void HideAllWindows()
         {
             for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 0; intCounter--)
                 App.Current.Windows[intCounter].Hide();
         }
 
+        public static void CloseAllWindows()
+        {
+            for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 0; intCounter--)
+                App.Current.Windows[intCounter].Close();
+        }
+
         public static void OpenMainWindow()
         {
-            CloseAllWindows();
+            HideAllWindows();
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
         }
         public static void OpenSignInWindow()
         {
-            CloseAllWindows();
+            HideAllWindows();
             SigninSignUpWindow signinSignUpWindow = new SigninSignUpWindow();
             signinSignUpWindow.Show();
         }

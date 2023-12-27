@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,12 @@ namespace Sounders
     /// </summary>
     public partial class SigninSignUpWindow : Window
     {
+
+        void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            HelperMethods.CloseAllWindows();
+        }
+
         public SigninSignUpWindow()
         {
             InitializeComponent();

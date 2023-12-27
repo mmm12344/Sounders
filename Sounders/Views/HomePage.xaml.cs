@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayerGUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,88 @@ namespace Sounders.Views
         public HomePage()
         {
             InitializeComponent();
-            
 
-            
 
+            if (HelperMethods.CheckIfSignedIn())
+            {
+                AddLikedSongs();
+                AddOwnSongs();
+                AddOwnPlaylist();
+            }
+
+
+
+
+        }
+
+
+        private void AddLikedSongs()
+        {
+            List<SongInfo> result = ApiRequests.GetLikedSongs().Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        likedTracksList.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
+        }
+
+        private void AddOwnSongs()
+        {
+            List<SongInfo> result = ApiRequests.GetOwnSongs().Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        addedTracksList.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
+        }
+
+        private void AddOwnPlaylist()
+        {
+            List<Playlist> result = ApiRequests.GetAllPlaylists().Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (Playlist playlist in result)
+                    {
+                        var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
+                        var toAdd = new { playlistName = playlist.name, playlistPic = playlistPicture };
+                        YourPlaylists.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
         }
     }
 }

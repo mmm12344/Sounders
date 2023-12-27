@@ -2,6 +2,7 @@
 using Sounders.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -32,6 +33,14 @@ namespace Sounders
         private DispatcherTimer timer;
         private string pageState;
         private string trackState="stop";
+
+        
+
+        void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            HelperMethods.CloseAllWindows();
+        }
+
         public MainWindow()
         {
 
@@ -43,19 +52,23 @@ namespace Sounders
 
 
             HelperMethods.OpenSignInIfNotSigned();
-            if (Settings.GetServerUrl() == null)
+
+            if (HelperMethods.CheckIfSignedIn())
             {
-                mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
-                pageState = "setting";
-                return;
+
+                if (Settings.GetServerUrl() == null)
+                {
+                    mainFrame.Navigate(new Uri("Views/AccountSettingsPage.xaml", UriKind.Relative));
+                    pageState = "setting";
+                    return;
+                }
+
+
+                mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
+
+                pageState = "home";
+
             }
-
-
-            mainFrame.Navigate(new Uri("Views/HomePage.xaml", UriKind.Relative));
-
-            pageState = "home";
-
-
 
         }
         
