@@ -58,7 +58,7 @@ namespace Sounders.Views
                     foreach (SongInfo song in result)
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
-                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
                         likedTracksList.Items.Add(toAdd);
                     }
                 }
@@ -81,7 +81,7 @@ namespace Sounders.Views
                     foreach (SongInfo song in result)
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
-                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
                         addedTracksList.Items.Add(toAdd);
                     }
                 }
@@ -104,7 +104,7 @@ namespace Sounders.Views
                     foreach (Playlist playlist in result)
                     {
                         var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
-                        var toAdd = new { playlistName = playlist.name, playlistPic = playlistPicture };
+                        var toAdd = new {playlistID = Convert.ToString(playlist.playlistID),playlistName = playlist.name, playlistPic = playlistPicture };
                         YourPlaylists.Items.Add(toAdd);
                     }
                 }
@@ -127,7 +127,7 @@ namespace Sounders.Views
                     foreach (SongInfo song in result)
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
-                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
                         exploreNewTracks.Items.Add(toAdd);
                     }
                 }
