@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using MusicPlayerGUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,19 +22,33 @@ namespace Sounders.Views
     /// </summary>
     public partial class AddPlayListPage : Page
     {
-        List<Track> my = new List<Track>(); //Test
+        private BitmapImage playListPic = null;
+
+        
         public AddPlayListPage()
         {
             InitializeComponent();
-            my.Add(new Track()
+
+            List<SongInfo> result = ApiRequests.GetOwnSongs().Result;
+            if (result != null)
             {
-                songName = "hedfdfjhsdgfuydtsyull",
-                songPic = @"/Static/Images/Logo.jpeg",
 
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        AddedTracksList.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
 
-            });
-            likedTracksList.Items.Add(my);
-            likedTracksList.Items.Add(my);
         }
 
         private void browsePictureButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +56,18 @@ namespace Sounders.Views
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = false;
             fileDialog.Filter = "Image Files|*.png;*.jpeg;";
-            fileDialog.ShowDialog();
+            Nullable<bool> result = fileDialog.ShowDialog();
+
+
+
+            if (result == true)
+            {
+                Image img = new Image();
+                playListPic = new BitmapImage(new Uri(fileDialog.FileName));
+                img.Source = playListPic;
+                browsePictureButton.Content = img;
+
+            }
         }
     }
 }

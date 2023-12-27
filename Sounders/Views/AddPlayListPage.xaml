@@ -39,7 +39,7 @@
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Stretch">
             <Label Grid.Row="1" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold">Choose From Added Tracks</Label>
-            <ListView Grid.Row="3" x:Name="likedTracksList" Background="#0a0a0a" BorderBrush="Transparent" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListView Grid.Row="3" x:Name="AddedTracksList" Background="#0a0a0a" BorderBrush="Transparent" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>

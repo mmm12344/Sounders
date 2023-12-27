@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayerGUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,26 +21,122 @@ namespace Sounders.Views
     /// </summary>
     public partial class HomePage : Page
     {
+
         List<Track> my = new List<Track>();
         private bool isMoving = false;                  //False - ignore mouse movements and don't scroll
         private bool isDeferredMovingStarted = false;   //True - Mouse down -> Mouse up without moving -> Move; False - Mouse down -> Move
         private Point? startPosition = null;
         private double slowdown = 200;                  //The number 200 is found from experiments, it should be corrected
+       
+
+
+         //Test
         public HomePage()
         {
             InitializeComponent();
 
 
-            my.Add(new Track()
+
+           
+            AddLikedSongs();
+            AddAllSongs();
+            AddOwnSongs();
+            AddOwnPlaylist();
+
+
+        }
+
+
+        private void AddLikedSongs()
+        {
+            List<SongInfo> result = ApiRequests.GetLikedSongs().Result;
+            if (result != null)
             {
-                songName = "hedfdfjhsdgfuydtsyull",
-                songPic = @"/Static/Images/Logo.jpeg",
 
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        likedTracksList.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
+        }
 
-            });
-            likedTracksList.Items.Add(my);
-            likedTracksList.Items.Add(my);
+        private void AddOwnSongs()
+        {
+            List<SongInfo> result = ApiRequests.GetOwnSongs().Result;
+            if (result != null)
+            {
 
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        addedTracksList.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
+        }
+
+        private void AddOwnPlaylist()
+        {
+            List<Playlist> result = ApiRequests.GetAllPlaylists().Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (Playlist playlist in result)
+                    {
+                        var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
+                        var toAdd = new { playlistName = playlist.name, playlistPic = playlistPicture };
+                        YourPlaylists.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
+        }
+
+        private void AddAllSongs()
+        {
+            List<SongInfo> result = ApiRequests.GetAllSongs().Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        exploreNewTracks.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
         }
 
 

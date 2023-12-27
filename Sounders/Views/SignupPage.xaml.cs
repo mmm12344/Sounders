@@ -41,31 +41,32 @@ namespace Sounders.Views
 
             if(email.Length <= 5)
             {
-                MessageBox.Show("email is inCorrect", "Alert");
+                HelperMethods.WarningMessage("Email is inCorrect, Please Try Again.");
                 return;
             }
             if(firstName.Length == 0 || lastName.Length == 0) 
             {
-
-                MessageBox.Show("name is inCorrect", "Alert");
+                HelperMethods.WarningMessage("Name is Short, Please Try Again.");
                 return;
 
             }
             if(password.Length < 8)
             {
-                MessageBox.Show("Password is less than 8 Characters");
+                HelperMethods.WarningMessage("Password is less than 8 Characters, Please Try Again.");
                 return;
             }
 
             Task<int> userID = ApiRequests.SignUp(new UserSignUp(firstName, lastName, email, password));
             if(userID.Result == -1) 
             {
-                MessageBox.Show("Error, Please Try Again", "Alert");
+                HelperMethods.WarningMessage("Email is not Available, Please Try Again.");
                 return;
             }
             Settings.UpdateUserID(userID.Result);
             Settings.UpdatePassword(password);
             ApiRequests.UpdateClient();
+            HelperMethods.SuccessMessage("Signed Up Succesfully!");
+            HelperMethods.OpenMainWindow();
         }
     }
 }

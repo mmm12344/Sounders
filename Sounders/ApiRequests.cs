@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 using System.Web;
 using MusicPlayerGUI.settings;
 using System.Text.Json;
-
+using System.Windows;
 
 namespace MusicPlayerGUI
 {
     public record UserSignUp(string firstName, string lastName, string email, string password);
     public record UserSignIn(string email, string password);
-    public record SongInfo(string songID, string name, byte[] picture);
-    public record Song(string songID, string Name, byte[] file, int likes, byte[] picture);
+    public record SongInfo(int songID, string name, byte[] picture);
+    public record Song(int songID, string Name, byte[] file, int likes, byte[] picture);
     public record PostSong(string name, byte[] file, byte[] picture);
-    public record Playlist(string playlistID, string name, byte[] picture);
+    public record Playlist(int playlistID, string name, byte[] picture);
     public record PostPlaylist(string name, byte[] picture);
  
     class ApiRequests
@@ -77,64 +77,64 @@ namespace MusicPlayerGUI
             return await result.Content.ReadFromJsonAsync<int>();
         }
 
-        public async static Task<SongInfo> GetLikedSongs()
+        public async static Task<List<SongInfo>> GetLikedSongs()
         {
             var result = client.GetAsync(GetSubUrlApi("get_liked_songs")).Result;
             if (!result.IsSuccessStatusCode)
             {
                 return null;
             }
-            return await result.Content.ReadFromJsonAsync<SongInfo>();
+            return await result.Content.ReadFromJsonAsync<List<SongInfo>>();
         } 
 
-        public async static Task<SongInfo> GetOwnSongs()
+        public async static Task<List<SongInfo>> GetOwnSongs()
         {
             var result = client.GetAsync(GetSubUrlApi("get_own_songs")).Result;
             if (!result.IsSuccessStatusCode)
             {
                 return null;
             }
-            return await result.Content.ReadFromJsonAsync<SongInfo>();
+            return await result.Content.ReadFromJsonAsync<List<SongInfo>>();
         }
 
-        public async static Task<SongInfo> GetAllSongs()
+        public async static Task<List<SongInfo?>> GetAllSongs()
         {
             var result = client.GetAsync(GetSubUrlApi("get_all_songs")).Result;
             if (!result.IsSuccessStatusCode)
             {
                 return null;
             }
-            return await result.Content.ReadFromJsonAsync<SongInfo>();
+            return await result.Content.ReadFromJsonAsync<List<SongInfo?>>();
         }
 
-        public async static Task<SongInfo> Search(string parameter)
+        public async static Task<List<SongInfo>> Search(string parameter)
         {
             var result = client.GetAsync(GetSubUrlApi($"search/{parameter}")).Result;
             if (!result.IsSuccessStatusCode)
             {
                 return null;
             }
-            return await result.Content.ReadFromJsonAsync<SongInfo>();
+            return await result.Content.ReadFromJsonAsync<List<SongInfo>>();
         }
 
-        public async static Task<Playlist> GetAllPlaylists()
+        public async static Task<List<Playlist>> GetAllPlaylists()
         {
             var result = client.GetAsync(GetSubUrlApi("get_all_playlists")).Result;
             if (!result.IsSuccessStatusCode)
             {
                 return null;
             }
-            return await result.Content.ReadFromJsonAsync<Playlist>();
+            return await result.Content.ReadFromJsonAsync<List<Playlist>>();
         }
 
-        public async static Task<SongInfo> GetPlaylistSongs(int playlistID)
+        public async static Task<List<SongInfo>> GetPlaylistSongs(int playlistID)
         {
             var result = client.GetAsync(GetSubUrlApi($"get_playlist_songs/{playlistID}")).Result;
             if (!result.IsSuccessStatusCode)
             {
                 return null;
             }
-            return await result.Content.ReadFromJsonAsync<SongInfo>();
+            return await result.Content.ReadFromJsonAsync<List<SongInfo>>();
         }
 
         public async static Task<bool> DeleteSong(int songID)

@@ -27,10 +27,8 @@
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="1" Content="Track Name" VerticalAlignment="Center" Margin="0,0,0,110" HorizontalAlignment="Left"></Label>
-            <TextBox x:Name="songNameTextBox" Grid.Column="1" HorizontalAlignment="Left"  Width="160" VerticalAlignment="Center" Margin="5,0,0,60"></TextBox>
-            <Label Grid.Column="1" Content="Artist Name" VerticalAlignment="Center" Margin="0,7,0,0" HorizontalAlignment="Left"></Label>
-            <TextBox x:Name="artistNameTextBox" Grid.Column="1" HorizontalAlignment="Left"  Width="160" VerticalAlignment="Center" Margin="5,120,0,60"></TextBox>
+            <Label Grid.Column="1" Content="Track Name" VerticalAlignment="Top" Margin="0,69,0,0" HorizontalAlignment="Left"></Label>
+            <TextBox x:Name="songNameTextBox" Grid.Column="1" HorizontalAlignment="Left"  Width="160" VerticalAlignment="Center" Margin="6,0,0,0"></TextBox>
             <Label x:Name="fileLocationLabel" Grid.Column="1" Content="" VerticalAlignment="Top"  HorizontalAlignment="Center" Margin="0,155,0,0" Height="27" FontSize="10"></Label>
             <Button x:Name="browseButton" Click="browseTracksButton_Click" Style="{StaticResource roundedButtons}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="20" Width="60" Margin="0,190,0,0" FontSize="10">Browse</Button>
             <Button x:Name="browsePicture" Grid.Column="2" Content="+"  Click="browsePicture_Click" HorizontalAlignment="Right" Height="80" Width="80" VerticalAlignment="Center" ></Button>
