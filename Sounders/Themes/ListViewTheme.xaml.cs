@@ -13,8 +13,7 @@ namespace Sounders.Themes
     {
         private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService nav = NavigationService.GetNavigationService((Grid)((Image)sender).Parent);
-            nav.Navigate(new Uri(@"Views/HomePage.xaml", UriKind.Relative));
+   
 
         }
 

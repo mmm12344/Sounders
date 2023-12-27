@@ -208,7 +208,8 @@ namespace Sounders.Views
 
         private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
         {
-
+            Uri pageFunctionUri = new Uri(@"Views/AddPlaylistPage.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(pageFunctionUri);
         }
 
         private void likeItem_Click(object sender, RoutedEventArgs e)
@@ -222,6 +223,16 @@ namespace Sounders.Views
         }
 
         private void addToQueueItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void playPlaylistItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void openPlayList_Click(object sender, RoutedEventArgs e)
         {
 
         }
