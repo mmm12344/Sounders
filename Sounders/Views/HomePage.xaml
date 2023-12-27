@@ -41,14 +41,72 @@
 
             <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Tracks</Label>
             <ListView  Background="#2c2c2c" Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Grid.Row="1" x:Name="likedTracksList"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                
-            </ListView>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal">
+
+                            </StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl >
+                                    <StackPanel Width="90" Tag="{Binding songID}" MouseDown="LikedTracks_MouseDown">
+                                        <StackPanel.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem x:Name="addToPlaylistItem"  Header="Add PLayList" Click="addToPlaylistItem_Click" />
+
+                                                <MenuItem x:Name="likeItem" Header="Like" Click="likeItem_Click"/>
+                                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
+                                                <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click"/>
+                                            </ContextMenu>
+                                        </StackPanel.ContextMenu>
+                                        <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
+                                        <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                    </StackPanel>
+                                </ContentControl>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Tracks</Label>
           
             <ListView Grid.Row="3" x:Name="addedTracksList"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal">
 
+                            </StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
 
-            </ListView>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl >
+                                    <StackPanel Width="90" Tag="{Binding songID}" MouseDown="AddedTracks_MouseDown">
+                                        <StackPanel.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem x:Name="addToPlaylistItem"  Header="Add PLayList" Click="addToPlaylistItem_Click" />
+
+                                                <MenuItem x:Name="likeItem" Header="Like" Click="likeItem_Click"/>
+                                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
+                                                <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click"/>
+                                            </ContextMenu>
+                                        </StackPanel.ContextMenu>
+                                        <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
+                                        <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                    </StackPanel>
+                                </ContentControl>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
           
 
             <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Your Playlists</Label>
@@ -66,14 +124,14 @@
                           
                                     <StackPanel Orientation="Horizontal">
                                         <ContentControl >
-                                            <StackPanel Width="90" Tag="{Binding playlistID}">
+                                    <StackPanel Width="90" Tag="{Binding playlistID}" MouseDown="YourPlaylist_MouseDown">
                                                 <StackPanel.ContextMenu>
                                                     <ContextMenu>
-                                                        <MenuItem x:Name="addToPlaylistItem"  Header="Add PLayList" Click="addToPlaylistItem_Click" />
+                                                       
 
-                                                        <MenuItem x:Name="likeItem" Header="Like" Click="likeItem_Click"/>
-                                                        <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
-                                                        <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click"/>
+                                                      
+                                                        <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click"/>
+                                                        <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click"/>
                                                     </ContextMenu>
                                                 </StackPanel.ContextMenu>
                                                 <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
@@ -90,12 +148,71 @@
             <Label Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Tracks</Label>
                 <ListView Grid.Row="7" x:Name="exploreNewTracks"  Style="{StaticResource functionalRoundedList}"  HorizontalAlignment="Left" Width="600" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-            </ListView>
-            <Label Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Playlists</Label>
-                <ListView Grid.Row="9" x:Name="explorenewPlaylistsList"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal">
 
-               
-            </ListView>
+                            </StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl >
+                                    <StackPanel Width="90" Tag="{Binding songID}" MouseDown="ExploreNewTracks_MouseDown">
+                                        <StackPanel.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem x:Name="addToPlaylistItem"  Header="Add PLayList" Click="addToPlaylistItem_Click" />
+
+                                                <MenuItem x:Name="likeItem" Header="Like" Click="likeItem_Click"/>
+                                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
+                                                <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click"/>
+                                            </ContextMenu>
+                                        </StackPanel.ContextMenu>
+                                        <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
+                                        <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
+                                    </StackPanel>
+                                </ContentControl>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            <Label Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Playlists</Label>
+                <ListView Grid.Row="9" x:Name="explorenewPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal">
+
+                            </StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackPanel Orientation="Horizontal">
+                                <ContentControl >
+                                    <StackPanel Width="90" Tag="{Binding playlistID}" MouseDown="ExploreNewPlaylists_MouseDown">
+                                        <StackPanel.ContextMenu>
+                                            <ContextMenu>
+
+
+
+                                                <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click"/>
+                                                <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click"/>
+                                            </ContextMenu>
+                                        </StackPanel.ContextMenu>
+                                        <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
+                                        <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,10,0,0" />
+                                    </StackPanel>
+                                </ContentControl>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
            
         </Grid>
 

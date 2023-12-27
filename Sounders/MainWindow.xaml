@@ -179,9 +179,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
 
-                            <StackPanel Orientation="Horizontal">
-                                <Image  Width="40" Height="20" Source="{Binding SongPic}"/>
-                                <TextBlock  FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongName}" />
+                            <StackPanel Orientation="Horizontal" Tag="{Binding songID}">
+                                <Image  Width="40" Height="20" Source="{Binding songPic}"/>
+                                <TextBlock  FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding songName}" />
                             </StackPanel>
 
 

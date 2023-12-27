@@ -61,7 +61,7 @@ namespace Sounders
             }
 
 
-            mainFrame.Navigate(new HomePage());
+            mainFrame.Navigate(new HomePage(queueList));
 
 
    
@@ -144,7 +144,7 @@ namespace Sounders
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
             
-            mainFrame.Navigate(new HomePage());
+            mainFrame.Navigate(new HomePage(queueList));
           
         }
 

@@ -42,6 +42,24 @@ namespace Sounders
             return songPicData;
         }
 
+        public static List<SongData> GetListForQueue(List<SongData> lst, int songID)
+        {
+            List<SongData> processedList = new List<SongData>();
+            bool foundSong = false;
+            foreach (SongData item in lst)
+            {
+                if (songID == item.songId)
+                {
+                    foundSong = true;
+                }
+                if (foundSong)
+                {
+                    processedList.Add(item);
+                }
+            }
+            return processedList;
+        }
+
         public static bool CheckIfSignedIn()
         {
             int? userID = Settings.GetUserID();
