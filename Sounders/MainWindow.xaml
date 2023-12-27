@@ -127,7 +127,7 @@
                             <Setter Property="CornerRadius" Value="20"/>
                         </Style>
                     </Border.Resources>
-                    <Image Height="200" Width="200" Source="Static/Images/DefaultSoundTrack.jpeg"/>
+                    <Image x:Name="songPicture" Height="200" Width="200" Source="Static/Images/DefaultSoundTrack.jpeg"/>
                 </Border>
                 <Label FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Content="Now Playing :" VerticalAlignment="Top" Margin="5,20,0,0"  />
                 <TextBlock x:Name="songName" FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Text="Changable Song Name" TextTrimming="CharacterEllipsis"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,60"/>
@@ -161,9 +161,9 @@
                         <Image Height="20" Width="20" Source="Static/Images/Shuffle.png" />
                     </Button.Content>
                 </Button>
-                <Button  Background="Transparent" Width="30"  x:Name="likeButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,5,5" HorizontalAlignment="Right" >
+                <Button  Background="Transparent" Width="30"  x:Name="likeButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,5,5" HorizontalAlignment="Right" Click="LikeButton_Click" >
                     <Button.Content>
-                        <Image Height="20" Width="20" Source="Static/Images/WhiteHeart.png" />
+                        <Image x:Name="likeImage" Height="20" Width="20" Source="Static/Images/WhiteHeart.png" />
                     </Button.Content>
                 </Button>
                 <Border Grid.Column="1" Grid.Row="2" Margin="0,50,0,0" Background="#a68cc9">

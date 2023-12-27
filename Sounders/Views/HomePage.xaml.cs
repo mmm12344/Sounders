@@ -32,9 +32,9 @@ namespace Sounders.Views
         private List<SongData> ownSongs = new List<SongData>();
         private List<SongData> allSongs = new List<SongData>();
 
-        private ListView queueList;
+        private MainWindow mainWindow;
          //Test
-        public HomePage(ListView queueList)
+        public HomePage(MainWindow mainWindow)
         {
             InitializeComponent();
 
@@ -45,8 +45,9 @@ namespace Sounders.Views
             AddAllSongs();
             AddOwnSongs();
             AddOwnPlaylist();
+            AddAllPlaylist();
 
-            this.queueList = queueList;
+            this.mainWindow = mainWindow;
         }
 
 
@@ -100,7 +101,7 @@ namespace Sounders.Views
 
         private void AddOwnPlaylist()
         {
-            List<Playlist> result = ApiRequests.GetAllPlaylists().Result;
+            List<Playlist> result = ApiRequests.GetOwnPlaylists().Result;
             if (result != null)
             {
 
@@ -111,6 +112,29 @@ namespace Sounders.Views
                         var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
                         var toAdd = new {playlistID = Convert.ToString(playlist.playlistID),playlistName = playlist.name, playlistPic = playlistPicture };
                         YourPlaylists.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
+        }
+
+        private void AddAllPlaylist()
+        {
+            List<Playlist> result = ApiRequests.GetAllPlaylists().Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (Playlist playlist in result)
+                    {
+                        var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
+                        var toAdd = new { playlistID = Convert.ToString(playlist.playlistID), playlistName = playlist.name, playlistPic = playlistPicture };
+                        explorenewPlaylists.Items.Add(toAdd);
                     }
                 }
                 catch
@@ -243,32 +267,28 @@ namespace Sounders.Views
 
         }
 
-
-        private void AddSongsToQueueList(List<SongData> songs)
-        {
-
-        }
-
-
         private void LikedTracks_MouseDown(object sender, MouseEventArgs e)
         {
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
-            PlayerQueue queue = new PlayerQueue(queueList);
+            PlayerQueue queue = new PlayerQueue(mainWindow);
             queue.EnqueueFromList(HelperMethods.GetListForQueue(likedSongs, songID));
+            queue.AddCurrentSongToPlayer();
         }
 
         private void AddedTracks_MouseDown(object sender, MouseEventArgs e)
         {
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
-            PlayerQueue queue = new PlayerQueue(queueList);
+            PlayerQueue queue = new PlayerQueue(mainWindow);
             queue.EnqueueFromList(HelperMethods.GetListForQueue(ownSongs, songID));
+            queue.AddCurrentSongToPlayer();
         }
 
         private void ExploreNewTracks_MouseDown(object sender, MouseEventArgs e)
         {
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
-            PlayerQueue queue = new PlayerQueue(queueList);
+            PlayerQueue queue = new PlayerQueue(mainWindow);
             queue.EnqueueFromList(HelperMethods.GetListForQueue(allSongs, songID));
+            queue.AddCurrentSongToPlayer();
         }
 
         private void YourPlaylist_MouseDown(object sender, MouseEventArgs e)

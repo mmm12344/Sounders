@@ -260,6 +260,7 @@
     <Resource Include="Static\Images\ScrollIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Static\Images\RedHeart.png" />
     <Content Include="Test\Test.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -17,7 +17,7 @@ namespace MusicPlayerGUI
     public record UserSignUp(string firstName, string lastName, string email, string password);
     public record UserSignIn(string email, string password);
     public record SongInfo(int songID, string name, byte[] picture);
-    public record Song(int songID, string Name, byte[] file, int likes, byte[] picture);
+    public record Song(int songID, string name, byte[] file, int likes, byte[] picture);
     public record PostSong(string name, byte[] file, byte[] picture);
     public record Playlist(int playlistID, string name, byte[] picture);
     public record PostPlaylist(string name, byte[] picture);
@@ -157,6 +157,18 @@ namespace MusicPlayerGUI
             return await result.Content.ReadFromJsonAsync<List<Playlist>>();
         }
 
+        public async static Task<List<Playlist>> GetOwnPlaylists()
+        {
+            if (!IsLive().Result)
+                return null;
+            var result = client.GetAsync(GetSubUrlApi("get_own_playlists")).Result;
+            if (!result.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            return await result.Content.ReadFromJsonAsync<List<Playlist>>();
+        }
+
         public async static Task<List<SongInfo>> GetPlaylistSongs(int playlistID)
         {
             if (!IsLive().Result)
@@ -227,6 +239,18 @@ namespace MusicPlayerGUI
                 return false;
             }
             return true;
+        }
+
+        public async static Task<bool> IsLiked(int songID)
+        {
+            if (!IsLive().Result)
+                return false;
+            var result = client.GetAsync(GetSubUrlApi($"is_liked/{songID}")).Result;
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return await result.Content.ReadFromJsonAsync<bool>();
         }
 
     }

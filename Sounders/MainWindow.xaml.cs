@@ -1,4 +1,5 @@
-﻿using MusicPlayerGUI.settings;
+﻿using MusicPlayerGUI;
+using MusicPlayerGUI.settings;
 using Sounders.Views;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,7 @@ namespace Sounders
             }
 
 
-            mainFrame.Navigate(new HomePage(queueList));
+            mainFrame.Navigate(new HomePage(this));
 
 
    
@@ -144,7 +145,7 @@ namespace Sounders
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
             
-            mainFrame.Navigate(new HomePage(queueList));
+            mainFrame.Navigate(new HomePage(this));
           
         }
 
@@ -176,6 +177,21 @@ namespace Sounders
             mainFrame.Navigate(new AddTrackorPlaylist());
             
              
+        }
+
+        private void LikeButton_Click(Object sender, RoutedEventArgs e)
+        {
+            var result = ApiRequests.AddLikeToSong(Convert.ToInt32(likeImage.Tag)).Result;
+            if (!result)
+            {
+                HelperMethods.ErrorMessage("Could not add Like, Please Try Again.");
+                return;
+            }
+            Image image = new Image();
+            image.Source = new BitmapImage(new Uri("Static/Images/RedHeart.png", UriKind.Relative));
+            image.Height = 20;
+            image.Width = 20;
+            likeButton.Content = image;
         }
     }
 }

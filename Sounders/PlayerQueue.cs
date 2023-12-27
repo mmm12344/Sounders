@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sounders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,17 @@ namespace MusicPlayerGUI
     {
         private List<SongData> songData = new List<SongData>();
         private ListView queueList;
+        private Image songPicture;
+        private TextBlock songName;
+        private Button likeButton;
 
-        public PlayerQueue(ListView queueList)
+        public PlayerQueue(MainWindow mainWindow)
         {
-            queueList.Items.Clear();
-            this.queueList = queueList;
+            mainWindow.queueList.Items.Clear();
+            this.queueList = mainWindow.queueList;
+            this.songPicture = mainWindow.songPicture;
+            this.songName = mainWindow.songName;
+            this.likeButton = mainWindow.likeButton;
         }
 
         public void Enqueue(SongData item)
@@ -47,7 +54,6 @@ namespace MusicPlayerGUI
             {
                 SongData temp = songData[0];
                 songData.RemoveAt(0);
-                queueList.Items.RemoveAt(0);
                 return temp;
             }
 
@@ -115,6 +121,39 @@ namespace MusicPlayerGUI
 
             return songData;
 
+        }
+
+        public void AddCurrentSongToPlayer()
+        {
+            var result = ApiRequests.GetSong(Peek().songId).Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    songPicture.Source = HelperMethods.GetBitmapImgFromBytes(result.picture);
+                    songName.Text = result.name;
+                    likeButton.Tag = Convert.ToString(Peek().songId);
+                    bool isLiked = ApiRequests.IsLiked(Peek().songId).Result;
+                    Image image = new Image();
+                    image.Height = 20;
+                    image.Width = 20;
+                    if (isLiked)
+                    {
+                        image.Source = new BitmapImage(new Uri("Static/Images/RedHeart.png", UriKind.Relative));
+                        likeButton.Content = image;
+                    }
+                    else
+                    {
+                        image.Source = new BitmapImage(new Uri("Static/Images/WhiteHeart.png", UriKind.Relative));
+                        likeButton.Content = image;
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                }
+            }
         }
     }
 }
