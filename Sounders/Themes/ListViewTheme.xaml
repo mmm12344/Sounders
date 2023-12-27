@@ -30,7 +30,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <ContentControl >
-                                <StackPanel Width="90">
+                                <StackPanel Width="90" Tag="{Binding songID}">
                                     <StackPanel.ContextMenu>
                                         <ContextMenu>
                                             <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click"/>

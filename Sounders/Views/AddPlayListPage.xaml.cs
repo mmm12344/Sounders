@@ -38,8 +38,10 @@ namespace Sounders.Views
                     foreach (SongInfo song in result)
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+
                         var toAdd = new { songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
                         AddedTracksList.Items.Add(toAdd);
+
                     }
                 }
                 catch
