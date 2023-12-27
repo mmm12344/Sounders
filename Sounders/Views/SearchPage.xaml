@@ -26,15 +26,15 @@
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" FontSize="32" VerticalAlignment="Center" FontWeight="Bold">Search Results</Label>
-        <ListView Grid.Row="1" x:Name="homeList" Background="#1e1e1e" HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch" AllowDrop="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+        <ListView Grid.Row="1" x:Name="searchResultsList" Background="#1e1e1e" HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch" AllowDrop="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" >
 
 
             <ListView.ItemTemplate>
                 <DataTemplate>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Image  Width="80" Height="30" Source="{Binding SongPic}"/>
-                        <TextBlock  FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongName}" />
+                    <StackPanel Orientation="Horizontal" Tag="{Binding songID}">
+                        <Image  Width="80" Height="30" Source="{Binding songPic}"/>
+                        <TextBlock  FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding songName}" />
                     </StackPanel>
 
 

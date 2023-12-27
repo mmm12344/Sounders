@@ -32,7 +32,7 @@
             </Grid.ColumnDefinitions>
           
                 <Label Grid.Column="1"  Content="PlayList Name" VerticalAlignment="Center" Margin="0,0,0,50" HorizontalAlignment="Left"></Label>
-                <TextBox Grid.Column="1"   HorizontalAlignment="Left"  Width="160" VerticalAlignment="Center" Margin="4,0,0,0"></TextBox>
+                <TextBox x:Name="playlistNameTextBox" Grid.Column="1"   HorizontalAlignment="Left"  Width="160" VerticalAlignment="Center" Margin="4,0,0,0"></TextBox>
             <Button  x:Name="browsePictureButton" Click="browsePictureButton_Click" Grid.Column="2" Content="+"  HorizontalAlignment="Right" Margin="0,7,4,0" Height="80" Width="80" VerticalAlignment="Center" ></Button>
             <Label Grid.Column="2" Content="Add PlayList Picture"  HorizontalAlignment="Right"   VerticalAlignment="Center" Margin="0,120,0,0" FontSize="9"></Label>
         </Grid>
@@ -56,7 +56,7 @@
                                 <StackPanel VerticalAlignment="Stretch" Width="90">
                                     <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
                                     <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
-                                    <Button x:Name="addToPlaylist" Height="20" Width="40" Margin="0,3,0,0">Add</Button>
+                                    <Button x:Name="addToPlaylist" Height="20" Width="40" Margin="0,3,0,0" Tag="{Binding songID}">Add</Button>
                                 </StackPanel>
                             </ContentControl>
                         </StackPanel>
@@ -67,6 +67,6 @@
         </StackPanel>
     
        
-        <Button x:Name="createButton" Grid.Row="4"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Create" FontSize="10"/>
+        <Button x:Name="createButton" Grid.Row="4"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Create" FontSize="10" Click="CreateButton_Click"/>
     </Grid>
 </Page>

@@ -38,7 +38,7 @@ namespace Sounders.Views
                     foreach (SongInfo song in result)
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
-                        var toAdd = new { songName = song.name, songPic = songPicture };
+                        var toAdd = new { songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
                         AddedTracksList.Items.Add(toAdd);
                     }
                 }
@@ -69,5 +69,24 @@ namespace Sounders.Views
 
             }
         }
+
+        
+
+        private void CreateButton_Click(Object sender, RoutedEventArgs e)
+        {
+            string addPlaylist = playlistNameTextBox.Text;
+            if(addPlaylist.Length > 0 && playListPic != null)
+            {
+                byte[] playlistPicData = HelperMethods.GetBytesFromBitmapImg(playListPic);
+                var result = ApiRequests.AddPLaylist(new PostPlaylist(addPlaylist, playlistPicData)).Result;
+                if (!result)
+                {
+                    HelperMethods.ErrorMessage("Could not Create Playlist, Please Try Again.");
+                    return;
+                }
+                HelperMethods.SuccessMessage("Created Playlist Successfully!");
+            }
+        }
+
     }
 }
