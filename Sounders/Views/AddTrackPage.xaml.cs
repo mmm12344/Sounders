@@ -77,13 +77,7 @@ namespace Sounders.Views
                 byte[] songData;
                 try
                 {
-                    JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-                    encoder.Frames.Add(BitmapFrame.Create(songPic));
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        encoder.Save(ms);
-                        songPicData = ms.ToArray();
-                    }
+                    songPicData = HelperMethods.GetBytesFromBitmapImg(songPic);
                     songData = File.ReadAllBytes(fileLocation);
 
                 }

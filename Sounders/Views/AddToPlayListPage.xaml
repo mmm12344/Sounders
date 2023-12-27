@@ -1,0 +1,72 @@
+﻿<Page x:Class="Sounders.Views.AddToPlayListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sounders.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="615.6" d:DesignWidth="704"
+      Title="AddToPlayListPage">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/ListViewTheme.xaml"/>
+                <ResourceDictionary Source="/Themes/RoundedButtonsTheme.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </Page.Resources>
+    <Grid Background="#0a0a0a">
+        <Grid.RowDefinitions>
+         
+            <RowDefinition Height="0.30*"/>
+          
+            <RowDefinition Height="0.40*"/>
+           
+          
+            <RowDefinition Height="0.30*"/>
+
+
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Create New PlayList" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold"/>
+        <ListView Grid.Row="1" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal">
+
+                    </StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl >
+                            <StackPanel Width="90" Tag="{Binding playlistID}">
+                                <StackPanel.ContextMenu>
+                                    <ContextMenu>
+
+
+
+                                        <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click"/>
+                                        <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click"/>
+                                    </ContextMenu>
+                                </StackPanel.ContextMenu>
+                                <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
+                                <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,10,0,0" />
+                                <Button x:Name="addToPlaylist" Style="{StaticResource roundedButtons}" Width="30" Height="20">Add</Button>
+                            </StackPanel>
+                        </ContentControl>
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+
+        <Button x:Name="createButton" Grid.Row="2"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Add" FontSize="10"/>
+    </Grid>
+</Page>

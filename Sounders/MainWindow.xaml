@@ -33,7 +33,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                <TextBox x:Name="searchBar" LostKeyboardFocus="searchBar_LostKeyboardFocus" GotKeyboardFocus="searchBar_GotKeyboardFocus"  Text="Search" Width="200" Height="20" Margin="5,0,0,0"/>
+                <TextBox x:Name="searchBar"   Text="Search" Width="200" Height="20" Margin="5,0,0,0"/>
                 <Button x:Name="searchButton" Style="{StaticResource roundedButtons}" Click="searchButton_Click" Margin="10,0,0,0" Background="Transparent">
                     <Button.Content>
                         <Image RenderOptions.BitmapScalingMode="HighQuality" Height="20" Width="30" Source="Static/Images/SearchIcon (2).png"/>
@@ -179,9 +179,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
 
-                            <StackPanel Orientation="Horizontal">
-                                <Image  Width="40" Height="20" Source="{Binding SongPic}"/>
-                                <TextBlock  FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongName}" />
+                            <StackPanel Orientation="Horizontal" Tag="{Binding songID}">
+                                <Image  Width="40" Height="20" Source="{Binding songPic}"/>
+                                <TextBlock  FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding songName}" />
                             </StackPanel>
 
 

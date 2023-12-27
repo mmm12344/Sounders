@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -13,12 +14,29 @@ namespace MusicPlayerGUI
     class PlayerQueue
     {
         private List<SongData> songData = new List<SongData>();
+        private ListView queueList;
 
-        public void Enqueue(SongData recentlyAddedItem)
+        public PlayerQueue(ListView queueList)
+        {
+            queueList.Items.Clear();
+            this.queueList = queueList;
+        }
+
+        public void Enqueue(SongData item)
         {
 
-            songData.Add(recentlyAddedItem);
+            songData.Add(item);
+            queueList.Items.Add(new { songID = Convert.ToString(item.songId), songName = item.songName, songPic = item.songImage });
         }
+
+        public void EnqueueFromList(List<SongData> items)
+        {
+            foreach (SongData item in items)
+            {
+                Enqueue(item);
+            }
+        }
+
         public SongData Dequeue()
         {
             if (songData.Count == 0)
@@ -29,6 +47,7 @@ namespace MusicPlayerGUI
             {
                 SongData temp = songData[0];
                 songData.RemoveAt(0);
+                queueList.Items.RemoveAt(0);
                 return temp;
             }
 
