@@ -93,6 +93,9 @@
     <Compile Include="SigninSignUpWindow.xaml.cs">
       <DependentUpon>SigninSignUpWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Themes\ListViewTheme.xaml.cs">
+      <DependentUpon>ListViewTheme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AccountSettingsPage.xaml.cs">
       <DependentUpon>AccountSettingsPage.xaml</DependentUpon>
     </Compile>
@@ -245,6 +248,9 @@
     <Resource Include="Static\Images\UserIcon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Static\Images\ScrollIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Test\Test.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
