@@ -22,18 +22,18 @@
         <Label Grid.Row="1" Content="Add Track" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.10*"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.10*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="1" Content="Track Name" VerticalAlignment="Top" Margin="0,69,0,0" HorizontalAlignment="Left"></Label>
-            <TextBox x:Name="songNameTextBox" Grid.Column="1" HorizontalAlignment="Left"  Width="160" VerticalAlignment="Center" Margin="6,0,0,0"></TextBox>
+            <TextBox x:Name="songNameTextBox" Grid.Column="1" HorizontalAlignment="Left"  FontSize="18" Height="25" Width="250" VerticalAlignment="Center" Margin="6,0,0,0"></TextBox>
             <Label x:Name="fileLocationLabel" Grid.Column="1" Content="" VerticalAlignment="Top"  HorizontalAlignment="Center" Margin="0,155,0,0" Height="27" FontSize="10"></Label>
-            <Button x:Name="browseButton" Click="browseTracksButton_Click" Style="{StaticResource roundedButtons}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="20" Width="60" Margin="0,190,0,0" FontSize="10">Browse</Button>
-            <Button x:Name="browsePicture" Grid.Column="2" Content="+"  Click="browsePicture_Click" HorizontalAlignment="Right" Height="80" Width="80" VerticalAlignment="Center" ></Button>
-            <Label Grid.Column="2" Content="Add Track Picture"  HorizontalAlignment="Right"  VerticalAlignment="Center" Margin="0,110,0,0" FontSize="9"></Label>
+            <Button x:Name="browseButton" Click="browseTracksButton_Click" Style="{StaticResource roundedButtons}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="80" Margin="0,190,0,0" FontSize="10">Browse</Button>
+            <Button x:Name="browsePicture" Grid.Column="2" Content="+"  Click="browsePicture_Click" HorizontalAlignment="Center" Height="120" Width="120" VerticalAlignment="Center" ></Button>
+            <Label Grid.Column="2" Content="Add Track Picture"  HorizontalAlignment="Center"   VerticalAlignment="Center" Margin="0,160,0,0" FontSize="15"></Label>
         </Grid>
-        <Button Grid.Row="3"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Upload" FontSize="10" Click="UploadButton_Click"/>
+        <Button Grid.Row="3"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" FontWeight="Thin" Width="80" Content="Upload" FontSize="10" Click="UploadButton_Click"/>
     </Grid>
 </Page>

@@ -156,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\StackPanelTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AccountSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -261,6 +265,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Static\Images\RedHeart.png" />
+    <Resource Include="Static\Images\Homeicon2.png" />
+    <Resource Include="Static\Images\Uploadicon2.png" />
     <Content Include="Test\Test.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

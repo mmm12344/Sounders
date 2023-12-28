@@ -27,17 +27,17 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Sign In" Foreground="Black" FontSize="32"  HorizontalAlignment="Center" Margin="0,0,0,0"/>
             <TextBlock  Text="E-mail" Foreground="Black" Margin="0,10,0,5"/>
-            <TextBox  x:Name="emailTextBox"  Foreground="Black" >
+            <TextBox  x:Name="emailTextBox" FontSize="18" Height="25" Width="250" Foreground="Black" >
 
             </TextBox>
             <TextBlock Text="Password" Foreground="Black" Margin="0,10,0,5" />
-            <PasswordBox x:Name="passwordTextBox"  Foreground="Black" >
+            <PasswordBox x:Name="passwordTextBox" FontSize="18" Height="25" Width="250" Foreground="Black" >
 
             </PasswordBox>
 
-            <TextBlock FontSize="10" Foreground="Gray" Text="" Margin="0,10,0,0" > If You Don't have an account please  <Span><Hyperlink NavigateUri="Signuppage.xaml">sign up</Hyperlink></Span></TextBlock>
-            <Button Style="{StaticResource roundedButtons}" Content="Sign in" Margin="0,10,0,0" Width="80" Click="signinButton_Click"/>
-            <TextBlock TextWrapping="Wrap"/>
+            <TextBlock FontSize="12" Foreground="Gray" Text="" Margin="0,10,0,0" > If You Don't have an account please  <Span><Hyperlink NavigateUri="Signuppage.xaml">sign up</Hyperlink></Span></TextBlock>
+            <Button Style="{StaticResource roundedButtons}" Content="Sign in" Height="25" Margin="0,10,0,0" Width="80" Click="signinButton_Click"/>
+           
 
 
         </StackPanel>
