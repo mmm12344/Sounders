@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayerGUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,20 +21,49 @@ namespace Sounders.Views
     /// </summary>
     public partial class AddToPlayListPage : Page
     {
-        public AddToPlayListPage()
+        int songID;
+        MainWindow mainWindow;
+        public AddToPlayListPage(MainWindow mainWindow, int songID)
         {
             InitializeComponent();
+            this.songID = songID;
+            this.mainWindow = mainWindow;
+
+            List<Playlist> result = ApiRequests.GetOwnPlaylists().Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (Playlist playlist in result)
+                    {
+                        var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
+                        var toAdd = new { playlistID = Convert.ToString(playlist.playlistID), playlistName = playlist.name, playlistPic = playlistPicture };
+                        YourPlaylists.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
         }
 
-        private void openPlayList_Click(object sender, RoutedEventArgs e)
+        public void AddToPlaylist_Click(Object sender, RoutedEventArgs e)
         {
-            Uri pageFunctionUri = new Uri(@"Views/PlaylistPage.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(pageFunctionUri);
+            int playlistID = Convert.ToInt32(((Button)sender).Tag);
+            var result = ApiRequests.AddSongToPlaylist(playlistID, songID).Result;
+            if (result)
+            {
+                HelperMethods.SuccessMessage("Added Song to Playlist!");
+                mainWindow.mainFrame.Navigate(new HomePage(mainWindow));
+            }
+            else
+            {
+                HelperMethods.ErrorMessage("Could not Add Song to Playlist, Please Try Again.");
+            }
         }
 
-        private void playPlaylistItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -20,15 +20,16 @@ namespace Sounders.Views
     /// </summary>
     public partial class AddTrackorPlaylist : Page
     {
-        public AddTrackorPlaylist()
+        MainWindow mainWindow;
+        public AddTrackorPlaylist(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
         }
 
         private void createNewPlaylistToPage_Click(object sender, RoutedEventArgs e)
         {
-            Uri pageFunctionUri = new Uri(@"Views/AddPlaylistPage.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(pageFunctionUri);
+            this.NavigationService.Navigate(new AddPlayListPage(mainWindow));
 
         }
 
@@ -36,8 +37,8 @@ namespace Sounders.Views
 
         private void addTracksToPage_Click(object sender, RoutedEventArgs e)
         {
-            Uri pageFunctionUri = new Uri(@"Views/AddTrackPage.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(pageFunctionUri);
+            
+            this.NavigationService.Navigate(new AddTrackPage(mainWindow));
            
         }
        

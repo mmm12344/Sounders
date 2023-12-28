@@ -24,32 +24,12 @@ namespace Sounders.Views
     {
         private BitmapImage playListPic = null;
 
-        
-        public AddPlayListPage()
+        MainWindow mainWindow;
+        public AddPlayListPage(MainWindow mainWindow)
         {
             InitializeComponent();
 
-            List<SongInfo> result = ApiRequests.GetOwnSongs().Result;
-            if (result != null)
-            {
-
-                try
-                {
-                    foreach (SongInfo song in result)
-                    {
-                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
-
-                        var toAdd = new { songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
-                        AddedTracksList.Items.Add(toAdd);
-
-                    }
-                }
-                catch
-                {
-                    HelperMethods.ErrorMessage("Error, Please Try Again.");
-                    return;
-                }
-            }
+            this.mainWindow = mainWindow;
 
         }
 
@@ -87,6 +67,7 @@ namespace Sounders.Views
                     return;
                 }
                 HelperMethods.SuccessMessage("Created Playlist Successfully!");
+                mainWindow.mainFrame.Navigate(new HomePage(mainWindow));
             }
         }
 

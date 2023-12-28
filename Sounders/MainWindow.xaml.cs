@@ -174,7 +174,7 @@ namespace Sounders
         {
           
 
-            mainFrame.Navigate(new AddTrackorPlaylist());
+            mainFrame.Navigate(new AddTrackorPlaylist(this));
             
              
         }

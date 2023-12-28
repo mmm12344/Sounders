@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicPlayerGUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,39 @@ namespace Sounders.Views
     /// </summary>
     public partial class PlaylistPage : Page
     {
-        public PlaylistPage()
+        private List<SongData> playlistSongs = new List<SongData>();
+        public PlaylistPage(Playlist playlist)
         {
             InitializeComponent();
+            playlistImage.Source = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
+            this.playlistName.Text = playlist.name;
+
+            List<SongInfo> result = ApiRequests.GetPlaylistSongs(playlist.playlistID).Result;
+            if (result != null)
+            {
+
+                try
+                {
+                    foreach (SongInfo song in result)
+                    {
+                        var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
+                        var toAdd = new { songID = Convert.ToString(song.songID), songName = song.name, songPic = songPicture };
+                        playlistSongs.Add(new SongData(song.songID, song.name, songPicture));
+                        playlistSongsList.Items.Add(toAdd);
+                    }
+                }
+                catch
+                {
+                    HelperMethods.ErrorMessage("Error, Please Try Again.");
+                    return;
+                }
+            }
+
         }
 
         private void playItem_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void removeFromPLaylist_Click(object sender, RoutedEventArgs e)

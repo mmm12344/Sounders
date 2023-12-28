@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,12 +27,13 @@ namespace Sounders.Views
     /// </summary>
     public partial class AddTrackPage : Page
     {
-
+        MainWindow mainWindow;
         private BitmapImage songPic = null;
         private string fileLocation = null;
-        public AddTrackPage()
+        public AddTrackPage(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
         }
 
         private void browseTracksButton_Click(object sender, RoutedEventArgs e)
@@ -93,6 +95,7 @@ namespace Sounders.Views
                     return;
                 }
                 HelperMethods.SuccessMessage("Posted Song Successfully!");
+                mainWindow.mainFrame.Navigate(new HomePage(mainWindow));
                 
             }
         }

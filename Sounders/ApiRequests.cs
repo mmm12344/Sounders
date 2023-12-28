@@ -253,5 +253,17 @@ namespace MusicPlayerGUI
             return await result.Content.ReadFromJsonAsync<bool>();
         }
 
+        public async static Task<bool> AddSongToPlaylist(int playlistID, int songID)
+        {
+            if (!IsLive().Result)
+                return false;
+            var result = client.PostAsync(GetSubUrlApi("add_song_to_playlist"),GetContentAsJson( new {playlistID = playlistID, songID = songID })).Result;
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

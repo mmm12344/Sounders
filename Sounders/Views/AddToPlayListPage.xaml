@@ -45,18 +45,10 @@
                     <StackPanel Orientation="Horizontal">
                         <ContentControl >
                             <StackPanel Width="90" Tag="{Binding playlistID}">
-                                <StackPanel.ContextMenu>
-                                    <ContextMenu>
-
-
-
-                                        <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click"/>
-                                        <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click"/>
-                                    </ContextMenu>
-                                </StackPanel.ContextMenu>
+                                
                                 <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
                                 <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,10,0,0" />
-                                <Button x:Name="addToPlaylist" Style="{StaticResource roundedButtons}" Width="30" Height="20">Add</Button>
+                                <Button x:Name="addToPlaylist" Style="{StaticResource roundedButtons}" Width="30" Height="20" Tag="{Binding playlistID}" Click="AddToPlaylist_Click">Add</Button>
                             </StackPanel>
                         </ContentControl>
                     </StackPanel>
@@ -67,6 +59,6 @@
         </ListView>
 
 
-        <Button x:Name="createButton" Grid.Row="2"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Add" FontSize="10"/>
+  
     </Grid>
 </Page>

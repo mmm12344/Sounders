@@ -90,11 +90,11 @@
                                     <StackPanel Width="90" Tag="{Binding songID}" MouseDown="AddedTracks_MouseDown">
                                         <StackPanel.ContextMenu>
                                             <ContextMenu>
-                                                <MenuItem x:Name="addToPlaylistItem"  Header="Add PLayList" Click="addToPlaylistItem_Click" />
+                                                <MenuItem x:Name="addToPlaylistItem"  Header="Add PLayList" Click="addToPlaylistItem_Click" Tag="{Binding songID}" />
 
-                                                <MenuItem x:Name="likeItem" Header="Like" Click="likeItem_Click"/>
-                                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
-                                                <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click"/>
+                                                <MenuItem x:Name="likeItem" Header="Like" Click="likeItem_Click" Tag="{Binding songID}"/>
+                                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click" Tag="{Binding songID}"/>
+                                                <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click" Tag="{Binding songID}"/>
                                             </ContextMenu>
                                         </StackPanel.ContextMenu>
                                         <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
@@ -127,11 +127,11 @@
                                     <StackPanel Width="90" Tag="{Binding playlistID}" MouseDown="YourPlaylist_MouseDown">
                                                 <StackPanel.ContextMenu>
                                                     <ContextMenu>
-                                                       
 
-                                                      
-                                                        <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click"/>
-                                                        <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click"/>
+
+
+                                                <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click" Tag="{Binding playlistID}"/>
+                                                <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click" Tag="{Binding playlistID}"/>
                                                     </ContextMenu>
                                                 </StackPanel.ContextMenu>
                                                 <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
@@ -163,11 +163,11 @@
                                     <StackPanel Width="90" Tag="{Binding songID}" MouseDown="ExploreNewTracks_MouseDown">
                                         <StackPanel.ContextMenu>
                                             <ContextMenu>
-                                                <MenuItem x:Name="addToPlaylistItem"  Header="Add PLayList" Click="addToPlaylistItem_Click" />
+                                                <MenuItem x:Name="addToPlaylistItem"  Header="Add PLayList" Click="addToPlaylistItem_Click" Tag="{Binding songID}"/>
 
-                                                <MenuItem x:Name="likeItem" Header="Like" Click="likeItem_Click"/>
-                                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
-                                                <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click"/>
+                                                <MenuItem x:Name="likeItem" Header="Like" Click="likeItem_Click" Tag="{Binding songID}"/>
+                                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click" Tag="{Binding songID}"/>
+                                                <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click" Tag="{Binding songID}"/>
                                             </ContextMenu>
                                         </StackPanel.ContextMenu>
                                         <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
@@ -200,8 +200,8 @@
 
 
 
-                                                <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click"/>
-                                                <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click"/>
+                                                <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click" Tag="{Binding playlistID}"/>
+                                                <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click" Tag="{Binding playlistID}"/>
                                             </ContextMenu>
                                         </StackPanel.ContextMenu>
                                         <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>

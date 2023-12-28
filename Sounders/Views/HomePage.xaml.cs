@@ -31,6 +31,8 @@ namespace Sounders.Views
         private List<SongData> likedSongs = new List<SongData>();
         private List<SongData> ownSongs = new List<SongData>();
         private List<SongData> allSongs = new List<SongData>();
+        private List<Playlist> yourPlaylists = new List<Playlist>();
+        private List<Playlist> allPlaylists = new List<Playlist>();
 
         private MainWindow mainWindow;
          //Test
@@ -111,6 +113,7 @@ namespace Sounders.Views
                     {
                         var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
                         var toAdd = new {playlistID = Convert.ToString(playlist.playlistID),playlistName = playlist.name, playlistPic = playlistPicture };
+                        yourPlaylists.Add(playlist);
                         YourPlaylists.Items.Add(toAdd);
                     }
                 }
@@ -134,6 +137,7 @@ namespace Sounders.Views
                     {
                         var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
                         var toAdd = new { playlistID = Convert.ToString(playlist.playlistID), playlistName = playlist.name, playlistPic = playlistPicture };
+                        allPlaylists.Add(playlist);
                         explorenewPlaylists.Items.Add(toAdd);
                     }
                 }
@@ -238,8 +242,8 @@ namespace Sounders.Views
 
         private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
         {
-            Uri pageFunctionUri = new Uri(@"Views/AddPlaylistPage.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(pageFunctionUri);
+            int playlistID = Convert.ToInt32(((MenuItem)sender).Tag);
+            mainWindow.mainFrame.Navigate(new AddToPlayListPage(mainWindow,playlistID));
         }
 
         private void likeItem_Click(object sender, RoutedEventArgs e)
@@ -293,12 +297,32 @@ namespace Sounders.Views
 
         private void YourPlaylist_MouseDown(object sender, MouseEventArgs e)
         {
-
+            int playlistID = Convert.ToInt32(((StackPanel)sender).Tag);
+            Playlist playlist = null;
+            foreach(Playlist p in yourPlaylists)
+            {
+                if(p.playlistID == playlistID)
+                {
+                    playlist = p;
+                    break;
+                }
+            }
+            mainWindow.mainFrame.Navigate(new PlaylistPage(playlist));
         }
 
         private void ExploreNewPlaylists_MouseDown(object sender, MouseEventArgs e)
         {
-
+            int playlistID = Convert.ToInt32(((StackPanel)sender).Tag);
+            Playlist playlist = null;
+            foreach (Playlist p in allPlaylists)
+            {
+                if (p.playlistID == playlistID)
+                {
+                    playlist = p;
+                    break;
+                }
+            }
+            mainWindow.mainFrame.Navigate(new PlaylistPage(playlist));
         }
     }
 }

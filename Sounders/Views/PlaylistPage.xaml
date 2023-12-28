@@ -42,12 +42,12 @@
             </Grid.ColumnDefinitions>
 
 
-            <Image Grid.Column="0"  VerticalAlignment="Stretch" Source="/Static/Images/DefaultSoundTrack.jpeg"/>
+            <Image x:Name="playlistImage"  Grid.Column="0"  VerticalAlignment="Stretch" Source="/Static/Images/DefaultSoundTrack.jpeg"/>
             <TextBlock x:Name="playlistName" Text="{Binding PlaylistName}" Grid.Column="3" Foreground="Black" FontWeight="UltraBold"   FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Center" >Playlist Name</TextBlock>
             <Button x:Name="listenButton" Grid.Column="2" Height="22" Width="90" Style="{StaticResource roundedButtons}" HorizontalAlignment="Left" Margin="0,120,0,0" FontWeight="Black">Listen</Button>
         
         </Grid>
-        <ListView Style="{StaticResource Rounded}" Grid.Row="3" Grid.Column="1" x:Name="homeList" Background="#ede9e9" HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch"  AllowDrop="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListView  x:Name="playlistSongsList" Style="{StaticResource Rounded}" Grid.Row="3" Grid.Column="1"  Background="#ede9e9" HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch"  AllowDrop="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
 
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -56,11 +56,11 @@
                         <StackPanel.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
-                                <MenuItem x:Name="removeFromPLaylist" Header="Remove" Click="removeFromPLaylist_Click"/>
+                                <MenuItem x:Name="removeFromPLaylist" Header="Remove" Click="removeFromPLaylist_Click" Tag="{Binding songID}"/>
                             </ContextMenu>
                         </StackPanel.ContextMenu>
-                        <Image Margin="10,0,0,0"  Width="20" Height="30" Source="{Binding SongPic}"/>
-                        <TextBlock Margin="5,0,0,0"  FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding SongName}" />
+                        <Image Margin="10,0,0,0"  Width="20" Height="30" Source="{Binding songPic}"/>
+                        <TextBlock Margin="5,0,0,0"  FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding songName}" />
 
                        
                     </StackPanel>
