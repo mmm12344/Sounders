@@ -52,7 +52,7 @@ namespace MusicPlayerGUI.settings
             return GetAllSettings().serverUrl;
         }
 
-        public static void UpdateUserID(int userID)
+        public static void UpdateUserID(int? userID)
         {
             SettingsRecord settings = GetAllSettings();
             SettingsRecord UpdatedSettings = new SettingsRecord(settings.serverUrl, userID, settings.password);

@@ -25,6 +25,8 @@ namespace Sounders.Views
         {
             InitializeComponent();
 
+            HelperMethods.OpenSignInIfNotSigned();
+
             List<SongInfo> result = ApiRequests.Search(searchText).Result;
             if (result != null)
             {

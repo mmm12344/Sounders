@@ -29,6 +29,8 @@ namespace Sounders.Views
         {
             InitializeComponent();
 
+            HelperMethods.OpenSignInIfNotSigned();
+
             this.mainWindow = mainWindow;
 
         }
