@@ -181,7 +181,7 @@ namespace Sounders
 
         private void LikeButton_Click(Object sender, RoutedEventArgs e)
         {
-            var result = ApiRequests.AddLikeToSong(Convert.ToInt32(likeImage.Tag)).Result;
+            var result = ApiRequests.AddLikeToSong(Convert.ToInt32(likeButton.Tag)).Result;
             if (!result)
             {
                 HelperMethods.ErrorMessage("Could not add Like, Please Try Again.");
