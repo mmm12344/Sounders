@@ -69,7 +69,10 @@ namespace Sounders
             mainFrame.Navigate(new HomePage(this));
 
 
-   
+
+            var currentSongUri = new Uri("Test/Test.mp3", UriKind.Relative);
+
+            playMedia.Open(currentSongUri);
 
         }
         
@@ -78,19 +81,13 @@ namespace Sounders
             audioBar.Value = playMedia.Position.TotalSeconds ;
         }
 
+        
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-
-
-           
-            var uri = new Uri("Test/Test.mp3", UriKind.Relative);
-  
             if (trackState == "stop")
             {
 
             
-                playMedia.Open(uri);
-         
                 playMedia.Play();
                 timer.Start();
               
@@ -104,9 +101,9 @@ namespace Sounders
                 image.Height = 20;
                 image.Width = 20;
                 playButton.Content = image;
-                trackState = "play"; 
-
+                trackState = "play";
             }
+
             else if(trackState=="play")
             {
                 Uri newImageUri = new Uri("Static/Images/Play.png", UriKind.Relative);
