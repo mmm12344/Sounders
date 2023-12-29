@@ -148,7 +148,7 @@
                         <Image Height="20" Width="20" Source="Static/Images/Forward.png" />
                     </Button.Content>
                 </Button>
-                <Button  Background="Transparent" Width="30"  x:Name="ShuffleButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="35,0,0,5" HorizontalAlignment="Left" >
+                <Button  Background="Transparent" Width="30"  x:Name="ShuffleButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="35,0,0,5" HorizontalAlignment="Left" Click="ShuffleButton_Click" >
                     <Button.Content>
                         <Image Height="20" Width="20" Source="Static/Images/Shuffle.png" />
                     </Button.Content>

@@ -10,10 +10,10 @@ using System.Windows.Media.Imaging;
 
 namespace MusicPlayerGUI
 {
-    public record SongData(int songId, string songName, BitmapImage songImage);
+    public record SongData(int songID, string songName, BitmapImage songPic);
 public class PlayerQueue
     {
-        private List<SongData> songData = new List<SongData>();
+        private List<SongData> songlist = new List<SongData>();
         private ListView queueList;
         private Image songPicture;
         private TextBlock songName;
@@ -30,13 +30,13 @@ public class PlayerQueue
 
         public void Enqueue(SongData item)
         {
-            foreach(SongData s in this.songData)
+            foreach(SongData s in this.songlist)
             {
-                if (s.songId == item.songId) return;
+                if (s.songID == item.songID) return;
             }
             
-            songData.Add(item);
-            queueList.Items.Add(new { songID = Convert.ToString(item.songId), songName = item.songName, songPic = item.songImage });
+            songlist.Add(item);
+            queueList.Items.Add(item);
         }
 
         public void EnqueueFromList(List<SongData> items)
@@ -49,23 +49,37 @@ public class PlayerQueue
 
         public SongData Dequeue()
         {
-            if (songData.Count == 0)
+            if (songlist.Count == 0)
             {
                 throw new IndexOutOfRangeException();
             }
             else
             {
-                SongData temp = songData[0];
-                songData.RemoveAt(0);
+                SongData temp = songlist[0];
+                songlist.RemoveAt(0);
                 queueList.Items.RemoveAt(0);
                 return temp;
             }
 
         }
 
+        private void AddToQueueListFromsongList(List<SongData> songs)
+        {
+            ClearQueueList();
+            foreach(SongData song in songs)
+            {
+                queueList.Items.Add(song);
+            }
+        }
+
+        private void ClearQueueList()
+        {
+            queueList.Items.Clear();
+        }
+
         public void ClearAll()
         {
-            int itemsCount = songData.Count();
+            int itemsCount = songlist.Count();
             for(int i = 0; i < itemsCount; i++)
             {
                 Dequeue();
@@ -73,18 +87,18 @@ public class PlayerQueue
         }
         public SongData Peek()
         {
-            if (songData.Count == 0)
+            if (songlist.Count == 0)
             {
                 throw new IndexOutOfRangeException();
             }
             else
             {
-                return songData[0];
+                return songlist[0];
             }
         }
         public bool IsEmpty()
         {
-            if (songData.Count == 0)
+            if (songlist.Count == 0)
             {
                 return true;
             }
@@ -92,23 +106,23 @@ public class PlayerQueue
         }
         public int Count()
         {
-            return songData.Count;
+            return songlist.Count;
         }
         public void Clear()
         {
-            songData.Clear();
+            songlist.Clear();
         }
         public int FindLength()
         {
-            return songData.Count;
+            return songlist.Count;
         }
         public SongData Search(int songIdToBeSearched)
         {
-            for (int i = 0; i < songData.Count; i++)
+            for (int i = 0; i < songlist.Count; i++)
             {
-                if (songData[i].songId == songIdToBeSearched)
+                if (songlist[i].songID == songIdToBeSearched)
                 {
-                    return songData[i];
+                    return songlist[i];
                 }
 
             }
@@ -116,29 +130,29 @@ public class PlayerQueue
         }
         public void Randomize()
         {
-            for (int i = 0; i < songData.Count; i++)
+            for (int i = 1; i < songlist.Count; i++)
             {
-                int randomIndex = new Random().Next(0, songData.Count - 1);
+                int randomIndex = new Random().Next(1, songlist.Count - 1);
                 ReplaceInList(i, randomIndex);
             }
+            AddToQueueListFromsongList(songlist);
         }
         private void ReplaceInList(int a, int b)
         {
-            SongData temp = songData[a];
-            songData[a] = songData[b];
-            songData[b] = temp;
-
+            SongData songListtemp = songlist[a];
+            songlist[a] = songlist[b];
+            songlist[b] = songListtemp;
         }
         public List<SongData> GetQueueList()
         {
 
-            return songData;
+            return songlist;
 
         }
 
         public void AddCurrentSongToPlayer()
         {
-            var result = ApiRequests.GetSong(Peek().songId).Result;
+            var result = ApiRequests.GetSong(Peek().songID).Result;
             if (result != null)
             {
 
@@ -146,8 +160,8 @@ public class PlayerQueue
                 {
                     songPicture.Source = HelperMethods.GetBitmapImgFromBytes(result.picture);
                     songName.Text = result.name;
-                    likeButton.Tag = Convert.ToString(Peek().songId);
-                    bool isLiked = ApiRequests.IsLiked(Peek().songId).Result;
+                    likeButton.Tag = Convert.ToString(Peek().songID);
+                    bool isLiked = ApiRequests.IsLiked(Peek().songID).Result;
                     Image image = new Image();
                     image.Height = 20;
                     image.Width = 20;
