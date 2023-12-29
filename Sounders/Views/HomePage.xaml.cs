@@ -35,6 +35,7 @@ namespace Sounders.Views
         private List<Playlist> allPlaylists = new List<Playlist>();
 
         private MainWindow mainWindow;
+        private PlayerQueue mainQueue;
          //Test
         public HomePage(MainWindow mainWindow)
         {
@@ -50,6 +51,7 @@ namespace Sounders.Views
             AddAllPlaylist();
 
             this.mainWindow = mainWindow;
+            this.mainQueue = mainWindow.mainQueue;
         }
 
 
@@ -274,25 +276,28 @@ namespace Sounders.Views
         private void LikedTracks_MouseDown(object sender, MouseEventArgs e)
         {
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
-            PlayerQueue queue = new PlayerQueue(mainWindow);
-            queue.EnqueueFromList(HelperMethods.GetListForQueue(likedSongs, songID));
-            queue.AddCurrentSongToPlayer();
+
+            mainQueue.ClearAll();
+            mainQueue.EnqueueFromList(HelperMethods.GetListForQueue(likedSongs, songID));
+            mainQueue.AddCurrentSongToPlayer();
         }
 
         private void AddedTracks_MouseDown(object sender, MouseEventArgs e)
         {
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
-            PlayerQueue queue = new PlayerQueue(mainWindow);
-            queue.EnqueueFromList(HelperMethods.GetListForQueue(ownSongs, songID));
-            queue.AddCurrentSongToPlayer();
+
+            mainQueue.ClearAll();
+            mainQueue.EnqueueFromList(HelperMethods.GetListForQueue(ownSongs, songID));
+            mainQueue.AddCurrentSongToPlayer();
         }
 
         private void ExploreNewTracks_MouseDown(object sender, MouseEventArgs e)
         {
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
-            PlayerQueue queue = new PlayerQueue(mainWindow);
-            queue.EnqueueFromList(HelperMethods.GetListForQueue(allSongs, songID));
-            queue.AddCurrentSongToPlayer();
+
+            mainQueue.ClearAll();
+            mainQueue.EnqueueFromList(HelperMethods.GetListForQueue(allSongs, songID));
+            mainQueue.AddCurrentSongToPlayer();
         }
 
         private void YourPlaylist_MouseDown(object sender, MouseEventArgs e)

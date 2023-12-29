@@ -33,6 +33,7 @@ namespace Sounders
         public MediaPlayer playMedia = new MediaPlayer();
         private DispatcherTimer timer;
         private string trackState="stop";
+        public PlayerQueue mainQueue;
 
         
 
@@ -46,6 +47,9 @@ namespace Sounders
 
            
             InitializeComponent();
+
+            this.mainQueue = new PlayerQueue(this);
+
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
@@ -85,26 +89,25 @@ namespace Sounders
             {
 
             
-            playMedia.Open(uri);
+                playMedia.Open(uri);
          
                 playMedia.Play();
-            timer.Start();
+                timer.Start();
               
 
 
                 Uri newImageUri = new Uri("Static/Images/Pause.png", UriKind.Relative);
-            BitmapImage bitmapImage = new BitmapImage(newImageUri);
+                BitmapImage bitmapImage = new BitmapImage(newImageUri);
             
-            Image image = new Image();
-            image.Source = bitmapImage;
-            image.Height = 20;
-            image.Width = 20;
-            playButton.Content = image;
-            trackState = "play";
-                
+                Image image = new Image();
+                image.Source = bitmapImage;
+                image.Height = 20;
+                image.Width = 20;
+                playButton.Content = image;
+                trackState = "play"; 
 
             }
-           else if(trackState=="play")
+            else if(trackState=="play")
             {
                 Uri newImageUri = new Uri("Static/Images/Play.png", UriKind.Relative);
                 BitmapImage bitmapImage = new BitmapImage(newImageUri);
@@ -181,17 +184,40 @@ namespace Sounders
 
         private void LikeButton_Click(Object sender, RoutedEventArgs e)
         {
-            var result = ApiRequests.AddLikeToSong(Convert.ToInt32(likeButton.Tag)).Result;
-            if (!result)
+            int songID = Convert.ToInt32(likeButton.Tag);
+            var isliked = ApiRequests.IsLiked(songID).Result;
+            if (isliked)
             {
-                HelperMethods.ErrorMessage("Could not add Like, Please Try Again.");
-                return;
+                var result = ApiRequests.RemoveLike(songID).Result;
+                if (!result)
+                {
+                    HelperMethods.ErrorMessage("Could not remove Like, Please Try Again.");
+                }
+                else
+                {
+                    Image image = new Image();
+                    image.Source = new BitmapImage(new Uri("Static/Images/WhiteHeart.png", UriKind.Relative));
+                    image.Height = 20;
+                    image.Width = 20;
+                    likeButton.Content = image;
+                }
             }
-            Image image = new Image();
-            image.Source = new BitmapImage(new Uri("Static/Images/RedHeart.png", UriKind.Relative));
-            image.Height = 20;
-            image.Width = 20;
-            likeButton.Content = image;
+            else
+            {
+                var result = ApiRequests.AddLikeToSong(songID).Result;
+                if (!result)
+                {
+                    HelperMethods.ErrorMessage("Could not add Like, Please Try Again.");
+                }
+                else
+                {
+                    Image image = new Image();
+                    image.Source = new BitmapImage(new Uri("Static/Images/RedHeart.png", UriKind.Relative));
+                    image.Height = 20;
+                    image.Width = 20;
+                    likeButton.Content = image;
+                }
+            }
         }
     }
 }

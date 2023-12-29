@@ -11,8 +11,7 @@ using System.Windows.Media.Imaging;
 namespace MusicPlayerGUI
 {
     public record SongData(int songId, string songName, BitmapImage songImage);
-
-    class PlayerQueue
+public class PlayerQueue
     {
         private List<SongData> songData = new List<SongData>();
         private ListView queueList;
@@ -31,7 +30,11 @@ namespace MusicPlayerGUI
 
         public void Enqueue(SongData item)
         {
-
+            foreach(SongData s in this.songData)
+            {
+                if (s.songId == item.songId) return;
+            }
+            
             songData.Add(item);
             queueList.Items.Add(new { songID = Convert.ToString(item.songId), songName = item.songName, songPic = item.songImage });
         }
@@ -54,9 +57,19 @@ namespace MusicPlayerGUI
             {
                 SongData temp = songData[0];
                 songData.RemoveAt(0);
+                queueList.Items.RemoveAt(0);
                 return temp;
             }
 
+        }
+
+        public void ClearAll()
+        {
+            int itemsCount = songData.Count();
+            for(int i = 0; i < itemsCount; i++)
+            {
+                Dequeue();
+            }
         }
         public SongData Peek()
         {

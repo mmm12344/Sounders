@@ -265,5 +265,17 @@ namespace MusicPlayerGUI
             return true;
         }
 
+        public async static Task<bool> RemoveLike(int songID)
+        {
+            if (!IsLive().Result)
+                return false;
+            var result = client.GetAsync(GetSubUrlApi($"remove_like/{songID}")).Result;
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }
