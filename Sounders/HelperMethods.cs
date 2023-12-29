@@ -48,7 +48,7 @@ namespace Sounders
             bool foundSong = false;
             foreach (SongData item in lst)
             {
-                if (songID == item.songId)
+                if (songID == item.songID)
                 {
                     foundSong = true;
                 }

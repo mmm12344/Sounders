@@ -216,5 +216,10 @@ namespace Sounders
                 }
             }
         }
+
+        private void ShuffleButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainQueue.Randomize();
+        }
     }
 }
