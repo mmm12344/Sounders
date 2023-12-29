@@ -65,6 +65,8 @@ namespace Sounders
                 return;
             }
 
+            if (Settings.GetServerUrl() != null && Settings.GetUserID() != null && Settings.GetPassword() != null )
+                ApiRequests.UpdateClient();
 
             mainFrame.Navigate(new HomePage(this));
 
