@@ -31,7 +31,7 @@
 
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Create New PlayList" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold"/>
-        <ListView Grid.Row="1" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#2c2c2c" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -44,12 +44,14 @@
 
                     <StackPanel Orientation="Horizontal">
                         <ContentControl >
-                            <StackPanel Width="90" Tag="{Binding playlistID}">
-                                
-                                <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
-                                <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,10,0,0" />
-                                <Button x:Name="addToPlaylist" Style="{StaticResource roundedButtons}" Width="30" Height="20" Tag="{Binding playlistID}" Click="AddToPlaylist_Click">Add</Button>
-                            </StackPanel>
+                            <Border  CornerRadius="20" Background="#151515" Margin="10,5,10,5">
+                                <StackPanel Width="150" Tag="{Binding playlistID}" VerticalAlignment="Stretch" Margin="10,5,10,5">
+
+                                    <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
+                                    <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,10,0,0" />
+                                    <Button x:Name="addToPlaylist" Style="{StaticResource roundedButtons}" Width="30" Height="20" Tag="{Binding playlistID}" Click="AddToPlaylist_Click">Add</Button>
+                                </StackPanel>
+                            </Border>
                         </ContentControl>
                     </StackPanel>
 

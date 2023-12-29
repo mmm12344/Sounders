@@ -25,50 +25,23 @@
         <Label Grid.Row="0" Content="Create New PlayList" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.10*"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.10*"/>
             </Grid.ColumnDefinitions>
           
-                <Label Grid.Column="1"  Content="PlayList Name" VerticalAlignment="Center" Margin="0,0,0,50" HorizontalAlignment="Left"></Label>
-                <TextBox x:Name="playlistNameTextBox" Grid.Column="1"   HorizontalAlignment="Left"  Width="160" VerticalAlignment="Center" Margin="4,0,0,0"></TextBox>
-            <Button  x:Name="browsePictureButton" Click="browsePictureButton_Click" Grid.Column="2" Content="+"  HorizontalAlignment="Right" Margin="0,7,4,0" Height="80" Width="80" VerticalAlignment="Center" ></Button>
-            <Label Grid.Column="2" Content="Add PlayList Picture"  HorizontalAlignment="Right"   VerticalAlignment="Center" Margin="0,120,0,0" FontSize="9"></Label>
+                <Label Grid.Column="1"  Content="PlayList Name" VerticalAlignment="Center" Margin="0,0,0,70" HorizontalAlignment="Left"></Label>
+            <TextBox x:Name="playlistNameTextBox" Grid.Column="1"   HorizontalAlignment="Left" FontSize="18" Height="25" Width="250" VerticalAlignment="Center" Margin="6,0,0,0"></TextBox>
+            <Button  x:Name="browsePictureButton" Click="browsePictureButton_Click" Grid.Column="2" Content="+"   HorizontalAlignment="Center" Margin="0,7,0,0" Height="120" Width="120" VerticalAlignment="Center" ></Button>
+            <Label Grid.Column="2" Content="Add PlayList Picture"  HorizontalAlignment="Center"   VerticalAlignment="Center" Margin="0,160,0,0"  FontSize="15"></Label>
         </Grid>
 
 
-        <StackPanel Grid.Row="2" HorizontalAlignment="Stretch">
-            <Label Grid.Row="1" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold">Choose From Added Tracks</Label>
-            <ListView Grid.Row="3" x:Name="AddedTracksList" Background="#0a0a0a" BorderBrush="Transparent" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <ContentControl >
-
-
-                                <StackPanel VerticalAlignment="Stretch" Width="90">
-                                    <Image Height="80" Width="80" IsEnabled="True" Source="{Binding songPic}"/>
-                                    <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,10,0,0" />
-                                    <Button x:Name="addToPlaylist" Height="20" Width="40" Margin="0,3,0,0" Tag="{Binding songID}">Add</Button>
-                                </StackPanel>
-                            </ContentControl>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-        </StackPanel>
+    
     
        
-        <Button x:Name="createButton" Grid.Row="4"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Create" FontSize="10" Click="CreateButton_Click"/>
+        <Button x:Name="createButton" Grid.Row="4"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Create" Margin="0,0,0,50" FontSize="10" Click="CreateButton_Click"/>
 
     
        
