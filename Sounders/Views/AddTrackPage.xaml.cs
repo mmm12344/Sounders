@@ -33,6 +33,9 @@ namespace Sounders.Views
         public AddTrackPage(MainWindow mainWindow)
         {
             InitializeComponent();
+
+            HelperMethods.OpenSignInIfNotSigned();
+
             this.mainWindow = mainWindow;
         }
 

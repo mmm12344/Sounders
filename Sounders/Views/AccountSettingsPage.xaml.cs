@@ -1,4 +1,5 @@
-﻿using MusicPlayerGUI.settings;
+﻿using MusicPlayerGUI;
+using MusicPlayerGUI.settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,15 @@ namespace Sounders.Views
     /// </summary>
     public partial class AccountSettingsPage : Page
     {
-        public AccountSettingsPage()
+        MainWindow mainWindow;
+        public AccountSettingsPage(MainWindow mainWindow)
         {
             InitializeComponent();
+
+
+
+            this.mainWindow = mainWindow;
+
             string serverUrl = Settings.GetServerUrl();
             if (serverUrl != null)
             {
@@ -37,7 +44,31 @@ namespace Sounders.Views
             if(serverUrl.Length > 7)
             {
                 Settings.UpdateServerUrl(serverUrl);
+                ApiRequests.UpdateClient();
             }
+
+            string firstName = changeFirstNameTextBox.Text;
+            string lastName = changeLastNameTextBox.Text;
+            string password = chanePasswordPasswordBox.Password.ToString();
+            if (firstName.Length != 0 && lastName.Length != 0 && password.Length != 0)
+            {
+                if (password.Length != 0 && password.Length < 8)
+                {
+                    HelperMethods.ErrorMessage("Password is less than 8 Characters, Please Try Again.");
+                    return;
+                }
+
+                UserSignUp user = new UserSignUp((firstName.Length > 0) ? firstName : null, (lastName.Length > 0) ? lastName : null, null, (password.Length > 0) ? password : null);
+                bool result = ApiRequests.ChangeUserInfo(user).Result;
+                if (result)
+                {
+                    HelperMethods.SuccessMessage("User Info Changed!");
+                    mainWindow.mainFrame.Navigate(new HomePage(mainWindow));
+                }
+                else
+                    HelperMethods.ErrorMessage("Could not Change user Info, Please Try Again.");
+            }
+
         }
     }
 }

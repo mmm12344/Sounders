@@ -25,6 +25,9 @@ namespace Sounders.Views
         public PlaylistPage(Playlist playlist)
         {
             InitializeComponent();
+
+            HelperMethods.OpenSignInIfNotSigned();
+
             playlistImage.Source = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
             this.playlistName.Text = playlist.name;
 

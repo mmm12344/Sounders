@@ -35,18 +35,14 @@ namespace Sounders
         private string trackState="stop";
         public PlayerQueue mainQueue;
 
-        
-
-        void MainWindow_Closing(object sender, CancelEventArgs e)
-        {
-            HelperMethods.CloseAllWindows();
-        }
 
         public MainWindow()
         {
 
            
             InitializeComponent();
+
+
 
             this.mainQueue = new PlayerQueue(this);
 
@@ -55,16 +51,25 @@ namespace Sounders
             timer.Tick += Timer_Tick;
 
 
+            if(!ApiRequests.IsLive().Result)
+            {
+                mainFrame.Navigate(new AccountSettingsPage(this));
+                return;
+            }
+
+
             HelperMethods.OpenSignInIfNotSigned();
 
             
 
             if (Settings.GetServerUrl() == null)
             {
-                mainFrame.Navigate(new AccountSettingsPage());
+                mainFrame.Navigate(new AccountSettingsPage(this));
                 return;
             }
 
+            if (Settings.GetServerUrl() != null && Settings.GetUserID() != null && Settings.GetPassword() != null )
+                ApiRequests.UpdateClient();
 
             mainFrame.Navigate(new HomePage(this));
 
@@ -152,11 +157,13 @@ namespace Sounders
         private void settingButton_Click(object sender, RoutedEventArgs e)
         {
 
-            mainFrame.Navigate(new AccountSettingsPage());
+            mainFrame.Navigate(new AccountSettingsPage(this));
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
+            Settings.UpdateUserID(null);
+            Settings.UpdatePassword(null);
             HelperMethods.OpenSignInWindow();
             
         }

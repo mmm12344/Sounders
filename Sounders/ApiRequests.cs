@@ -45,8 +45,8 @@ namespace MusicPlayerGUI
             int? userID = Settings.GetUserID();
             string? password = Settings.GetPassword();
             CookieContainer container = new CookieContainer();
-            container.Add(new Uri(Settings.GetServerUrl()), new Cookie("userID", Convert.ToString(userID)));
-            container.Add(new Uri(Settings.GetServerUrl()), new Cookie("password", password));
+            container.Add(new Uri(Settings.GetServerUrl()), new Cookie("userID", Convert.ToString((userID == null)? "": userID)));
+            container.Add(new Uri(Settings.GetServerUrl()), new Cookie("password",( password == null)? "":password));
             return container;
         }
 
@@ -270,6 +270,18 @@ namespace MusicPlayerGUI
             if (!IsLive().Result)
                 return false;
             var result = client.GetAsync(GetSubUrlApi($"remove_like/{songID}")).Result;
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async static Task<bool> ChangeUserInfo(UserSignUp user)
+        {
+            if (!IsLive().Result)
+                return false;
+            var result = client.PostAsync(GetSubUrlAuth("change_user_info"), GetContentAsJson(user)).Result;
             if (!result.IsSuccessStatusCode)
             {
                 return false;

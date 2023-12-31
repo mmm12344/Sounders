@@ -41,9 +41,9 @@ namespace Sounders.Views
         {
             InitializeComponent();
 
+            HelperMethods.OpenSignInIfNotSigned();
 
 
-           
             AddLikedSongs();
             AddAllSongs();
             AddOwnSongs();

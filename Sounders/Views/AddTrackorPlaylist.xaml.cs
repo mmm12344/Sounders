@@ -24,6 +24,9 @@ namespace Sounders.Views
         public AddTrackorPlaylist(MainWindow mainWindow)
         {
             InitializeComponent();
+
+            HelperMethods.OpenSignInIfNotSigned();
+
             this.mainWindow = mainWindow;
         }
 

@@ -26,6 +26,9 @@ namespace Sounders.Views
         public AddToPlayListPage(MainWindow mainWindow, int songID)
         {
             InitializeComponent();
+
+            HelperMethods.OpenSignInIfNotSigned();
+
             this.songID = songID;
             this.mainWindow = mainWindow;
 
