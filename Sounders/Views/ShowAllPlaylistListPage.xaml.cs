@@ -29,5 +29,15 @@ namespace Sounders.Views
         {
 
         }
+
+        private void playPlaylistItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void openPlayList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

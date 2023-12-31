@@ -20,12 +20,33 @@ namespace Sounders.Views
     /// </summary>
     public partial class ShowAllListPage : Page
     {
+     
         public ShowAllListPage()
         {
             InitializeComponent();
         }
 
         private void Song_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void likeItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void playItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addToQueueItem_Click(object sender, RoutedEventArgs e)
         {
 
         }

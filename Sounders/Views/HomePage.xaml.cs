@@ -330,7 +330,12 @@ namespace Sounders.Views
             mainWindow.mainFrame.Navigate(new PlaylistPage(playlist));
         }
 
-        private void ShowAllButton_Click(object sender, RoutedEventArgs e)
+        private void ShowAllButtonTrack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowAllButtonPlaylist_Click(object sender, RoutedEventArgs e)
         {
 
         }

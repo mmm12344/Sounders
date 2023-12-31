@@ -31,7 +31,7 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="listNameTextBlock" Grid.Row="0"  FontSize="30" FontWeight="Bold" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center">Changable TrackList Name</TextBlock>
 
-        <ListView Grid.Row="1" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1"   Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical">
@@ -44,7 +44,7 @@
 
                     <StackPanel Orientation="Horizontal">
                         <ContentControl >
-                            <ListView  Background="#000000" Style="{StaticResource functionalRoundedList}"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListView  Background="#000000" x:Name="allTrackList" Style="{StaticResource functionalRoundedList}"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <StackPanel Orientation="Horizontal">
@@ -58,7 +58,7 @@
                                         <StackPanel Orientation="Horizontal">
                                             <ContentControl >
                                                 <Border  CornerRadius="20" Background="#151515" Margin="10,5,10,5" >
-                                                    <StackPanel  Width="180" Tag="{Binding songID}"  Margin="10,5,10,5" MouseDown="Song_MouseDown">
+                                                    <StackPanel  Width="150" Tag="{Binding songID}"  Margin="10,5,10,5" MouseDown="Song_MouseDown">
                                                         <StackPanel.ContextMenu>
                                                             <ContextMenu>
                                                                 <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click" />

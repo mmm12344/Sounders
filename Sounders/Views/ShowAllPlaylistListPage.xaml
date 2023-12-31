@@ -29,9 +29,9 @@
 
 
         </Grid.RowDefinitions>
-        <TextBlock x:Name="listNameTextBlock" Grid.Row="0"  FontSize="30" FontWeight="Bold" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center">Changable TrackList Name</TextBlock>
+        <TextBlock x:Name="listNameTextBlock" Grid.Row="0"  FontSize="30" FontWeight="Bold" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center">Changable PlaylistList Name</TextBlock>
 
-        <ListView Grid.Row="1" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1"   Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical">
@@ -44,11 +44,10 @@
 
                     <StackPanel Orientation="Horizontal">
                         <ContentControl >
-                            <ListView  Background="#000000" Style="{StaticResource functionalRoundedList}"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListView x:Name="allPlaylistList"  Background="#000000" Style="{StaticResource functionalRoundedList}"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <StackPanel Orientation="Horizontal">
-
                                         </StackPanel>
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
