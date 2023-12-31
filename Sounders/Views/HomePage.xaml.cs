@@ -26,7 +26,7 @@ namespace Sounders.Views
         private bool isMoving = false;                  //False - ignore mouse movements and don't scroll
         private bool isDeferredMovingStarted = false;   //True - Mouse down -> Mouse up without moving -> Move; False - Mouse down -> Move
         private Point? startPosition = null;
-        private double slowdown = 200;                  //The number 200 is found from experiments, it should be corrected
+        private double slowdown = 200;                
        
         private List<SongData> likedSongs = new List<SongData>();
         private List<SongData> ownSongs = new List<SongData>();
@@ -328,6 +328,11 @@ namespace Sounders.Views
                 }
             }
             mainWindow.mainFrame.Navigate(new PlaylistPage(playlist));
+        }
+
+        private void ShowAllButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
