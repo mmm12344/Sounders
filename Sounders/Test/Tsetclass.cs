@@ -13,7 +13,7 @@ namespace Sounders
         public string songName { get; set; }
         public string songPic { get; set; }
 
-        public string songArtist { get; set; }
+      
 
     }
 }

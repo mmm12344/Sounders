@@ -122,6 +122,12 @@
     <Compile Include="Views\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShowAllListPage.xaml.cs">
+      <DependentUpon>ShowAllListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowAllPlaylistListPage.xaml.cs">
+      <DependentUpon>ShowAllPlaylistListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SigninPage.xaml.cs">
       <DependentUpon>SigninPage.xaml</DependentUpon>
     </Compile>
@@ -191,6 +197,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowAllListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowAllPlaylistListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
