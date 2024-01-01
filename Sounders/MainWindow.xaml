@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="Themes\RoundedButtonsTheme.xaml"/>
                 <ResourceDictionary Source="Themes\ListViewTheme.xaml"/>
                 <ResourceDictionary Source="Themes\ImageDynamix.xaml"/>
+                <ResourceDictionary Source="Themes\TextboxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
@@ -41,7 +42,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                <TextBox x:Name="searchBar"   Text="Search" Width="200" Height="20" Margin="5,0,0,0"/>
+                <TextBox x:Name="searchBar" Margin="5,0,0,0" Style="{StaticResource ModernTextbox}"/>
                 <Button x:Name="searchButton" Style="{StaticResource roundedButtons}" Click="searchButton_Click" Margin="10,0,0,0" Background="Transparent">
                     <Button.Content>
                         <Image RenderOptions.BitmapScalingMode="HighQuality" Height="20" Width="30" Source="Static/Images/SearchIcon (2).png"/>
@@ -110,7 +111,7 @@
                                 </Button.Foreground>
                             </Button>
 
-                    </StackPanel>
+                        </StackPanel>
                
 
                     <StackPanel Orientation="Horizontal" Margin="10,60,0,0">
