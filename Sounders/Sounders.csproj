@@ -88,6 +88,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="HelperMethods.cs" />
+    <Compile Include="ِAudioPlayer.cs" />
     <Compile Include="Test\Tsetclass.cs" />
     <Compile Include="settings\Settings.cs" />
     <Compile Include="SigninSignUpWindow.xaml.cs">
@@ -121,8 +122,8 @@
     <Compile Include="Views\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ShowAllListPage.xaml.cs">
-      <DependentUpon>ShowAllListPage.xaml</DependentUpon>
+    <Compile Include="Views\ShowAllTracksPage.xaml.cs">
+      <DependentUpon>ShowAllTracksPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShowAllPlaylistListPage.xaml.cs">
       <DependentUpon>ShowAllPlaylistListPage.xaml</DependentUpon>
@@ -199,7 +200,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ShowAllListPage.xaml">
+    <Page Include="Views\ShowAllTracksPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -156,9 +156,11 @@
                    
                     <Image x:Name="songPicture" Height="200" Width="200" Source="Static/Images/DefaultSoundTrack.jpeg"/>
                 </Border>
+
                 <Label FontWeight="UltraBlack" Foreground="White" Grid.Row="1" Grid.Column="1" Content="Now Playing :" VerticalAlignment="Top" Margin="5,20,0,0"  />
                 <TextBlock x:Name="songName" Foreground="White" FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Text="{Binding songName}" FontSize="18" TextTrimming="CharacterEllipsis"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,58">Changable Song Name</TextBlock>
                 <Slider x:Name="audioBar" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="20" Width="200" Margin="0,0,0,30"  Maximum="100" IsEnabled="False"></Slider>
+
                 
                
                 <Button Background="Transparent" Width="30"  x:Name="reapeatButton"  Style="{StaticResource roundedButtons}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="5,0,0,5" HorizontalAlignment="Left">

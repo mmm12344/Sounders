@@ -31,6 +31,8 @@ namespace Sounders
     public partial class MainWindow : Window
     {
         public MediaPlayer playMedia = new MediaPlayer();
+        AudioPlayer audioPlayer = new AudioPlayer();
+
         private DispatcherTimer timer;
         private string trackState="stop";
         public PlayerQueue mainQueue;
@@ -46,10 +48,7 @@ namespace Sounders
 
             this.mainQueue = new PlayerQueue(this);
 
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += Timer_Tick;
-
+            
 
             if(!ApiRequests.IsLive().Result)
             {
@@ -74,32 +73,31 @@ namespace Sounders
             mainFrame.Navigate(new HomePage(this));
 
 
-   
+
+            var currentSongUri = new Uri("Test/Test.mp3", UriKind.Relative);
+
+            audioPlayer.Open(currentSongUri);
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+
 
         }
-        
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             audioBar.Value = playMedia.Position.TotalSeconds ;
         }
 
+
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-
-
-           
-            var uri = new Uri("Test/Test.mp3", UriKind.Relative);
-  
             if (trackState == "stop")
             {
 
-            
-                playMedia.Open(uri);
-         
-                playMedia.Play();
-                timer.Start();
-              
 
+                audioPlayer.Play();
+               //  timer.Start();
 
                 Uri newImageUri = new Uri("Static/Images/Pause.png", UriKind.Relative);
                 BitmapImage bitmapImage = new BitmapImage(newImageUri);
@@ -109,9 +107,9 @@ namespace Sounders
                 image.Height = 20;
                 image.Width = 20;
                 playButton.Content = image;
-                trackState = "play"; 
-
+                trackState = "play";
             }
+
             else if(trackState=="play")
             {
                 Uri newImageUri = new Uri("Static/Images/Play.png", UriKind.Relative);
@@ -123,20 +121,26 @@ namespace Sounders
                 image.Width = 20;
                 playButton.Content = image;
 
-                playMedia.Pause();
-                timer.Stop();
+                audioPlayer.Pause();
+                //  timer.Stop();
                 trackState = "stop";
             }
 
+
+
         }
 
-        
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            audioPlayer.Seek(e.NewValue);
+            
+        }
 
         //private void StopButton_Click(object sender, RoutedEventArgs e)
         //{
         //    mediaElement.Stop();
         //    timer.Stop();
-            
+
         //}
 
         //private void MediaElement_MediaOpened(object sender, RoutedEventArgs e)
@@ -149,8 +153,9 @@ namespace Sounders
         //{
         //    StopButton_Click(sender, e);
         //}
+        
 
-        private void homeButton_Click(object sender, RoutedEventArgs e)
+            private void homeButton_Click(object sender, RoutedEventArgs e)
         {
             
             mainFrame.Navigate(new HomePage(this));
