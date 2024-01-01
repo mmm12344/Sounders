@@ -17,7 +17,7 @@
         </ResourceDictionary>
 
     </Page.Resources>
-    <Grid Background="#0a0a0a">
+    <Grid Background="Transparent">
         <Grid.RowDefinitions>
 
             <RowDefinition Height="0.20*"/>
@@ -29,10 +29,20 @@
 
 
         </Grid.RowDefinitions>
-        <TextBlock x:Name="listNameTextBlock" Grid.Row="0"  FontSize="30" FontWeight="Bold" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center">Changable TrackList Name</TextBlock>
+        <TextBlock x:Name="listNameTextBlock" Grid.Row="0"  FontSize="30" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">Changable TrackList Name</TextBlock>
 
-        <ListView Grid.Row="1"   Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1"   Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListView.Background>
+                <LinearGradientBrush Opacity="0.8">
+                    <GradientStop Color="#8ce3ec" Offset="0.0"/>
+                    <GradientStop Color="AliceBlue" Offset="2"/>
+
+                    <GradientStop Color="#7a7aDb" Offset="0.0" />
+                    <GradientStop Color="Black" Offset="1.5"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemsPanel>
+                
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical">
 
@@ -44,7 +54,8 @@
 
                     <StackPanel Orientation="Horizontal">
                         <ContentControl >
-                            <ListView  Background="#000000" x:Name="allTrackList" Style="{StaticResource functionalRoundedList}"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListView  Background="Transparent" x:Name="allTrackList" Style="{StaticResource functionalRoundedList}"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                              
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <StackPanel Orientation="Horizontal">
@@ -57,7 +68,15 @@
 
                                         <StackPanel Orientation="Horizontal">
                                             <ContentControl >
-                                                <Border  CornerRadius="20" Background="#151515" Margin="10,5,10,5" >
+                                                <Border  CornerRadius="20" Margin="10,5,10,5" >
+                                                    <Border.Background>
+                                                        <LinearGradientBrush Opacity="0.11">
+                                                            <GradientStop Color="#8ce3ec" Offset="2"/>
+                                                            <GradientStop Color="AliceBlue" Offset="0.3"/>
+                                                            <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                                                            <GradientStop Color="#f083da" Offset="1.8" />
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
                                                     <StackPanel  Width="150" Tag="{Binding songID}"  Margin="10,5,10,5" MouseDown="Song_MouseDown">
                                                         <StackPanel.ContextMenu>
                                                             <ContextMenu>

@@ -11,13 +11,35 @@
     <Page.Resources>
         <ResourceDictionary Source="/Themes/RoundedButtonsTheme.xaml"/>
     </Page.Resources>
-    <Grid Background="#0a0a0a">
+    <Grid Background="Transparent">
 
-        <Button x:Name="addTracksToPage" Content="Add Tracks" Click="addTracksToPage_Click" Style="{StaticResource roundedButtons }" FontWeight="DemiBold" HorizontalAlignment="Left" Height="32" Margin="180,420,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="addTracksToPage" Content="Add Tracks" Click="addTracksToPage_Click" Style="{StaticResource roundedButtons }" FontWeight="DemiBold" HorizontalAlignment="Left" Height="32" Margin="180,420,0,0" VerticalAlignment="Top" Width="150">
+            <Button.Background>
+                <LinearGradientBrush Opacity="0.8">
+
+                    <GradientStop Color="#8ce3ec" Offset="2"/>
+                    <GradientStop Color="AliceBlue" Offset="0.7"/>
+                    <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                    <GradientStop Color="#f083da" Offset="1.8" />
+
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
 
-        <Button x:Name="createNewPlaylistToPage" Click="createNewPlaylistToPage_Click" Style="{StaticResource roundedButtons}" FontWeight="DemiBold" Content="Create a New PlayList" HorizontalAlignment="Right" Height="32" Margin="0,420,180,0" VerticalAlignment="Top" Width="150" />
-        <Label Content="Add Tracks OR Create A New PlayList" HorizontalAlignment="Center"  FontSize="30" FontWeight="Bold"  VerticalAlignment="Center" />
+        <Button x:Name="createNewPlaylistToPage" Click="createNewPlaylistToPage_Click" Style="{StaticResource roundedButtons}" FontWeight="DemiBold" Content="Create a New PlayList" HorizontalAlignment="Right" Height="32" Margin="0,420,180,0" VerticalAlignment="Top" Width="150" >
+            <Button.Background>
+                <LinearGradientBrush Opacity="0.8">
+
+                    <GradientStop Color="#8ce3ec" Offset="2"/>
+                    <GradientStop Color="AliceBlue" Offset="0.7"/>
+                    <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                    <GradientStop Color="#f083da" Offset="1.8" />
+
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Content="Add Tracks OR Create A New PlayList" HorizontalAlignment="Center" Foreground="White"  FontSize="30" FontWeight="Bold"  VerticalAlignment="Center" />
 
     </Grid>
 </Page>

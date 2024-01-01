@@ -18,6 +18,14 @@
 
     </Window.Resources>
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush Opacity="0.7">
+                <GradientStop Color="#170e13" Offset="0.2"/>
+                <GradientStop Color="#2c2c2c" Offset="12.0"/>
+                <GradientStop Color="Black" Offset="12.0"/>
+                <GradientStop Color="#7a7aDb" Offset="2.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
 
         <Grid x:Name="MainGrid">
@@ -69,35 +77,58 @@
 
 
             <Grid x:Name="LeftGrid" Grid.Row="2" Grid.Column="0" >
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.1*"/>
                     <ColumnDefinition Width="0.8*"/>
                     <ColumnDefinition Width="0.1*"/>
                 </Grid.ColumnDefinitions>
-
+                
+              
                 <StackPanel Orientation="Vertical" Grid.Column="1">
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse Width="35" Height="35"   VerticalAlignment="Top" HorizontalAlignment="Left">
-                            <Ellipse.Fill>
-                                <ImageBrush  ImageSource="Static/Images/Logo.jpeg"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <Label Content="SOUNDERS" Grid.Column="1" FontWeight="UltraLight" FontSize="12" VerticalAlignment="Top"  Height="35" Margin="5,5,0,0" />
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0" >
+             
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="35" Height="35"  Margin="2,0,0,0"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Ellipse.Fill>
+                                    <ImageBrush  ImageSource="Static/Images/Logo.jpeg"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Label Foreground="White" Content="SOUNDERS" Grid.Column="1" FontWeight="UltraLight" FontSize="12" VerticalAlignment="Top"  Height="35" Margin="5,5,0,0" />
+                        </StackPanel>
+               
+                </StackPanel>
+                <Border  Grid.Column="1" CornerRadius="10" VerticalAlignment="Bottom" Height="540" Margin="0,0,0,20">
+                    <Border.Background>
+                        <LinearGradientBrush Opacity="0.1">
+                            <GradientStop Color="#8ce3ec" Offset="2"/>
+                            <GradientStop Color="AliceBlue" Offset="0.7"/>
+                            <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                            <GradientStop Color="#f083da" Offset="1.8" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Vertical" Grid.Column="1" >
+                    <StackPanel Orientation="Horizontal"  Margin="10,20,0,0" >
                         <Image Height="30" Width="20" Source="Static/Images/Homeicon2.png"/>
-                        <Button x:Name="homeButton" Click="homeButton_Click" BorderBrush="Transparent"  Background="Transparent" Margin="5,0,0,0" FontSize="20" Height="35" Width="80">Home</Button>
+                            <Button x:Name="homeButton" Click="homeButton_Click" BorderBrush="Transparent"  Background="Transparent" Margin="5,0,0,0" FontSize="20" Height="35" Width="80" Content="Home">
+                                <Button.Foreground>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="White"/>
+                                    </LinearGradientBrush>
+                                </Button.Foreground>
+                            </Button>
 
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,60,0,0">
+               
+
+                    <StackPanel Orientation="Horizontal" Margin="10,60,0,0">
                         <Image Height="30" Width="20" Source="Static/Images/Uploadicon2.png"/>
-                        <Button x:Name="uploadButton" Click="uploadButton_Click" BorderBrush="Transparent" Background="Transparent" Margin="5,0,0,0" Padding="7,0,0,0" FontSize="20" Width="80" Height="35">Upload</Button>
+                        <Button x:Name="uploadButton" Click="uploadButton_Click" BorderBrush="Transparent" Foreground="White" Background="Transparent" Margin="5,0,0,0" Padding="7,0,0,0" FontSize="20" Width="80" Height="35">Upload</Button>
 
                     </StackPanel>
-
+                    
                 </StackPanel>
 
+                </Border>
             </Grid>
 
             <Grid x:Name="RightGrid" Grid.Row="2" Grid.Column="2">
@@ -113,16 +144,20 @@
                     <RowDefinition Height="0.35*"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Column="1" Grid.RowSpan="1"  Grid.Row="1" Background="#191919">
-                    <Border.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="20"/>
-                        </Style>
-                    </Border.Resources>
+                <Border Grid.Column="1" Grid.RowSpan="1"  Grid.Row="1" CornerRadius="20">
+                    <Border.Background>
+                        <LinearGradientBrush Opacity="0.35">
+                            <GradientStop Color="#8ce3ec" Offset="2"/>
+                            <GradientStop Color="AliceBlue" Offset="0.3"/>
+                            <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                            <GradientStop Color="#f083da" Offset="1.8" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                   
                     <Image x:Name="songPicture" Height="200" Width="200" Source="Static/Images/DefaultSoundTrack.jpeg"/>
                 </Border>
-                <Label FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Content="Now Playing :" VerticalAlignment="Top" Margin="5,20,0,0"  />
-                <TextBlock x:Name="songName" Foreground="Aquamarine" FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Text="{Binding songName}" FontSize="18" TextTrimming="CharacterEllipsis"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,58">Changable Song Name</TextBlock>
+                <Label FontWeight="UltraBlack" Foreground="White" Grid.Row="1" Grid.Column="1" Content="Now Playing :" VerticalAlignment="Top" Margin="5,20,0,0"  />
+                <TextBlock x:Name="songName" Foreground="White" FontWeight="UltraBlack" Grid.Row="1" Grid.Column="1" Text="{Binding songName}" FontSize="18" TextTrimming="CharacterEllipsis"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,58">Changable Song Name</TextBlock>
                 <Slider x:Name="audioBar" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="20" Width="200" Margin="0,0,0,30"  Maximum="100" IsEnabled="False"></Slider>
                 
                
@@ -161,7 +196,15 @@
            
                 <Label Grid.Row="2" Grid.Column="1" Content="Queue" Margin="5,20,0,0" FontWeight="UltraBlack"/>
 
-                <ListView x:Name="queueList" Style="{StaticResource Rounded}" Margin="0,0,0,10" Background="Beige" Grid.Row="2" Grid.Column="1" Height="160" VerticalAlignment="Bottom" BorderBrush="Transparent" >
+                <ListView x:Name="queueList" Style="{StaticResource Rounded}" Margin="0,0,0,10"  Grid.Row="2" Grid.Column="1" Height="160" VerticalAlignment="Bottom" BorderBrush="Transparent" >
+                    <ListView.Background>
+                        <LinearGradientBrush Opacity="0.35">
+                            <GradientStop Color="#8ce3ec" Offset="2"/>
+                            <GradientStop Color="AliceBlue" Offset="0.3"/>
+                            <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                            <GradientStop Color="#f083da" Offset="1.8" />
+                        </LinearGradientBrush>
+                    </ListView.Background>
                     <ListView.ItemTemplate>
                         <DataTemplate>
 

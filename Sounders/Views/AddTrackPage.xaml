@@ -10,7 +10,7 @@
     <Page.Resources>
         <ResourceDictionary Source="/Themes/RoundedButtonsTheme.xaml"/>
     </Page.Resources>
-    <Grid Background="#0a0a0a">
+    <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.10*"/>
             <RowDefinition Height="0.10*"/>
@@ -19,7 +19,7 @@
             <RowDefinition Height="0.15*"/>
 
         </Grid.RowDefinitions>
-        <Label Grid.Row="1" Content="Add Track" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold"/>
+        <Label Grid.Row="1" Content="Add Track" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" Foreground="White" FontWeight="Bold"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.10*"/>
@@ -30,10 +30,43 @@
             <Label Grid.Column="1" Content="Track Name" VerticalAlignment="Top" Margin="0,100,0,0" HorizontalAlignment="Left"></Label>
             <TextBox x:Name="songNameTextBox" Grid.Column="1" HorizontalAlignment="Left"  FontSize="18" Height="25" Width="250" VerticalAlignment="Center" Margin="6,0,0,0"></TextBox>
             <Label x:Name="fileLocationLabel" Grid.Column="1" Content="" VerticalAlignment="Top"  HorizontalAlignment="Center" Margin="0,195,0,0" Height="27" FontSize="10"></Label>
-            <Button x:Name="browseButton" Click="browseTracksButton_Click" Style="{StaticResource roundedButtons}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="80" Margin="0,250,0,0" FontSize="10">Browse</Button>
-            <Button x:Name="browsePicture" Grid.Column="2" Content="+"  Click="browsePicture_Click" HorizontalAlignment="Center" Height="120" Width="120" VerticalAlignment="Center" ></Button>
+            <Button x:Name="browseButton" Click="browseTracksButton_Click" Style="{StaticResource roundedButtons}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="80" Margin="0,250,0,0" FontSize="10" FontWeight="DemiBold" Content="Browse">
+                <Button.Background>
+                    <LinearGradientBrush Opacity="0.8">
+
+                        <GradientStop Color="#8ce3ec" Offset="2"/>
+                        <GradientStop Color="AliceBlue" Offset="0.7"/>
+                        <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                        <GradientStop Color="#f083da" Offset="1.8" />
+
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="browsePicture" Grid.Column="2" Content="+"  Click="browsePicture_Click" HorizontalAlignment="Center" Height="120" Width="120" VerticalAlignment="Center" >
+                <Button.Background>
+                    <LinearGradientBrush Opacity="0.8">
+
+                        <GradientStop Color="#8ce3ec" Offset="2"/>
+                        <GradientStop Color="AliceBlue" Offset="0.7"/>
+                        <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                        <GradientStop Color="#f083da" Offset="1.8" />
+
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
             <Label Grid.Column="2" Content="Add Track Picture"  HorizontalAlignment="Center"   VerticalAlignment="Center" Margin="0,160,0,0" FontSize="15"></Label>
         </Grid>
-        <Button Grid.Row="3"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" FontWeight="Thin" Width="80" Content="Upload" FontSize="10" Click="UploadButton_Click"/>
+        <Button Grid.Row="3"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="25" FontWeight="DemiBold" Width="80" Content="Upload" FontSize="10" Click="UploadButton_Click">
+            <Button.Background>
+                <LinearGradientBrush Opacity="0.8">
+
+                    <GradientStop Color="#8ce3ec" Offset="2"/>
+                    <GradientStop Color="AliceBlue" Offset="0.7"/>
+                    <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                    <GradientStop Color="#f083da" Offset="1.8" />
+
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

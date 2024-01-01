@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="AliceBlue" x:Name="PlaylistMainGrid" >
+    <Grid Background="Transparent" x:Name="PlaylistMainGrid" >
 
 
 
@@ -43,12 +43,31 @@
 
 
             <Image x:Name="playlistImage"  Grid.Column="0"  VerticalAlignment="Stretch" Source="/Static/Images/DefaultSoundTrack.jpeg"/>
-            <TextBlock x:Name="playlistName" Text="{Binding PlaylistName}" Grid.Column="3" Foreground="Black" FontWeight="UltraBold"   FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Center" >Playlist Name</TextBlock>
-            <Button x:Name="listenButton" Grid.Column="2" Height="22" Width="90" Style="{StaticResource roundedButtons}" HorizontalAlignment="Left" Margin="0,120,0,0" FontWeight="Black">Listen</Button>
+            <TextBlock x:Name="playlistName" Text="{Binding PlaylistName}" Grid.Column="3"  FontWeight="UltraBold"   FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" >Playlist Name</TextBlock>
+            <Button x:Name="listenButton" Grid.Column="2" Height="22" Width="90" Style="{StaticResource roundedButtons}" HorizontalAlignment="Left" Margin="0,120,0,0" FontWeight="DemiBold" Content="Listen">
+                <Button.Background>
+                    <LinearGradientBrush Opacity="0.8">
+
+                        <GradientStop Color="#8ce3ec" Offset="2"/>
+                        <GradientStop Color="AliceBlue" Offset="0.7"/>
+                        <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                        <GradientStop Color="#f083da" Offset="1.8" />
+
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         
         </Grid>
-        <ListView  x:Name="playlistSongsList" Style="{StaticResource Rounded}" Grid.Row="3" Grid.Column="1"  Background="#ede9e9" HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch"  AllowDrop="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListView  x:Name="playlistSongsList" Style="{StaticResource Rounded}" Grid.Row="3" Grid.Column="1"   HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch"  AllowDrop="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListView.Background>
+                <LinearGradientBrush Opacity="0.8">
+                    <GradientStop Color="#8ce3ec" Offset="0.0"/>
+                    <GradientStop Color="AliceBlue" Offset="2"/>
 
+                    <GradientStop Color="#7a7aDb" Offset="0.0" />
+                    <GradientStop Color="Black" Offset="1.5"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemTemplate>
                 <DataTemplate>
 
