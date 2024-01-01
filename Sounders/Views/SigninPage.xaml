@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Sounders.Views"
       mc:Ignorable="d" 
-        d:DesignHeight="648" d:DesignWidth="896"
+        d:DesignHeight="612" d:DesignWidth="896"
       Title="Signinpage">
     <Page.Resources>
 
@@ -17,7 +17,8 @@
         </ResourceDictionary>
 
     </Page.Resources>
-    <Grid Background="White">
+    <Grid Background="Transparent">
+      
 
         <Grid.RowDefinitions>
             <RowDefinition Height="0.10*"/>
@@ -25,19 +26,30 @@
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Sign In" Foreground="Black" FontSize="32"  HorizontalAlignment="Center" Margin="0,0,0,0"/>
-            <TextBlock  Text="E-mail" Foreground="Black" Margin="0,10,0,5"/>
-            <TextBox  x:Name="emailTextBox" FontSize="18" Height="25" Width="250" Foreground="Black" >
+            <TextBlock Text="Sign In" Foreground="Black" FontSize="32" FontWeight="SemiBold"  HorizontalAlignment="Center" Margin="0,0,0,0"/>
+            <TextBlock  Text="E-mail" Foreground="Black" FontWeight="SemiBold"  Margin="0,10,0,5"/>
+            <TextBox  x:Name="emailTextBox" FontSize="18"   Height="25" Width="250" Foreground="Black" >
 
             </TextBox>
-            <TextBlock Text="Password" Foreground="Black" Margin="0,10,0,5" />
-            <PasswordBox x:Name="passwordTextBox" FontSize="18" Height="25" Width="250" Foreground="Black" >
+            <TextBlock FontWeight="SemiBold" Text="Password" Foreground="Black" Margin="0,10,0,5" />
+            <PasswordBox x:Name="passwordTextBox" FontSize="18"   Height="25" Width="250" Foreground="Black" >
 
             </PasswordBox>
 
             <TextBlock FontSize="12" Foreground="Gray" Text="" Margin="0,10,0,0" > If You Don't have an account please  <Span><Hyperlink NavigateUri="Signuppage.xaml">sign up</Hyperlink></Span></TextBlock>
-            <Button Style="{StaticResource roundedButtons}" Content="Sign in" Height="25" Margin="0,10,0,0" Width="80" Click="signinButton_Click"/>
-           
+            <Button FontWeight="SemiBold"  Style="{StaticResource roundedButtons}" Content="Sign in" Height="25" Margin="0,30,0,0" Width="80" Click="signinButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush Opacity="1">
+                     
+                        <GradientStop Color="#8ce3ec" Offset="2"/>
+                        <GradientStop Color="AliceBlue" Offset="0.7"/>
+                        <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                        <GradientStop Color="#f083da" Offset="1.8" />
+
+                    </LinearGradientBrush>
+                </Button.Background>
+                </Button>
+
 
 
         </StackPanel>

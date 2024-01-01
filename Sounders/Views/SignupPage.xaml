@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Sounders.Views"
       mc:Ignorable="d" 
-        d:DesignHeight="648" d:DesignWidth="896"
+        d:DesignHeight="612" d:DesignWidth="896"
       Title="Signuppage">
     <Page.Resources>
 
@@ -17,7 +17,8 @@
         </ResourceDictionary>
 
     </Page.Resources>
-    <Grid Background="White">
+    <Grid Background="Transparent">
+  
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.1*"/>
@@ -25,7 +26,7 @@
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Sign Up " FontSize="32" Foreground="Black" Height="42" Width="120"/>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Sign Up " FontSize="32" Foreground="Black" Height="42" FontWeight="DemiBold" Width="120"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
@@ -34,32 +35,42 @@
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Margin="0,35,0,0">
-                <TextBlock Text="First Name" FontSize="16" Foreground="Black" HorizontalAlignment="Left" Margin="11,10,0,0"/>
+                <TextBlock Text="First Name" FontWeight="DemiBold" FontSize="16" Foreground="Black" HorizontalAlignment="Left" Margin="11,10,0,0"/>
                 <TextBox x:Name="firstNameTextBox" FontSize="18" Height="25" Width="200" Margin="0,5,0,0">
 
                 </TextBox>
-                <TextBlock Text="Last Name" FontSize="16" Foreground="Black" HorizontalAlignment="Left" Margin="11,10,0,0" />
+                <TextBlock FontWeight="DemiBold" Text="Last Name" FontSize="16" Foreground="Black" HorizontalAlignment="Left" Margin="11,10,0,0" />
                 <TextBox x:Name="lastNameTextBox" FontSize="18" Height="25" Width="200" Margin="0,5,0,0">
 
                 </TextBox>
             </StackPanel>
             <StackPanel Grid.Column="2" Margin="0,20,0,0">
-                <TextBlock Text="E-mail" FontSize="16" Foreground="Black" HorizontalAlignment="Left" Margin="11,10,0,0"/>
+                <TextBlock FontWeight="DemiBold" Text="E-mail" FontSize="16" Foreground="Black" HorizontalAlignment="Left" Margin="11,10,0,0"/>
                 <TextBox x:Name="emailTextBox" FontSize="18" Height="25" Width="200" Margin="0,5,0,0" >
 
                 </TextBox>
-                <TextBlock Text="New Password" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,100,0"  />
+                <TextBlock FontWeight="DemiBold" Text="New Password" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,100,0"  />
                 <PasswordBox x:Name="passwordTextBox" FontSize="18" Height="25" Width="200" Margin="0,5,0,0" >
 
                 </PasswordBox>
-                <TextBlock Text="Re-Enter Password" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,72,0" />
+                <TextBlock FontWeight="DemiBold" Text="Re-Enter Password" FontSize="16" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,72,0" />
                 <PasswordBox x:Name="reEnterPasswordTextBox" FontSize="18" Height="25" Width="200" Margin="0,5,0,0" >
 
                 </PasswordBox>
             </StackPanel>
 
         </Grid>
-        <Button Grid.Row="3" Content="Sign Up" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="22" Click="signup_Click"/>
+        <Button FontWeight="DemiBold" Grid.Row="3" Content="Sign Up" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="25" Click="signup_Click">
+            <Button.Background>
+                <LinearGradientBrush Opacity="1">
+                    <GradientStop Color="#8ce3ec" Offset="2"/>
+                    <GradientStop Color="AliceBlue" Offset="0.7"/>
+                    <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                    <GradientStop Color="#f083da" Offset="1.8" />
+
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
 
 

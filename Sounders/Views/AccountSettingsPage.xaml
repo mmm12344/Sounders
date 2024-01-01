@@ -19,7 +19,7 @@
 
     </Page.Resources>
 
-    <Grid Background="#0a0a0a" x:Name="MainGrid">
+    <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.15*"/>
             <ColumnDefinition Width="0.6*"/>
@@ -29,8 +29,8 @@
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.9*"/>
         </Grid.RowDefinitions>
-
-        <Grid x:Name="Grid2"  Grid.Row="1" Grid.Column="1">
+     
+            <Grid x:Name="Grid2"  Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.3*"/>
                 <RowDefinition Height="0.2*"/>
@@ -40,28 +40,39 @@
                 <RowDefinition Height="0.3*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Account Settings" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Grid.Row="0" Grid.Column="0" Foreground="White" FontWeight="DemiBold"  Text="Account Settings" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center">
             </TextBlock>
 
             <StackPanel Grid.Row="1" Height="420">
-                <TextBlock Text="Change First Name" FontSize="14" HorizontalAlignment="Left"/>
-                <TextBox x:Name="changeFirstNameTextBox" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                <TextBlock Text="Change First Name" FontSize="14" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Left"/>
+                <TextBox x:Name="changeFirstNameTextBox" FontSize="18" Width="250" Height="25" HorizontalAlignment="Left" Margin="0,5,0,0"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Height="420">
-                <TextBlock Text="Change Last Name" FontSize="14" HorizontalAlignment="Left"/>
-                <TextBox x:Name="changeLastNameTextBox" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                <TextBlock Text="Change Last Name" FontSize="14" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Left"/>
+                <TextBox x:Name="changeLastNameTextBox" FontSize="18" Width="250" Height="25" HorizontalAlignment="Left" Margin="0,5,0,0"/>
             </StackPanel>
 
             <StackPanel Grid.Row="3" Height="420">
-                <TextBlock Text="Change Password" FontSize="14" HorizontalAlignment="Left"/>
-                <PasswordBox x:Name="chanePasswordPasswordBox" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                <TextBlock Text="Change Password" FontSize="14" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Left"/>
+                <PasswordBox x:Name="chanePasswordPasswordBox" FontSize="18" Width="250" Height="25" HorizontalAlignment="Left" Margin="0,5,0,0"/>
             </StackPanel>
             <StackPanel Grid.Row="4" Height="420">
-                <TextBlock Text="ServerUrl" FontSize="14" HorizontalAlignment="Left"/>
-                <TextBox x:Name="serverUrlTextBox" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                <TextBlock Text="ServerUrl" FontSize="14" FontWeight="DemiBold" Foreground="White" HorizontalAlignment="Left"/>
+                <TextBox x:Name="serverUrlTextBox" FontSize="18" Width="250" Height="25" HorizontalAlignment="Left" Margin="0,5,0,0"/>
             </StackPanel>
 
-            <Button x:Name="applyChangesButton" Grid.Row="5" Content="Apply Changes" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="22" Click="applyChangesButton_Click"/>
+            <Button x:Name="applyChangesButton" Grid.Row="5" Content="Apply Changes" Style="{StaticResource roundedButtons}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" FontWeight="DemiBold" Height="25" Click="applyChangesButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush Opacity="0.8">
+
+                        <GradientStop Color="#8ce3ec" Offset="2"/>
+                        <GradientStop Color="AliceBlue" Offset="0.7"/>
+                        <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                        <GradientStop Color="#f083da" Offset="1.8" />
+
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
 
         </Grid>
 

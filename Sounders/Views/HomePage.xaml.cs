@@ -345,17 +345,17 @@ namespace Sounders.Views
             mainWindow.mainFrame.Navigate(new ShowAllPlaylistListPage(mainWindow, "all"));
         }
 
-        private void ShowAllLikedTracks_Click(object sender, RoutedEventArgs e)
+        private void ShowAllLikedTrack_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.mainFrame.Navigate(new ShowAllTracksPage(mainWindow, "liked"));
         }
 
-        private void ShowAllAddedTracks_Click(Object sender, RoutedEventArgs e)
+        private void ShowAllAddedTrack_Click(Object sender, RoutedEventArgs e)
         {
             mainWindow.mainFrame.Navigate(new ShowAllTracksPage(mainWindow, "own"));
         }
 
-        private void ShowAllAddedPlaylists_Click(Object sender, RoutedEventArgs e)
+        private void ShowAllAddedPlaylist_Click(Object sender, RoutedEventArgs e)
         {
             mainWindow.mainFrame.Navigate(new ShowAllPlaylistListPage(mainWindow, "own"));
         }

@@ -10,7 +10,7 @@
     <Page.Resources>
         <ResourceDictionary Source="/Themes/RoundedButtonsTheme.xaml"/>
     </Page.Resources>
-    <Grid Background="#0a0a0a">
+    <Grid Background="Transparent">
         <Grid.RowDefinitions>
          
             <RowDefinition Height="0.30*"/>
@@ -22,7 +22,7 @@
 
 
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Create New PlayList" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold"/>
+        <Label  Grid.Row="0" Content="Create New PlayList" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" Foreground="White" FontWeight="Bold"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.10*"/>
@@ -31,17 +31,39 @@
                 <ColumnDefinition Width="0.10*"/>
             </Grid.ColumnDefinitions>
           
-                <Label Grid.Column="1"  Content="PlayList Name" VerticalAlignment="Center" Margin="0,0,0,70" HorizontalAlignment="Left"></Label>
+                <Label Grid.Column="1" FontWeight="DemiBold"  Content="PlayList Name" VerticalAlignment="Center" Margin="0,0,0,70" HorizontalAlignment="Left" Foreground="White"></Label>
             <TextBox x:Name="playlistNameTextBox" Grid.Column="1"   HorizontalAlignment="Left" FontSize="18" Height="25" Width="250" VerticalAlignment="Center" Margin="6,0,0,0"></TextBox>
-            <Button  x:Name="browsePictureButton" Click="browsePictureButton_Click" Grid.Column="2" Content="+"   HorizontalAlignment="Center" Margin="0,7,0,0" Height="120" Width="120" VerticalAlignment="Center" ></Button>
-            <Label Grid.Column="2" Content="Add PlayList Picture"  HorizontalAlignment="Center"   VerticalAlignment="Center" Margin="0,160,0,0"  FontSize="15"></Label>
+            <Button  x:Name="browsePictureButton" Click="browsePictureButton_Click" Grid.Column="2" Content="+"   HorizontalAlignment="Center" Margin="0,7,0,0" Height="120" Width="120" VerticalAlignment="Center" >
+                <Button.Background>
+                    <LinearGradientBrush Opacity="0.8">
+
+                        <GradientStop Color="#8ce3ec" Offset="2"/>
+                        <GradientStop Color="AliceBlue" Offset="0.7"/>
+                        <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                        <GradientStop Color="#f083da" Offset="1.8" />
+
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Grid.Column="2" Foreground="White" FontWeight="DemiBold" Content="Add PlayList Picture"  HorizontalAlignment="Center"   VerticalAlignment="Center" Margin="0,160,0,0"  FontSize="15"></Label>
         </Grid>
 
 
-    
-    
-       
-        <Button x:Name="createButton" Grid.Row="4"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Create" Margin="0,0,0,50" FontSize="10" Click="CreateButton_Click"/>
+
+
+
+        <Button x:Name="createButton" FontWeight="DemiBold" Grid.Row="4"  Style="{StaticResource roundedButtons}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="60" Content="Create" Margin="0,0,0,50" FontSize="10" Click="CreateButton_Click">
+            <Button.Background>
+                <LinearGradientBrush Opacity="0.8">
+
+                    <GradientStop Color="#8ce3ec" Offset="2"/>
+                    <GradientStop Color="AliceBlue" Offset="0.7"/>
+                    <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                    <GradientStop Color="#f083da" Offset="1.8" />
+
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     
        

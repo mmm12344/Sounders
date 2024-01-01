@@ -18,7 +18,7 @@
         </ResourceDictionary>
         
     </Page.Resources>
-    <Grid Background="#0a0a0a">
+    <Grid Background="Transparent">
         <Grid.RowDefinitions>
          
             <RowDefinition Height="0.30*"/>
@@ -30,9 +30,19 @@
 
 
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Create New PlayList" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold"/>
-        <ListView Grid.Row="1" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <Label Grid.Row="0" Content="Create New PlayList" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontSize="30" FontWeight="Bold"/>
+        <ListView Grid.Row="1" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListView.Background>
+                <LinearGradientBrush Opacity="0.8">
+                    <GradientStop Color="#8ce3ec" Offset="0.0"/>
+                    <GradientStop Color="AliceBlue" Offset="2"/>
+
+                    <GradientStop Color="#7a7aDb" Offset="0.0" />
+                    <GradientStop Color="Black" Offset="1.5"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemsPanel>
+                
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal">
 
@@ -44,7 +54,15 @@
 
                     <StackPanel Orientation="Horizontal">
                         <ContentControl >
-                            <Border  CornerRadius="20" Background="#151515" Margin="10,5,10,5">
+                            <Border  CornerRadius="20" Margin="10,5,10,5">
+                                <Border.Background>
+                                    <LinearGradientBrush Opacity="0.11">
+                                        <GradientStop Color="#8ce3ec" Offset="2"/>
+                                        <GradientStop Color="AliceBlue" Offset="0.3"/>
+                                        <GradientStop Color="#9bc7d0" Offset="1.9"/>
+                                        <GradientStop Color="#f083da" Offset="1.8" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
                                 <StackPanel Width="150" Tag="{Binding playlistID}" VerticalAlignment="Stretch" Margin="10,5,10,5">
 
                                     <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>

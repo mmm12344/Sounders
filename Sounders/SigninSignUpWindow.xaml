@@ -7,27 +7,28 @@
         mc:Ignorable="d"
         Style="{StaticResource standardWindowStyle}">
     <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush>
+                <GradientStop Color="#ddf5f9" Offset="0.0"/>
+                <GradientStop Color="#f083da" Offset="4.0"/>
+
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid x:Name="MainGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.15*"/>
                 <ColumnDefinition Width="0.7*"/>
                 <ColumnDefinition Width="0.15*"/>
+                
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition Height="0.05*"/>
-                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="0.85*"/>
+                <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Vertical" Grid.Row="2">
-                <StackPanel Orientation="Horizontal" Margin="15,0,0,0">
-                    <Ellipse Width="35" Height="35"   VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <Ellipse.Fill>
-                            <ImageBrush  ImageSource="Static/Images/Logo.jpeg"/>
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <Label Content="SOUNDERS" Grid.Column="1" FontWeight="UltraLight" FontSize="12" VerticalAlignment="Top"  Height="35" Margin="5,5,0,0" />
-                </StackPanel>
-            </StackPanel>
+          
             <Frame x:Name="signInsignUp" Grid.Row="2" Grid.Column="1">
 
             </Frame>
