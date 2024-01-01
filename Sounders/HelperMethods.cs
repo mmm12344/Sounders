@@ -60,6 +60,18 @@ namespace Sounders
             return processedList;
         }
 
+        public static SongData GetSongDataFromID(List<SongData> lst,int songID)
+        {
+            foreach(SongData item in lst)
+            {
+                if(songID == item.songID)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
         public static bool CheckIfSignedIn()
         {
             int? userID = Settings.GetUserID();

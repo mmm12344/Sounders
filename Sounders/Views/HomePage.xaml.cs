@@ -63,8 +63,9 @@ namespace Sounders.Views
 
                 try
                 {
-                    foreach (SongInfo song in result)
+                    for (int i = 0; i < result.Count && i < 3; i++)
                     {
+                        SongInfo song = result[i];
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
                         var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
                         likedSongs.Add(new SongData(song.songID, song.name, songPicture));
@@ -87,8 +88,9 @@ namespace Sounders.Views
 
                 try
                 {
-                    foreach (SongInfo song in result)
+                    for (int i = 0; i < result.Count && i < 3; i++)
                     {
+                        SongInfo song = result[i];
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
                         var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
                         ownSongs.Add(new SongData(song.songID, song.name, songPicture));
@@ -111,8 +113,9 @@ namespace Sounders.Views
 
                 try
                 {
-                    foreach (Playlist playlist in result)
+                    for (int i = 0; i < result.Count && i < 3; i++)
                     {
+                        var playlist = result[i];
                         var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
                         var toAdd = new {playlistID = Convert.ToString(playlist.playlistID),playlistName = playlist.name, playlistPic = playlistPicture };
                         yourPlaylists.Add(playlist);
@@ -135,8 +138,9 @@ namespace Sounders.Views
 
                 try
                 {
-                    foreach (Playlist playlist in result)
+                    for (int i = 0; i < result.Count && i < 3; i++)
                     {
+                        var playlist = result[i];
                         var playlistPicture = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
                         var toAdd = new { playlistID = Convert.ToString(playlist.playlistID), playlistName = playlist.name, playlistPic = playlistPicture };
                         allPlaylists.Add(playlist);
@@ -159,8 +163,9 @@ namespace Sounders.Views
 
                 try
                 {
-                    foreach (SongInfo song in result)
+                    for (int i = 0; i < result.Count && i < 3; i++)
                     {
+                        var song = result[i];
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
                         var toAdd = new {songID = Convert.ToString(song.songID) ,songName = song.name, songPic = songPicture };
                         allSongs.Add(new SongData(song.songID, song.name, songPicture));
@@ -278,7 +283,7 @@ namespace Sounders.Views
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
             mainQueue.ClearAll();
-            mainQueue.EnqueueFromList(HelperMethods.GetListForQueue(likedSongs, songID));
+            mainQueue.Enqueue(HelperMethods.GetSongDataFromID(likedSongs, songID));
             mainQueue.AddCurrentSongToPlayer();
         }
 
@@ -287,7 +292,7 @@ namespace Sounders.Views
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
             mainQueue.ClearAll();
-            mainQueue.EnqueueFromList(HelperMethods.GetListForQueue(ownSongs, songID));
+            mainQueue.Enqueue(HelperMethods.GetSongDataFromID(ownSongs, songID)); ;
             mainQueue.AddCurrentSongToPlayer();
         }
 
@@ -296,7 +301,7 @@ namespace Sounders.Views
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
             mainQueue.ClearAll();
-            mainQueue.EnqueueFromList(HelperMethods.GetListForQueue(allSongs, songID));
+            mainQueue.Enqueue(HelperMethods.GetSongDataFromID(allSongs, songID)); ;
             mainQueue.AddCurrentSongToPlayer();
         }
 
@@ -330,14 +335,29 @@ namespace Sounders.Views
             mainWindow.mainFrame.Navigate(new PlaylistPage(playlist));
         }
 
-        private void ShowAllButtonTrack_Click(object sender, RoutedEventArgs e)
+        private void ShowAllTracks_Click(object sender, RoutedEventArgs e)
         {
-
+            mainWindow.mainFrame.Navigate(new ShowAllTracksPage(mainWindow, "all"));
         }
 
-        private void ShowAllButtonPlaylist_Click(object sender, RoutedEventArgs e)
+        private void ShowAllPlaylists_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.mainFrame.Navigate(new ShowAllPlaylistListPage(mainWindow, "all"));
+        }
 
+        private void ShowAllLikedTracks_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.mainFrame.Navigate(new ShowAllTracksPage(mainWindow, "liked"));
+        }
+
+        private void ShowAllAddedTracks_Click(Object sender, RoutedEventArgs e)
+        {
+            mainWindow.mainFrame.Navigate(new ShowAllTracksPage(mainWindow, "own"));
+        }
+
+        private void ShowAllAddedPlaylists_Click(Object sender, RoutedEventArgs e)
+        {
+            mainWindow.mainFrame.Navigate(new ShowAllPlaylistListPage(mainWindow, "own"));
         }
     }
 }

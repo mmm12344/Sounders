@@ -42,7 +42,7 @@
 
 
             <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Tracks</Label>
-                <Button x:Name="ShowAllButtonLikedTracks" Grid.Row="1" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllButtonTrack_Click"></Button>
+                <Button x:Name="ShowAllButtonLikedTracks" Grid.Row="1" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllLikedTracks_Click"></Button>
                 <ListView  Background="#000000" Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Grid.Row="1" x:Name="likedTracksList" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -79,7 +79,7 @@
                 </ListView>
             
             <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Tracks</Label>
-                <Button x:Name="ShowAllButtonAddedTracks"  Grid.Row="3" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllButtonTrack_Click"></Button>
+                <Button x:Name="ShowAllButtonAddedTracks"  Grid.Row="3" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllAddedTracks_Click"></Button>
 
                 <ListView Grid.Row="3" x:Name="addedTracksList"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.ItemsPanel>
@@ -120,7 +120,7 @@
           
 
             <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Your Playlists</Label>
-                <Button x:Name="ShowAllButtonYourPlaylist"  Grid.Row="5" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllButtonPlaylist_Click"></Button>
+                <Button x:Name="ShowAllButtonYourPlaylist"  Grid.Row="5" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllAddedPlaylists_Click"></Button>
                 <ListView Grid.Row="5" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
              
                     <ListView.ItemsPanel>
@@ -159,7 +159,7 @@
             </ListView>
 
             <Label Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Tracks</Label>
-                <Button x:Name="ShowAllButtonExploreNewTracks"  Grid.Row="7" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllButtonTrack_Click"></Button>
+                <Button x:Name="ShowAllTracks"  Grid.Row="7" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllTracks_Click"></Button>
                 <ListView Grid.Row="7" x:Name="exploreNewTracks"  Style="{StaticResource functionalRoundedList}"  HorizontalAlignment="Left" Width="600" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                     <ListView.ItemsPanel>
@@ -197,7 +197,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             <Label Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Playlists</Label>
-                <Button x:Name="ShowAllButtonExploreNewPlaysllist"  Grid.Row="9" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllButtonPlaylist_Click"></Button>
+                <Button x:Name="ShowAllPlaylists"  Grid.Row="9" Style="{StaticResource roundedButtons }" Background="AntiqueWhite" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllPlaylists_Click"></Button>
                 <ListView Grid.Row="9" x:Name="explorenewPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                     <ListView.ItemsPanel>

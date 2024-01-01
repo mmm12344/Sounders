@@ -31,59 +31,40 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="listNameTextBlock" Grid.Row="0"  FontSize="30" FontWeight="Bold" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center">Changable PlaylistList Name</TextBlock>
 
-        <ListView Grid.Row="1"   Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Center"  Width="680" Background="#000000" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical">
-
-                    </StackPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
+        <ScrollViewer Margin="51,10,0,10" Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+            <ItemsControl x:Name="playlistItemsControl"  HorizontalAlignment="Left" Width="595">
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
 
                     <StackPanel Orientation="Horizontal">
                         <ContentControl >
-                            <ListView x:Name="allPlaylistList"  Background="#000000" Style="{StaticResource functionalRoundedList}"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                                <ListView.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                        </StackPanel>
-                                    </ItemsPanelTemplate>
-                                </ListView.ItemsPanel>
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-
-                                        <StackPanel Orientation="Horizontal">
-                                            <ContentControl >
-                                                <Border  CornerRadius="20" Background="#151515" Margin="10,5,10,5">
-                                                    <StackPanel Width="150" Tag="{Binding playlistID}" MouseDown="Playlist_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
-                                                        <StackPanel.ContextMenu>
-                                                            <ContextMenu>
+                            <Border  CornerRadius="20" Background="#151515" Margin="10,5,10,5">
+                                    <StackPanel Width="150" Tag="{Binding playlistID}"  VerticalAlignment="Stretch" Margin="10,5,10,5" MouseDown="Playlist_MouseDown">
+                                    <StackPanel.ContextMenu>
+                                        <ContextMenu>
 
 
 
-                                                                <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click" Tag="{Binding playlistID}"/>
-                                                                <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click" Tag="{Binding playlistID}"/>
-                                                            </ContextMenu>
-                                                        </StackPanel.ContextMenu>
-                                                        <Image  Height="120"   Stretch="Fill" IsEnabled="True" Source="{Binding playlistPic}" Margin="20,20,20,0"/>
-                                                        <TextBlock Foreground="#beb1c2"  FontSize="20" FontWeight="Black"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,5,0,10" />
-                                                    </StackPanel>
-                                                </Border>
-                                            </ContentControl>
-                                        </StackPanel>
-
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
+                                            <MenuItem x:Name="playPlaylistItem" Header="Play" Click="playPlaylistItem_Click" Tag="{Binding playlistID}"/>
+                                            <MenuItem x:Name="openPlayList" Header="Open Playlist" Click="openPlayList_Click" Tag="{Binding playlistID}"/>
+                                        </ContextMenu>
+                                    </StackPanel.ContextMenu>
+                                    <Image  Height="120"   Stretch="Fill" IsEnabled="True" Source="{Binding playlistPic}" Margin="20,20,20,0"/>
+                                    <TextBlock Foreground="#beb1c2"  FontSize="20" FontWeight="Black"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,5,0,10" />
+                                </StackPanel>
+                            </Border>
                         </ContentControl>
                     </StackPanel>
 
                 </DataTemplate>
-            </ListView.ItemTemplate>
-
-        </ListView>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        </ScrollViewer>
 
     </Grid>
 </Page>
