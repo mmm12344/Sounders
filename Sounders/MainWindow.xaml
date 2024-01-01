@@ -42,7 +42,49 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                <TextBox x:Name="searchBar" Margin="5,0,0,0" Style="{StaticResource ModernTextbox}"/>
+                <Border CornerRadius="10"
+        Background="#353340"
+        Width="170" Height="34">
+                    <Grid>
+                        <Rectangle StrokeThickness="1"/>
+                        <TextBox Margin="1" 
+                 Text="{Binding Text}"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 VerticalContentAlignment="Center"
+                 Padding="2"
+                 Foreground="#CFCFCF"
+                 x:Name="SearchBox"/>
+
+                        <TextBlock IsHitTestVisible="False"
+                   Text="Search"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Margin="10,0,0,0"
+                   FontSize="10"
+                   Foreground="DarkGray"
+                   Grid.Column="1">
+
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding= "{Binding Text, ElementName=SearchBox}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                    <Setter Property="Visibility" Value="Hidden"/>
+
+                                </Style>
+                            </TextBlock.Style>
+
+                        </TextBlock>
+
+
+
+
+                    </Grid>
+
+                </Border>
                 <Button x:Name="searchButton" Style="{StaticResource roundedButtons}" Click="searchButton_Click" Margin="10,0,0,0" Background="Transparent">
                     <Button.Content>
                         <Image RenderOptions.BitmapScalingMode="HighQuality" Height="20" Width="30" Source="Static/Images/SearchIcon (2).png"/>

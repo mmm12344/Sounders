@@ -38,6 +38,7 @@ namespace Sounders
         public PlayerQueue mainQueue;
 
 
+
         public MainWindow()
         {
 
@@ -179,9 +180,10 @@ namespace Sounders
 
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
-            if (searchBar.Text!= string.Empty )
+            
+            if (SearchBox.Text != string.Empty )
             {
-                mainFrame.Navigate(new SearchPage(searchBar.Text));
+                mainFrame.Navigate(new SearchPage(SearchBox.Text));
             }
         }
 
