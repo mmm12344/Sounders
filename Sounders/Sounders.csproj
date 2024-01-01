@@ -88,7 +88,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="HelperMethods.cs" />
-    <Compile Include="MarioPlayer.cs" />
+    <Compile Include="ِAudioPlayer.cs" />
     <Compile Include="Test\Tsetclass.cs" />
     <Compile Include="settings\Settings.cs" />
     <Compile Include="SigninSignUpWindow.xaml.cs">
