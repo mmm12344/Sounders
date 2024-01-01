@@ -98,14 +98,7 @@
                
                 </StackPanel>
                 <Border  Grid.Column="1" CornerRadius="10" VerticalAlignment="Bottom" Height="540" Margin="0,0,0,20">
-                    <Border.Background>
-                        <LinearGradientBrush Opacity="0.1">
-                            <GradientStop Color="#8ce3ec" Offset="2"/>
-                            <GradientStop Color="AliceBlue" Offset="0.7"/>
-                            <GradientStop Color="#9bc7d0" Offset="1.9"/>
-                            <GradientStop Color="#f083da" Offset="1.8" />
-                        </LinearGradientBrush>
-                    </Border.Background>
+                    
                     <StackPanel Orientation="Vertical" Grid.Column="1" >
                     <StackPanel Orientation="Horizontal"  Margin="10,20,0,0" >
                         <Image Height="30" Width="20" Source="Static/Images/Homeicon2.png"/>
@@ -146,12 +139,12 @@
 
                 <Border Grid.Column="1" Grid.RowSpan="1"  Grid.Row="1" CornerRadius="20">
                     <Border.Background>
-                        <LinearGradientBrush Opacity="0.35">
+                        <RadialGradientBrush Opacity="0.2">
                             <GradientStop Color="#8ce3ec" Offset="2"/>
                             <GradientStop Color="AliceBlue" Offset="0.3"/>
                             <GradientStop Color="#9bc7d0" Offset="1.9"/>
                             <GradientStop Color="#f083da" Offset="1.8" />
-                        </LinearGradientBrush>
+                        </RadialGradientBrush>
                     </Border.Background>
                    
                     <Image x:Name="songPicture" Height="200" Width="200" Source="Static/Images/DefaultSoundTrack.jpeg"/>
@@ -200,12 +193,12 @@
 
                 <ListView x:Name="queueList" Style="{StaticResource Rounded}" Margin="0,0,0,10"  Grid.Row="2" Grid.Column="1" Height="160" VerticalAlignment="Bottom" BorderBrush="Transparent" >
                     <ListView.Background>
-                        <LinearGradientBrush Opacity="0.35">
+                        <RadialGradientBrush Opacity="0.2">
                             <GradientStop Color="#8ce3ec" Offset="2"/>
                             <GradientStop Color="AliceBlue" Offset="0.3"/>
                             <GradientStop Color="#9bc7d0" Offset="1.9"/>
                             <GradientStop Color="#f083da" Offset="1.8" />
-                        </LinearGradientBrush>
+                        </RadialGradientBrush>
                     </ListView.Background>
                     <ListView.ItemTemplate>
                         <DataTemplate>

@@ -60,12 +60,10 @@
         </Grid>
         <ListView  x:Name="playlistSongsList" Style="{StaticResource Rounded}" Grid.Row="3" Grid.Column="1"   HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch"  AllowDrop="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
             <ListView.Background>
-                <LinearGradientBrush Opacity="0.8">
-                    <GradientStop Color="#8ce3ec" Offset="0.0"/>
-                    <GradientStop Color="AliceBlue" Offset="2"/>
 
-                    <GradientStop Color="#7a7aDb" Offset="0.0" />
-                    <GradientStop Color="Black" Offset="1.5"/>
+                <LinearGradientBrush Opacity="0.8">
+                    <GradientStop Color="#9B549B" Offset="0"/>
+                    <GradientStop Color="#000026" Offset="1"/>
                 </LinearGradientBrush>
             </ListView.Background>
             <ListView.ItemTemplate>

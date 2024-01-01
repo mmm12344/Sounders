@@ -48,11 +48,8 @@
                 <ListView   Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Grid.Row="1" x:Name="likedTracksList" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.Background>
                         <LinearGradientBrush Opacity="0.8">
-                            <GradientStop Color="#8ce3ec" Offset="0.0"/>
-                            <GradientStop Color="AliceBlue" Offset="2"/>
-                          
-                             <GradientStop Color="#7a7aDb" Offset="0.0" />
-                            <GradientStop Color="Black" Offset="1.5"/>
+                            <GradientStop Color="#9B549B" Offset="0"/>
+                            <GradientStop Color="#000026" Offset="1"/>
                         </LinearGradientBrush>
                     </ListView.Background>
 
@@ -106,12 +103,9 @@
                    
                         <ListView.Background>
                             <LinearGradientBrush Opacity="0.8">
-                                <GradientStop Color="#8ce3ec" Offset="0.0"/>
-                                <GradientStop Color="AliceBlue" Offset="2"/>
-
-                                <GradientStop Color="#7a7aDb" Offset="0.0" />
-                                <GradientStop Color="Black" Offset="1.5"/>
-                            </LinearGradientBrush>
+                            <GradientStop Color="#9B549B" Offset="0"/>
+                            <GradientStop Color="#000026" Offset="1"/>
+                        </LinearGradientBrush>
                         </ListView.Background>
                    
                     <ListView.ItemsPanel>
@@ -163,12 +157,9 @@
                 <ListView Grid.Row="5" x:Name="YourPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.Background>
                             <LinearGradientBrush Opacity="0.8">
-                                <GradientStop Color="#8ce3ec" Offset="0.0"/>
-                                <GradientStop Color="AliceBlue" Offset="2"/>
-
-                                <GradientStop Color="#7a7aDb" Offset="0.0" />
-                                <GradientStop Color="Black" Offset="1.5"/>
-                            </LinearGradientBrush>
+                            <GradientStop Color="#9B549B" Offset="0"/>
+                            <GradientStop Color="#000026" Offset="1"/>
+                        </LinearGradientBrush>
                         </ListView.Background>
 
                         <ListView.ItemsPanel>
@@ -219,11 +210,8 @@
                 <ListView Grid.Row="7" x:Name="exploreNewTracks"  Style="{StaticResource functionalRoundedList}"  HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.Background>
                         <LinearGradientBrush Opacity="0.8">
-                            <GradientStop Color="#8ce3ec" Offset="0.0"/>
-                            <GradientStop Color="AliceBlue" Offset="2"/>
-
-                            <GradientStop Color="#7a7aDb" Offset="0.0" />
-                            <GradientStop Color="Black" Offset="1.5"/>
+                            <GradientStop Color="#9B549B" Offset="0"/>
+                            <GradientStop Color="#000026" Offset="1"/>
                         </LinearGradientBrush>
                     </ListView.Background>
                     <ListView.ItemsPanel>
@@ -272,11 +260,8 @@
                 <ListView Grid.Row="9" x:Name="explorenewPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.Background>
                         <LinearGradientBrush Opacity="0.8">
-                            <GradientStop Color="#8ce3ec" Offset="0.0"/>
-                                <GradientStop Color="AliceBlue" Offset="2"/>
-
-                                <GradientStop Color="#7a7aDb" Offset="0.0" />
-                            <GradientStop Color="Black" Offset="1.5"/>
+                            <GradientStop Color="#9B549B" Offset="0"/>
+                            <GradientStop Color="#000026" Offset="1"/>
                         </LinearGradientBrush>
                     </ListView.Background>
                     <ListView.ItemsPanel>

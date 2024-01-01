@@ -1,5 +1,5 @@
 {
   "serverUrl": "https://localhost:7064",
-  "userID": 1,
-  "password": "12345678"
+  "userID": null,
+  "password": null
 }
