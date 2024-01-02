@@ -17,7 +17,7 @@
         </ResourceDictionary>
 
     </Page.Resources>
-    <Grid Background="#0a0a0a">
+    <Grid Background="Transparent">
         <Grid.RowDefinitions>
 
             <RowDefinition Height="0.20*"/>

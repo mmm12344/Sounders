@@ -249,8 +249,8 @@ namespace Sounders.Views
 
         private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
         {
-            int playlistID = Convert.ToInt32(((MenuItem)sender).Tag);
-            mainWindow.mainFrame.Navigate(new AddToPlayListPage(mainWindow,playlistID));
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            mainWindow.mainFrame.Navigate(new AddToPlayListPage(mainWindow,songID));
         }
 
         private void likeItem_Click(object sender, RoutedEventArgs e)

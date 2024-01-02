@@ -26,16 +26,8 @@
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" FontSize="32" VerticalAlignment="Center" FontWeight="Bold">Search Results</Label>
-        <ListView Grid.Row="1" x:Name="searchResultsList" Style="{StaticResource  Rounded}" HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch" AllowDrop="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" >
-            <ListView.Background>
-                <LinearGradientBrush Opacity="0.8">
-                    <GradientStop Color="#8ce3ec" Offset="0.0"/>
-                    <GradientStop Color="AliceBlue" Offset="2"/>
-
-                    <GradientStop Color="#7a7aDb" Offset="0.0" />
-                    <GradientStop Color="Black" Offset="1.5"/>
-                </LinearGradientBrush>
-            </ListView.Background>
+        <ListView Background="Transparent" Grid.Row="1" x:Name="searchResultsList" Style="{StaticResource  Rounded}" HorizontalAlignment="Stretch" BorderBrush="Transparent" VerticalAlignment="Stretch" AllowDrop="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+            
 
             <ListView.ItemTemplate>
                 <DataTemplate>
