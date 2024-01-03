@@ -78,7 +78,7 @@ namespace Sounders.Views
                     break;
                 }
             }
-            mainWindow.mainFrame.Navigate(new PlaylistPage(playlist));
+            mainWindow.mainFrame.Navigate(new PlaylistPage(playlist, mainWindow));
         }
 
         private void playPlaylistItem_Click(object sender, RoutedEventArgs e)

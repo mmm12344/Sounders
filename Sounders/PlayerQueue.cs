@@ -18,6 +18,7 @@ public class PlayerQueue
         private Image songPicture;
         private TextBlock songName;
         private Button likeButton;
+        private MediaPlayer mediaPlayer;
 
         public PlayerQueue(MainWindow mainWindow)
         {
@@ -26,6 +27,7 @@ public class PlayerQueue
             this.songPicture = mainWindow.songPicture;
             this.songName = mainWindow.songName;
             this.likeButton = mainWindow.likeButton;
+            this.mediaPlayer = mainWindow.mediaPlayer;
         }
 
         public void Enqueue(SongData item)
@@ -49,17 +51,18 @@ public class PlayerQueue
 
         public SongData Dequeue()
         {
-            if (songlist.Count == 0)
+            if (songlist.Count != 0)
             {
-                throw new IndexOutOfRangeException();
-            }
-            else
-            {
+                
                 SongData temp = songlist[0];
                 songlist.RemoveAt(0);
                 queueList.Items.RemoveAt(0);
+                if (songlist.Count >= 1)
+                    this.AddCurrentSongToPlayer();
                 return temp;
             }
+            
+            return null;
 
         }
 
@@ -87,14 +90,11 @@ public class PlayerQueue
         }
         public SongData Peek()
         {
-            if (songlist.Count == 0)
-            {
-                throw new IndexOutOfRangeException();
-            }
-            else
+            if (songlist.Count != 0)
             {
                 return songlist[0];
             }
+            return null;
         }
         public bool IsEmpty()
         {
@@ -158,6 +158,9 @@ public class PlayerQueue
 
                 try
                 {
+                    mediaPlayer.Close();
+                    mediaPlayer.Open(HelperMethods.GetUriFromBytes(result.file));
+
                     songPicture.Source = HelperMethods.GetBitmapImgFromBytes(result.picture);
                     songName.Text = result.name;
                     likeButton.Tag = Convert.ToString(Peek().songID);

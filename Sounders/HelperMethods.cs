@@ -42,6 +42,13 @@ namespace Sounders
             return songPicData;
         }
 
+        public static Uri GetUriFromBytes(byte[] bytes)
+        {
+            Uri uri = new Uri("temp.mp3", UriKind.Relative);
+            File.WriteAllBytes("temp.mp3", bytes);
+            return uri;
+        }
+
         public static List<SongData> GetListForQueue(List<SongData> lst, int songID)
         {
             List<SongData> processedList = new List<SongData>();

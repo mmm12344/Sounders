@@ -30,8 +30,7 @@ namespace Sounders
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MediaPlayer playMedia = new MediaPlayer();
-        AudioPlayer audioPlayer = new AudioPlayer();
+        public MediaPlayer mediaPlayer = new MediaPlayer();
 
         private DispatcherTimer timer;
         private string trackState="stop";
@@ -45,7 +44,8 @@ namespace Sounders
            
             InitializeComponent();
 
-
+            mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
+            mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
 
             this.mainQueue = new PlayerQueue(this);
 
@@ -77,18 +77,13 @@ namespace Sounders
 
             var currentSongUri = new Uri("Test/Test.mp3", UriKind.Relative);
 
-            audioPlayer.Open(currentSongUri);
+            mediaPlayer.Open(currentSongUri);
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Interval = TimeSpan.FromSeconds(0.5); // Update frequency
             timer.Tick += Timer_Tick;
 
-
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            audioBar.Value = playMedia.Position.TotalSeconds ;
-        }
 
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
@@ -97,8 +92,8 @@ namespace Sounders
             {
 
 
-                audioPlayer.Play();
-               //  timer.Start();
+                mediaPlayer.Play();
+                timer.Start();
 
                 Uri newImageUri = new Uri("Static/Images/Pause.png", UriKind.Relative);
                 BitmapImage bitmapImage = new BitmapImage(newImageUri);
@@ -113,6 +108,9 @@ namespace Sounders
 
             else if(trackState=="play")
             {
+                mediaPlayer.Pause();
+                timer.Stop();
+
                 Uri newImageUri = new Uri("Static/Images/Play.png", UriKind.Relative);
                 BitmapImage bitmapImage = new BitmapImage(newImageUri);
 
@@ -122,8 +120,7 @@ namespace Sounders
                 image.Width = 20;
                 playButton.Content = image;
 
-                audioPlayer.Pause();
-                //  timer.Stop();
+               
                 trackState = "stop";
             }
 
@@ -133,30 +130,42 @@ namespace Sounders
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            audioPlayer.Seek(e.NewValue);
-            
+            if (mediaPlayer.NaturalDuration.HasTimeSpan)
+            {
+                TimeSpan newPosition = TimeSpan.FromSeconds(audioBar.Value);
+                mediaPlayer.Position = newPosition;
+            }
+
         }
 
-        //private void StopButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    mediaElement.Stop();
-        //    timer.Stop();
+        private void MediaPlayer_MediaOpened(object sender, EventArgs e)
+        {
+            if (mediaPlayer.NaturalDuration.HasTimeSpan)
+            {
+                audioBar.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+            }
+        }
 
-        //}
+        private void MediaPlayer_MediaEnded(object sender, EventArgs e)
+        {
+            mainQueue.Dequeue();
+        }
 
-        //private void MediaElement_MediaOpened(object sender, RoutedEventArgs e)
-        //{
-        //    audioBar.IsEnabled = true;
-        //    audioBar.Maximum = mediaElement.NaturalDuration.TimeSpan.TotalSeconds;
-        //}
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            
+            audioBar.Value = mediaPlayer.Position.TotalSeconds;
+           
+        }
 
-        //private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
-        //{
-        //    StopButton_Click(sender, e);
-        //}
-        
+        private void ForwardButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainQueue.Dequeue();
+        }
 
-            private void homeButton_Click(object sender, RoutedEventArgs e)
+
+
+        private void homeButton_Click(object sender, RoutedEventArgs e)
         {
             
             mainFrame.Navigate(new HomePage(this));

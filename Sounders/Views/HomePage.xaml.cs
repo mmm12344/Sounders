@@ -36,6 +36,7 @@ namespace Sounders.Views
 
         private MainWindow mainWindow;
         private PlayerQueue mainQueue;
+        private MediaPlayer mediaPlayer;
          //Test
         public HomePage(MainWindow mainWindow)
         {
@@ -52,6 +53,8 @@ namespace Sounders.Views
 
             this.mainWindow = mainWindow;
             this.mainQueue = mainWindow.mainQueue;
+            this.mediaPlayer = mainWindow.mediaPlayer;
+
         }
 
 
@@ -280,6 +283,7 @@ namespace Sounders.Views
 
         private void LikedTracks_MouseDown(object sender, MouseEventArgs e)
         {
+            mediaPlayer.Close();
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
             mainQueue.ClearAll();
@@ -289,6 +293,7 @@ namespace Sounders.Views
 
         private void AddedTracks_MouseDown(object sender, MouseEventArgs e)
         {
+            mediaPlayer.Close();
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
             mainQueue.ClearAll();
@@ -298,6 +303,7 @@ namespace Sounders.Views
 
         private void ExploreNewTracks_MouseDown(object sender, MouseEventArgs e)
         {
+            mediaPlayer.Close();
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
             mainQueue.ClearAll();
@@ -317,7 +323,7 @@ namespace Sounders.Views
                     break;
                 }
             }
-            mainWindow.mainFrame.Navigate(new PlaylistPage(playlist));
+            mainWindow.mainFrame.Navigate(new PlaylistPage(playlist, mainWindow));
         }
 
         private void ExploreNewPlaylists_MouseDown(object sender, MouseEventArgs e)
@@ -332,7 +338,7 @@ namespace Sounders.Views
                     break;
                 }
             }
-            mainWindow.mainFrame.Navigate(new PlaylistPage(playlist));
+            mainWindow.mainFrame.Navigate(new PlaylistPage(playlist, mainWindow));
         }
 
         private void ShowAllTracks_Click(object sender, RoutedEventArgs e)

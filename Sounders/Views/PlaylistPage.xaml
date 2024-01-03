@@ -44,7 +44,7 @@
 
             <Image x:Name="playlistImage"  Grid.Column="0"  VerticalAlignment="Stretch" Source="/Static/Images/DefaultSoundTrack.jpeg"/>
             <TextBlock x:Name="playlistName" Text="{Binding PlaylistName}" Grid.Column="3"  FontWeight="UltraBold"   FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" >Playlist Name</TextBlock>
-            <Button x:Name="listenButton" Grid.Column="2" Height="22" Width="90" Style="{StaticResource roundedButtons}" HorizontalAlignment="Left" Margin="0,120,0,0" FontWeight="DemiBold" Content="Listen">
+            <Button x:Name="listenButton" Grid.Column="2" Height="22" Width="90" Style="{StaticResource roundedButtons}" HorizontalAlignment="Left" Margin="0,120,0,0" FontWeight="DemiBold" Content="Listen" Click="ListenButton_Click">
                 <Button.Background>
                     <LinearGradientBrush Opacity="0.8">
 

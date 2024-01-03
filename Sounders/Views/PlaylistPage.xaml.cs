@@ -22,11 +22,16 @@ namespace Sounders.Views
     public partial class PlaylistPage : Page
     {
         private List<SongData> playlistSongs = new List<SongData>();
-        public PlaylistPage(Playlist playlist)
+        MainWindow mainWindow;
+        PlayerQueue mainQueue;
+        public PlaylistPage(Playlist playlist, MainWindow mainWindow)
         {
             InitializeComponent();
 
             HelperMethods.OpenSignInIfNotSigned();
+            this.mainWindow = mainWindow;
+            this.mainQueue = mainWindow.mainQueue;
+
 
             playlistImage.Source = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
             this.playlistName.Text = playlist.name;
@@ -62,6 +67,12 @@ namespace Sounders.Views
         private void removeFromPLaylist_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ListenButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainQueue.EnqueueFromList(playlistSongs);
+            mainQueue.AddCurrentSongToPlayer();
         }
     }
 }
