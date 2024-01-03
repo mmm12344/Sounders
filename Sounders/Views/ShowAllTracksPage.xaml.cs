@@ -22,10 +22,13 @@ namespace Sounders.Views
     public partial class ShowAllTracksPage : Page
     {
         MainWindow mainWindow;
+        PlayerQueue mainQueue;
+        List<SongData> songs = new List<SongData>();
         public ShowAllTracksPage(MainWindow mainWindow, string type)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            this.mainQueue = mainWindow.mainQueue;
 
             List<SongInfo> result = null;
             if (type == "all")
@@ -52,8 +55,9 @@ namespace Sounders.Views
                     {
                         var song = result[i];
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
-                        var toAdd = new { songID = Convert.ToString(song.songID), songName = song.name, songPic = songPicture };
+                        var toAdd = new SongData(song.songID, song.name, songPicture);
                         tracksItemsControl.Items.Add(toAdd);
+                        songs.Add(toAdd);
                     }
                 }
                 catch
@@ -64,34 +68,29 @@ namespace Sounders.Views
             }
         }
 
-        private void Song_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
+        
 
         private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
         {
-
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            mainWindow.mainFrame.Navigate(new AddToPlayListPage(mainWindow, songID));
         }
 
-        private void likeItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void playItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void addToQueueItem_Click(object sender, RoutedEventArgs e)
         {
-
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            mainQueue.Enqueue(HelperMethods.GetSongDataFromID(songs, songID));
         }
 
         private void Tracks_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
+            mainQueue.ClearAll();
+            mainQueue.Enqueue(HelperMethods.GetSongDataFromID(songs, songID));
+            mainQueue.AddCurrentSongToPlayer();
         }
     }
 }
