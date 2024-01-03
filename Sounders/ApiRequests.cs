@@ -289,5 +289,29 @@ namespace MusicPlayerGUI
             return true;
         }
 
+        public async static Task<bool> DeletePlaylist(int playlistID)
+        {
+            if (!IsLive().Result)
+                return false;
+            var result = client.GetAsync(GetSubUrlApi($"delete_playlist/{playlistID}")).Result;
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async static Task<bool> RemoveSongFromPlaylist(int playlistID, int songID)
+        {
+            if (!IsLive().Result)
+                return false;
+            var result = client.PostAsync(GetSubUrlApi("remove_song_from_playlist"), GetContentAsJson( new {playlistID = playlistID, songID = songID})).Result;
+            if (!result.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }

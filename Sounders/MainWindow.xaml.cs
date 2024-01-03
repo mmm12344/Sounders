@@ -33,7 +33,7 @@ namespace Sounders
         public MediaPlayer mediaPlayer = new MediaPlayer();
 
         private DispatcherTimer timer;
-        private string trackState="stop";
+        public bool isPlaying = false;
         public PlayerQueue mainQueue;
 
 
@@ -88,7 +88,7 @@ namespace Sounders
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            if (trackState == "stop")
+            if (!isPlaying)
             {
 
 
@@ -103,10 +103,10 @@ namespace Sounders
                 image.Height = 20;
                 image.Width = 20;
                 playButton.Content = image;
-                trackState = "play";
+                isPlaying = true;
             }
 
-            else if(trackState=="play")
+            else
             {
                 mediaPlayer.Pause();
                 timer.Stop();
@@ -121,7 +121,7 @@ namespace Sounders
                 playButton.Content = image;
 
                
-                trackState = "stop";
+                isPlaying = false;
             }
 
 
@@ -148,6 +148,7 @@ namespace Sounders
 
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
         {
+            mediaPlayer.Close();
             mainQueue.Dequeue();
         }
 

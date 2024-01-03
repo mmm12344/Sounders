@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -19,6 +20,8 @@ public class PlayerQueue
         private TextBlock songName;
         private Button likeButton;
         private MediaPlayer mediaPlayer;
+        private Button playPauseButton;
+        private MainWindow mainWindow;
 
         public PlayerQueue(MainWindow mainWindow)
         {
@@ -28,6 +31,8 @@ public class PlayerQueue
             this.songName = mainWindow.songName;
             this.likeButton = mainWindow.likeButton;
             this.mediaPlayer = mainWindow.mediaPlayer;
+            this.playPauseButton = mainWindow.playButton;
+            this.mainWindow = mainWindow;
         }
 
         public void Enqueue(SongData item)
@@ -178,6 +183,8 @@ public class PlayerQueue
                         image.Source = new BitmapImage(new Uri("Static/Images/WhiteHeart.png", UriKind.Relative));
                         likeButton.Content = image;
                     }
+
+                    playPauseButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
                 catch
                 {
