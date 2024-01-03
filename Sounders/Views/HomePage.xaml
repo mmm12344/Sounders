@@ -183,7 +183,7 @@
                                         <StackPanel Width="148" Tag="{Binding playlistID}" MouseLeftButtonDown="ExploreNewPlaylists_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
                                             <StackPanel.ContextMenu>
                                                 <ContextMenu>
-                                                    <MenuItem x:Name="removePlaylist" Header="Remove" Click="removePlaylist_Click"/>
+                                                    <MenuItem x:Name="removePlaylist" Header="Remove" Click="removePlaylist_Click" Tag="{Binding playlistID}"/>
                                                 </ContextMenu>
                                                 </StackPanel.ContextMenu>
                                         <Image  Height="120"   Stretch="Fill" IsEnabled="True" Source="{Binding playlistPic}" Margin="20,20,20,0"/>

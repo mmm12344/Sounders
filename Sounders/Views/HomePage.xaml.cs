@@ -269,7 +269,17 @@ namespace Sounders.Views
 
         private void removeItem_Click(object sender, RoutedEventArgs e)
         {
-
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            var result = ApiRequests.DeleteSong(songID).Result;
+            if (result)
+            {
+                HelperMethods.SuccessMessage("Deleted Song Successfully!");
+                mainWindow.mainFrame.Navigate(new HomePage(mainWindow));
+            }
+            else
+            {
+                HelperMethods.ErrorMessage("Error, Please Try Again.");
+            }
         }
 
         private void LikedTracks_MouseDown(object sender, MouseEventArgs e)
@@ -359,7 +369,17 @@ namespace Sounders.Views
 
         private void removePlaylist_Click(object sender, RoutedEventArgs e)
         {
-
+            int playlistID = Convert.ToInt32(((MenuItem)sender).Tag);
+            var result = ApiRequests.DeletePlaylist(playlistID).Result;
+            if (result)
+            {
+                HelperMethods.SuccessMessage("Deleted Playlist Successfully!");
+                mainWindow.mainFrame.Navigate(new HomePage(mainWindow));
+            }
+            else
+            {
+                HelperMethods.ErrorMessage("Error, Please Try Again.");
+            }
         }
     }
 }
