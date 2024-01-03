@@ -262,7 +262,8 @@ namespace Sounders.Views
 
         private void addToQueueItem_Click(object sender, RoutedEventArgs e)
         {
-
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            mainQueue.Enqueue(HelperMethods.GetSongDataFromID(allSongs, songID));
         }
 
 

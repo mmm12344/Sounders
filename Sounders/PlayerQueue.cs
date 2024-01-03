@@ -62,8 +62,8 @@ public class PlayerQueue
                 SongData temp = songlist[0];
                 songlist.RemoveAt(0);
                 queueList.Items.RemoveAt(0);
-                if (songlist.Count >= 1)
-                    this.AddCurrentSongToPlayer();
+                if (Peek() != null)
+                    AddCurrentSongToPlayer();
                 return temp;
             }
             
@@ -183,7 +183,7 @@ public class PlayerQueue
                         image.Source = new BitmapImage(new Uri("Static/Images/WhiteHeart.png", UriKind.Relative));
                         likeButton.Content = image;
                     }
-
+                    mainWindow.isPlaying = false;
                     playPauseButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
                 catch
