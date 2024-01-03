@@ -29,7 +29,7 @@
                 <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
           
-            <Frame x:Name="signInsignUp" Grid.Row="2" Grid.Column="1">
+            <Frame x:Name="signInsignUp" Grid.Row="2" Grid.Column="1" NavigationUIVisibility="Hidden">
 
             </Frame>
         </Grid>

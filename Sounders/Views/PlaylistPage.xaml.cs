@@ -59,10 +59,7 @@ namespace Sounders.Views
 
         }
 
-        private void playItem_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+    
 
         private void removeFromPLaylist_Click(object sender, RoutedEventArgs e)
         {
@@ -73,6 +70,13 @@ namespace Sounders.Views
         {
             mainQueue.EnqueueFromList(playlistSongs);
             mainQueue.AddCurrentSongToPlayer();
+        }
+
+       
+
+        private void addToQueueItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
