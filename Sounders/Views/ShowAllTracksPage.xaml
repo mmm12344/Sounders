@@ -40,7 +40,7 @@
                             <ContentControl >
                                 <Border  CornerRadius="20" Background="#151515" Margin="10,5,10,5">
 
-                                    <StackPanel  Width="150" Tag="{Binding songID}" MouseDown="Tracks_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
+                                    <StackPanel  Width="150" Tag="{Binding songID}" MouseLeftButtonDown="Tracks_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
                                       
                                         <Image Height="120"   Stretch="Fill" IsEnabled="True" Margin="20,20,20,0" Source="{Binding songPic}"/>
                                         <TextBlock Foreground="#beb1c2" FontSize="20" FontWeight="Black"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding songName}" Margin="0,5,0,10"/>

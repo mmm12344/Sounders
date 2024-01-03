@@ -50,7 +50,7 @@
                                                                                 <GradientStop Color="#f083da" Offset="1.8" />
                                                                             </LinearGradientBrush>
                                                                         </Border.Background>
-                                                                        <StackPanel Width="150" Tag="{Binding playlistID}"  VerticalAlignment="Stretch" Margin="10,5,10,5" MouseDown="Playlist_MouseDown">
+                                                                        <StackPanel Width="150" Tag="{Binding playlistID}"  VerticalAlignment="Stretch" Margin="10,5,10,5" MouseLeftButtonDown="Playlist_MouseDown">
                                    
                                     <Image  Height="120"   Stretch="Fill" IsEnabled="True" Source="{Binding playlistPic}" Margin="20,20,20,0"/>
                                     <TextBlock Foreground="#beb1c2"  FontSize="20" FontWeight="Black"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,5,0,10" />

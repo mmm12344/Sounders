@@ -42,10 +42,10 @@
             </Grid.RowDefinitions>
 
 
-            <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Tracks</Label>
+            <Label Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Liked Tracks</Label>
 
-                <Button x:Name="ShowAllButtonLikedTracks" Grid.Row="3" Style="{StaticResource roundedButtons }"  Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" Foreground="Gray" VerticalAlignment="Center" Content=">" Background="Transparent" FontSize="24" FontWeight="Bold" Click="ShowAllLikedTrack_Click"></Button>
-                <ListView   Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Grid.Row="3" x:Name="likedTracksList" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <Button x:Name="ShowAllButtonLikedTracks" Grid.Row="9" Style="{StaticResource roundedButtons }"  Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" Foreground="Gray" VerticalAlignment="Center" Content=">" Background="Transparent" FontSize="24" FontWeight="Bold" Click="ShowAllLikedTrack_Click"></Button>
+                <ListView   Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600" Grid.Row="9" x:Name="likedTracksList" BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.Background>
                         <LinearGradientBrush Opacity="0.8">
                             <GradientStop Color="#9B549B" Offset="0"/>
@@ -74,7 +74,7 @@
                                                 <GradientStop Color="#f083da" Offset="1.8" />
                                             </LinearGradientBrush>
                                         </Border.Background>
-                                        <StackPanel  Width="150" Tag="{Binding songID}"  Margin="10,5,10,5" MouseDown="LikedTracks_MouseDown">
+                                        <StackPanel  Width="148" Tag="{Binding songID}"  Margin="10,5,10,5" MouseLeftButtonDown="LikedTracks_MouseDown">
                                             <StackPanel.ContextMenu>
                                                 <ContextMenu>
                                                     <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click" />
@@ -92,16 +92,17 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-                <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Tracks</Label>
-                <Button x:Name="ShowAllButtonAddedTracks"  Grid.Row="1" Style="{StaticResource roundedButtons }" Background="Transparent" Foreground="Gray" Margin="0,0,65,0" Height="40" Width="20" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllAddedTrack_Click"></Button>
+                <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Added Tracks</Label>
+                <Button x:Name="ShowAllButtonAddedTracks"  Grid.Row="5" Style="{StaticResource roundedButtons }" Background="Transparent" Foreground="Gray" Margin="0,0,65,0" Height="40" Width="20" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllAddedTrack_Click"></Button>
 
 
-                <ListView Grid.Row="1" x:Name="addedTracksList"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView Grid.Row="5" x:Name="addedTracksList"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                    
                         <ListView.Background>
                             <LinearGradientBrush Opacity="0.8">
-                            <GradientStop Color="#9B549B" Offset="0"/>
-                            <GradientStop Color="#000026" Offset="1"/>
+                            <GradientStop Color="#9B549B" Offset="0.0"/>
+                            <GradientStop Color="#000026" Offset="1.0"/>
+                        
                         </LinearGradientBrush>
                         </ListView.Background>
                    
@@ -126,7 +127,7 @@
                                                 <GradientStop Color="#f083da" Offset="1.8" />
                                             </LinearGradientBrush>
                                         </Border.Background>
-                                        <StackPanel  Width="150" Tag="{Binding songID}" MouseDown="AddedTracks_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
+                                        <StackPanel  Width="148" Tag="{Binding songID}" MouseLeftButtonDown="AddedTracks_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
                                         <StackPanel.ContextMenu> 
                                             <ContextMenu>
                                                 <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click" Tag="{Binding songID}" />
@@ -179,7 +180,7 @@
                                                 <GradientStop Color="#f083da" Offset="1.8" />
                                             </LinearGradientBrush>
                                         </Border.Background>
-                                        <StackPanel Width="150" Tag="{Binding playlistID}" MouseDown="ExploreNewPlaylists_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
+                                        <StackPanel Width="148" Tag="{Binding playlistID}" MouseLeftButtonDown="ExploreNewPlaylists_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
                                             <StackPanel.ContextMenu>
                                                 <ContextMenu>
                                                     <MenuItem x:Name="removePlaylist" Header="Remove" Click="removePlaylist_Click"/>
@@ -197,9 +198,9 @@
 
             </ListView>
 
-                <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Tracks</Label>
-                <Button x:Name="ShowAllButtonExploreNewTracks"  Grid.Row="5" Style="{StaticResource roundedButtons }" Margin="0,0,65,0" Background="Transparent" Foreground="Gray" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllTracks_Click"></Button>
-                <ListView Grid.Row="5" x:Name="exploreNewTracks"  Style="{StaticResource functionalRoundedList}"  HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Tracks</Label>
+                <Button x:Name="ShowAllButtonExploreNewTracks"  Grid.Row="1" Style="{StaticResource roundedButtons }" Margin="0,0,65,0" Background="Transparent" Foreground="Gray" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllTracks_Click"></Button>
+                <ListView Grid.Row="1" x:Name="exploreNewTracks"  Style="{StaticResource functionalRoundedList}"  HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.Background>
                         <LinearGradientBrush Opacity="0.8">
                             <GradientStop Color="#9B549B" Offset="0"/>
@@ -227,7 +228,7 @@
                                                 <GradientStop Color="#f083da" Offset="1.8" />
                                             </LinearGradientBrush>
                                         </Border.Background>
-                                        <StackPanel  Width="150" Tag="{Binding songID}" MouseDown="AddedTracks_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
+                                        <StackPanel  Width="148" Tag="{Binding songID}" MouseLeftButtonDown="AddedTracks_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
                                             <StackPanel.ContextMenu>
                                             <ContextMenu>
                                                     <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click" Tag="{Binding songID}"/>
@@ -244,9 +245,9 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Label Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Playlists</Label>
-                <Button x:Name="ShowAllButtonExploreNewPlaysllist"  Grid.Row="9" Style="{StaticResource roundedButtons }" Background="Transparent" Foreground="Gray" FontSize="24" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllPlaylists_Click"></Button>
-                <ListView Grid.Row="9" x:Name="explorenewPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold">Explore New Playlists</Label>
+                <Button x:Name="ShowAllButtonExploreNewPlaysllist"  Grid.Row="3" Style="{StaticResource roundedButtons }" Background="Transparent" Foreground="Gray" FontSize="24" Margin="0,0,65,0" Height="40" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Content=">" FontWeight="Bold" Click="ShowAllPlaylists_Click"></Button>
+                <ListView Grid.Row="3" x:Name="explorenewPlaylists"  Style="{StaticResource functionalRoundedList}" HorizontalAlignment="Left" Width="600"  BorderBrush="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.Background>
                         <LinearGradientBrush Opacity="0.8">
                             <GradientStop Color="#9B549B" Offset="0"/>
@@ -274,7 +275,7 @@
                                                 <GradientStop Color="#f083da" Offset="1.8" />
                                             </LinearGradientBrush>
                                         </Border.Background>
-                                        <StackPanel Width="150" Tag="{Binding playlistID}" MouseDown="ExploreNewPlaylists_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
+                                        <StackPanel Width="148" Tag="{Binding playlistID}" MouseLeftButtonDown="ExploreNewPlaylists_MouseDown" VerticalAlignment="Stretch" Margin="10,5,10,5">
                                 
                                             <Image  Height="120"   Stretch="Fill" IsEnabled="True" Source="{Binding playlistPic}" Margin="20,20,20,0"/>
                                             <TextBlock Foreground="#beb1c2"  FontSize="20" FontWeight="Black"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,5,0,10" />

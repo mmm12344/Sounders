@@ -76,7 +76,7 @@
                                 <MenuItem x:Name="removeFromPLaylist" Header="Remove" Click="removeFromPLaylist_Click" Tag="{Binding songID}"/>
                             </ContextMenu>
                         </StackPanel.ContextMenu>
-                        <Image Margin="10,0,0,0"  Width="20" Height="30" Source="{Binding songPic}"/>
+                        <Image Margin="10,0,0,0" Width="120" Height="40" Source="{Binding songPic}"/>
                         <TextBlock Margin="5,0,0,0"  FontSize="22" FontWeight="DemiBold" VerticalAlignment="Center" Text="{Binding songName}" />
 
                        

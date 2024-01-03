@@ -62,7 +62,7 @@
                                 </Border.Background>
                                 <StackPanel Width="150" Tag="{Binding playlistID}" VerticalAlignment="Stretch" Margin="10,5,10,5">
 
-                                    <Image Height="80" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
+                                    <Image Height="80" HorizontalAlignment="Stretch" Width="80" IsEnabled="True" Source="{Binding playlistPic}"/>
                                     <TextBlock Foreground="#beb1c2"  TextTrimming="WordEllipsis"  HorizontalAlignment="Center" Text="{Binding playlistName}" Margin="0,5,0,10" />
                                     <Button x:Name="addToPlaylist" Style="{StaticResource roundedButtons}" Width="50" Height="20" Tag="{Binding playlistID}" Click="AddToPlaylist_Click" FontWeight="DemiBold" Content="Add">
                                         <Button.Background>
