@@ -274,7 +274,6 @@ namespace Sounders.Views
 
         private void LikedTracks_MouseDown(object sender, MouseEventArgs e)
         {
-            mediaPlayer.Close();
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
             mainQueue.ClearAll();
@@ -284,7 +283,6 @@ namespace Sounders.Views
 
         private void AddedTracks_MouseDown(object sender, MouseEventArgs e)
         {
-            mediaPlayer.Close();
             int songID = Convert.ToInt32(((StackPanel)sender).Tag);
 
             mainQueue.ClearAll();

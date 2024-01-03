@@ -193,7 +193,7 @@ namespace Sounders
             
             if (SearchBox.Text != string.Empty )
             {
-                mainFrame.Navigate(new SearchPage(SearchBox.Text));
+                mainFrame.Navigate(new SearchPage(SearchBox.Text, this));
             }
         }
 

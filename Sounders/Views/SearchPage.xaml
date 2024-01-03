@@ -32,8 +32,8 @@
             <ListView.ItemTemplate>
                 
                 <DataTemplate>
-             
-                    <StackPanel Orientation="Horizontal" Tag="{Binding songID}">
+
+                    <StackPanel Orientation="Horizontal" Tag="{Binding songID}" MouseLeftButtonDown="Track_MouseDown">
                         <StackPanel.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click" Tag="{Binding songID}"/>

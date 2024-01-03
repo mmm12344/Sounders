@@ -21,9 +21,15 @@ namespace Sounders.Views
     /// </summary>
     public partial class SearchPage : Page
     {
-        public SearchPage(string searchText)
+        List<SongData> songs = new List<SongData>();
+        MainWindow mainWindow;
+        PlayerQueue mainQueue;
+        public SearchPage(string searchText, MainWindow mainWindow)
         {
             InitializeComponent();
+
+            this.mainWindow = mainWindow;
+            this.mainQueue = mainWindow.mainQueue;
 
             HelperMethods.OpenSignInIfNotSigned();
 
@@ -36,8 +42,9 @@ namespace Sounders.Views
                     foreach (SongInfo song in result)
                     {
                         var songPicture = HelperMethods.GetBitmapImgFromBytes(song.picture);
-                        var toAdd = new { songID = Convert.ToString(song.songID), songName = song.name, songPic = songPicture };
+                        var toAdd = new SongData( song.songID, song.name,  songPicture );
                         searchResultsList.Items.Add(toAdd);
+                        songs.Add(toAdd);
                     }
                 }
                 catch
@@ -50,12 +57,23 @@ namespace Sounders.Views
 
         private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
         {
-
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            mainWindow.mainFrame.Navigate(new AddToPlayListPage(mainWindow, songID));
         }
 
         private void addToQueueItem_Click(object sender, RoutedEventArgs e)
         {
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            mainQueue.Enqueue(HelperMethods.GetSongDataFromID(songs, songID));
+        }
 
+        private void Track_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            int songID = Convert.ToInt32(((StackPanel)sender).Tag);
+
+            mainQueue.ClearAll();
+            mainQueue.Enqueue(HelperMethods.GetSongDataFromID(songs, songID));
+            mainQueue.AddCurrentSongToPlayer();
         }
     }
 }
