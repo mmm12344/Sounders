@@ -72,7 +72,7 @@
                     <StackPanel Orientation="Horizontal" Tag="{Binding songID}">
                         <StackPanel.ContextMenu>
                             <ContextMenu>
-                                <MenuItem x:Name="playItem" Header="Play" Click="playItem_Click"/>
+                                <MenuItem x:Name="addToQueueItem" Header="Play" Click="addToQueueItem_Click"/>
                                 <MenuItem x:Name="removeFromPLaylist" Header="Remove" Click="removeFromPLaylist_Click" Tag="{Binding songID}"/>
                             </ContextMenu>
                         </StackPanel.ContextMenu>

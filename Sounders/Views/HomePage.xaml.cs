@@ -186,15 +186,15 @@ namespace Sounders.Views
 
         private void ScrollViewer_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (this.isMoving == true) //Moving with a released wheel and pressing a button
+            if (this.isMoving == true) 
                 this.CancelScrolling();
             else if (e.ChangedButton == MouseButton.Middle && e.ButtonState == MouseButtonState.Pressed)
             {
-                if (this.isMoving == false) //Pressing a wheel the first time
+                if (this.isMoving == false) 
                 {
                     this.isMoving = true;
                     this.startPosition = e.GetPosition(sender as IInputElement);
-                    this.isDeferredMovingStarted = true; //the default value is true until the opposite value is set
+                    this.isDeferredMovingStarted = true; 
 
                     this.AddScrollSign(e.GetPosition(this.topLayer).X, e.GetPosition(this.topLayer).Y);
                 }
@@ -221,14 +221,14 @@ namespace Sounders.Views
 
             if (this.isMoving && sv != null)
             {
-                this.isDeferredMovingStarted = false; //standard scrolling (Mouse down -> Move)
+                this.isDeferredMovingStarted = false; 
 
                 var currentPosition = e.GetPosition(sv);
                 var offset = currentPosition - startPosition.Value;
                 offset.Y /= slowdown;
                 offset.X /= slowdown;
 
-                //if(Math.Abs(offset.Y) > 25.0/slowdown)  //Some kind of a dead space, uncomment if it is neccessary
+    
                 sv.ScrollToVerticalOffset(sv.VerticalOffset + offset.Y);
                 sv.ScrollToHorizontalOffset(sv.HorizontalOffset + offset.X);
             }
@@ -238,7 +238,7 @@ namespace Sounders.Views
             int size = 50;
             var img = new BitmapImage(new Uri(@"Static/Images/ScrollIcon.png",UriKind.Relative));
             var adorner = new Image() { Source = img, Width = size, Height = size };
-            //var adorner = new Ellipse { Stroke = Brushes.Red, StrokeThickness = 2.0, Width = 20, Height = 20 };
+   
 
             this.topLayer.Children.Add(adorner);
             Canvas.SetLeft(adorner, x - size / 2);
@@ -256,27 +256,17 @@ namespace Sounders.Views
             mainWindow.mainFrame.Navigate(new AddToPlayListPage(mainWindow,songID));
         }
 
-        private void likeItem_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
-        private void playItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+ 
 
         private void addToQueueItem_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void playPlaylistItem_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void openPlayList_Click(object sender, RoutedEventArgs e)
+        private void removeItem_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -364,6 +354,13 @@ namespace Sounders.Views
         private void ShowAllAddedPlaylist_Click(Object sender, RoutedEventArgs e)
         {
             mainWindow.mainFrame.Navigate(new ShowAllPlaylistListPage(mainWindow, "own"));
+        }
+
+    
+
+        private void removePlaylist_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

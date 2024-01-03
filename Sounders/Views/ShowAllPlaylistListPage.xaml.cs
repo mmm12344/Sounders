@@ -81,14 +81,7 @@ namespace Sounders.Views
             mainWindow.mainFrame.Navigate(new PlaylistPage(playlist, mainWindow));
         }
 
-        private void playPlaylistItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void openPlayList_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+    
+   
     }
 }

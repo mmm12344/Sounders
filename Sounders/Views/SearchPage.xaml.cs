@@ -47,5 +47,15 @@ namespace Sounders.Views
                 }
             }
         }
+
+        private void addToPlaylistItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addToQueueItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
