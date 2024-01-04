@@ -42,6 +42,7 @@ namespace Sounders.Views
             {
                 result = ApiRequests.GetOwnPlaylists().Result;
                 listNameTextBlock.Text = "Added Playlists";
+                
             }
             if (result != null)
             {

@@ -24,6 +24,8 @@ namespace Sounders.Views
         private List<SongData> playlistSongs = new List<SongData>();
         MainWindow mainWindow;
         PlayerQueue mainQueue;
+        int playlistID;
+        Playlist playlist;
         public PlaylistPage(Playlist playlist, MainWindow mainWindow)
         {
             InitializeComponent();
@@ -31,7 +33,8 @@ namespace Sounders.Views
             HelperMethods.OpenSignInIfNotSigned();
             this.mainWindow = mainWindow;
             this.mainQueue = mainWindow.mainQueue;
-
+            playlistID = playlist.playlistID;
+            this.playlist = playlist;
 
             playlistImage.Source = HelperMethods.GetBitmapImgFromBytes(playlist.picture);
             this.playlistName.Text = playlist.name;
@@ -63,7 +66,17 @@ namespace Sounders.Views
 
         private void removeFromPLaylist_Click(object sender, RoutedEventArgs e)
         {
-
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            var result = ApiRequests.RemoveSongFromPlaylist(playlistID, songID).Result;
+            if (result)
+            {
+                HelperMethods.SuccessMessage("Removed Song From Playlist");
+                mainWindow.mainFrame.Navigate(new PlaylistPage(playlist, mainWindow));
+            }
+            else
+            {
+                HelperMethods.ErrorMessage("Error, Please Try Again.");
+            }
         }
 
         private void ListenButton_Click(object sender, RoutedEventArgs e)

@@ -305,7 +305,7 @@ namespace MusicPlayerGUI
         {
             if (!IsLive().Result)
                 return false;
-            var result = client.PostAsync(GetSubUrlApi("remove_song_from_playlist"), GetContentAsJson( new {playlistID = playlistID, songID = songID})).Result;
+            var result = client.PostAsync(GetSubUrlApi("remove_song_from_playlist"), GetContentAsJson(new { playlistID = playlistID, songID = songID })).Result;
             if (!result.IsSuccessStatusCode)
             {
                 return false;
