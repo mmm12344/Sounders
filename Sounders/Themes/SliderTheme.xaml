@@ -10,7 +10,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
-                    <Border  BorderThickness="1" BorderBrush="Black" Background="Black" Height="3"/>
+                    <Border  BorderThickness="1" BorderBrush="#ffffff" Background="#ffffff" Height="3"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -34,7 +34,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Ellipse x:Name="Ellipse" Height="5" Width="5"  Fill="AntiqueWhite"></Ellipse>
+                    <Ellipse x:Name="Ellipse" Height="6" Width="6"  Fill="#ffffff"></Ellipse>
                     <ControlTemplate.Triggers>
                         
                         <Trigger Property="IsMouseOver" Value="true">

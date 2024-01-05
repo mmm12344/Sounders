@@ -82,6 +82,8 @@ namespace Sounders.Views
             mainWindow.mainFrame.Navigate(new PlaylistPage(playlist, mainWindow));
         }
 
+        
+
     
    
     }

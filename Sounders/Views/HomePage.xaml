@@ -77,8 +77,8 @@
                                         <StackPanel  Width="148" Tag="{Binding songID}"  Margin="10,5,10,5" MouseLeftButtonDown="LikedTracks_MouseDown">
                                             <StackPanel.ContextMenu>
                                                 <ContextMenu>
-                                                    <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click" />
-                                                    <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click"/>
+                                                    <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click"  Tag="{Binding songID}" />
+                                                    <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click" Tag="{Binding songID}"/>
                                                 </ContextMenu>
                                             </StackPanel.ContextMenu>
                                             <Image Height="120"   Stretch="Fill" IsEnabled="True" Source="{Binding songPic}" Margin="20,20,20,0"/>

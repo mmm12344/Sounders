@@ -158,6 +158,7 @@ public class PlayerQueue
         public void AddCurrentSongToPlayer()
         {
             mediaPlayer.Close();
+
             var result = ApiRequests.GetSong(Peek().songID).Result;
             if (result != null)
             {

@@ -53,6 +53,7 @@
                                             <ContextMenu>
                                                 <MenuItem x:Name="addToPlaylistItem"  Header="Add To PLayList" Click="addToPlaylistItem_Click" Tag="{Binding songID}"/>
                                                 <MenuItem x:Name="addToQueueItem" Header="Add To Queue" Click="addToQueueItem_Click" Tag="{Binding songID}"/>
+                                                <MenuItem x:Name="removeItem" Header="Remove" Click="removeItem_Click" Tag="{Binding songID}"/>
                                             </ContextMenu>
                                         </StackPanel.ContextMenu>
                                         <Image Height="120"   Stretch="Fill" IsEnabled="True" Margin="20,20,20,0" Source="{Binding songPic}"/>

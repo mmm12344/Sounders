@@ -92,5 +92,19 @@ namespace Sounders.Views
             mainQueue.Enqueue(HelperMethods.GetSongDataFromID(songs, songID));
             mainQueue.AddCurrentSongToPlayer();
         }
+        private void removeItem_Click(object sender, RoutedEventArgs e)
+        {
+            int songID = Convert.ToInt32(((MenuItem)sender).Tag);
+            var result = ApiRequests.DeleteSong(songID).Result;
+            if (result)
+            {
+                HelperMethods.SuccessMessage("Deleted Song Successfully!");
+                mainWindow.mainFrame.Navigate(new HomePage(mainWindow));
+            }
+            else
+            {
+                HelperMethods.ErrorMessage("Error, Please Try Again.");
+            }
+        }
     }
 }
